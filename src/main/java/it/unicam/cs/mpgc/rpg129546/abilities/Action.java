@@ -1,0 +1,7 @@
+package it.unicam.cs.mpgc.rpg129546.abilities;
+
+import it.unicam.cs.mpgc.rpg129546.model.Entity;
+
+public interface Action {
+    void execute (Entity source, Entity target);
+}
