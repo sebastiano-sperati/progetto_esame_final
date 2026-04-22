@@ -114,7 +114,8 @@ public abstract class Entity {
     }
 
     public int getScaledDif() {
-        if(this.isCountering || this.isInspired || this.isFrozen) return (int)((this.dif + lvl *2)*1.5);//*se il beraglio è nello stato counter o è inspirato aumenta la difesa del 50%
+        if(this.isCountering || this.isInspired ) return (int)((this.dif + lvl *2)*1.5);//*se il beraglio è nello stato counter o è inspirato aumenta la difesa del 50%
+        if(this.isFrozen) return (int) ((this.dif + lvl * 2) * 0.75);
         return this.dif + lvl *2;
     }
 
