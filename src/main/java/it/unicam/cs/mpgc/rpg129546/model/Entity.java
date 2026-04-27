@@ -1,5 +1,9 @@
 package it.unicam.cs.mpgc.rpg129546.model;
 
+import it.unicam.cs.mpgc.rpg129546.abilities.Action;
+
+import java.util.List;
+
 public abstract class Entity {
     protected String nome;
     protected int hp, maxHp;
@@ -16,6 +20,10 @@ public abstract class Entity {
     protected boolean isInspired;
     protected double chanceFrost;
     protected boolean isFrozen;
+    protected boolean isAtkDebuffed;
+    protected List<Action> azioni;
+    protected boolean isOnFire;
+    protected double fireChance;
     public Entity(String nome, int maxHp, int maxAp, int dif, int atk, double eva, double critMult, double critChance, int lvl, double chanceFrost){
         this.hp=this.maxHp=maxHp;
         this.ap=this.maxAp=maxAp;
@@ -33,7 +41,30 @@ public abstract class Entity {
         this.isInspired=false;
         this.chanceFrost = chanceFrost;
         this.isFrozen = false;
+        this.isAtkDebuffed = false;
+        this.fireChance = fireChance;
+        this.isOnFire = false;
     }
+
+    public double getFireChance() {
+        return fireChance;
+    }
+
+    public boolean isOnFire() {
+        return isOnFire;
+    }
+
+    public void setOnFire(boolean stato) {
+        isOnFire = stato;
+    }
+
+    public List<Action> getAzioni() {
+        return azioni;
+    }
+
+    public void setAtkDebuff(boolean stato){ this.isAtkDebuffed = stato; }
+
+    public boolean isAtkDebuffed(){ return this.isAtkDebuffed; }
 
     public void setFrozen(boolean stato){ this.isFrozen = stato; }
 
@@ -109,7 +140,7 @@ public abstract class Entity {
     }
 
     public int getScaledAtk(){
-        if(this.isScared) return (int) ((this.atk + lvl * 3) * 0.75);
+        if(this.isScared || this.isAtkDebuffed) return (int) ((this.atk + lvl * 3) * 0.75);
         return this.atk + lvl * 3;
     }
 

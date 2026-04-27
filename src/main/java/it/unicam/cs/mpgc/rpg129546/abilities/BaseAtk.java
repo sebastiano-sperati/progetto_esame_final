@@ -3,7 +3,7 @@ package it.unicam.cs.mpgc.rpg129546.abilities;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
 public class BaseAtk implements Action {
-    private final int cost = 2;
+    private final int cost = 0;
 
     @Override
     public void execute(Entity source, Entity target) {

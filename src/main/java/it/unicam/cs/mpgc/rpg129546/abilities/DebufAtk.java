@@ -10,5 +10,7 @@ public class DebufAtk implements Action{
         source.consumeAp(cost);
 
         BaseAtk.applyAttack(source,target,0.7);
+
+        target.setAtkDebuff(true);
     }
 }
