@@ -46,6 +46,7 @@ public abstract class Entity {
         this.isOnFire = false;
     }
 
+<<<<<<< HEAD
     public double getFireChance() {
         return fireChance;
     }
@@ -66,6 +67,12 @@ public abstract class Entity {
 
     public boolean isAtkDebuffed(){ return this.isAtkDebuffed; }
 
+=======
+    public boolean isAlly(Entity other){
+        return (this instanceof Hero && other instanceof  Hero)||(this instanceof  Enemy && other instanceof  Enemy);
+    }
+
+>>>>>>> abiilities
     public void setFrozen(boolean stato){ this.isFrozen = stato; }
 
     public double getChanceFrost(){ return this.chanceFrost; }
