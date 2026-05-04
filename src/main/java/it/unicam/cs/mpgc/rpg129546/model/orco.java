@@ -1,5 +1,8 @@
 package it.unicam.cs.mpgc.rpg129546.model;
 
+import it.unicam.cs.mpgc.rpg129546.abilities.BaseAtk;
+import it.unicam.cs.mpgc.rpg129546.abilities.Defend;
+
 public class orco extends Enemy{
     public orco(String nome, int maxHp, int maxAp, int dif, int atk, double eva, double critMult, double critChance, int lvl, double chanceFrost) {
         super(nome, maxHp, maxAp, dif, atk, eva, critMult, critChance, lvl, chanceFrost);
@@ -10,5 +13,7 @@ public class orco extends Enemy{
         this.eva=0.05;
         this.critChance=0.05;
         this.critMult=1.3;
+        azioni.add(new BaseAtk());
+        azioni.add(new Defend());
     }
 }
