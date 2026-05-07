@@ -1,6 +1,7 @@
 package it.unicam.cs.mpgc.rpg129546.abilities;
 
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
+import it.unicam.cs.mpgc.rpg129546.model.TargetType;
 
 public class Defend implements Action{
     private final int cost = 2;
@@ -20,4 +21,7 @@ public class Defend implements Action{
     public int getCosto(){
         return this.cost;
     }
+    @Override
+    public TargetType getTargetType(){ return TargetType.SELF;}
+
 }

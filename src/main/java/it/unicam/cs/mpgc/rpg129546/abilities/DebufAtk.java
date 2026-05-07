@@ -1,6 +1,7 @@
 package it.unicam.cs.mpgc.rpg129546.abilities;
 
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
+import it.unicam.cs.mpgc.rpg129546.model.TargetType;
 
 public class DebufAtk implements Action{
     private final int cost = 4;
@@ -27,4 +28,7 @@ public class DebufAtk implements Action{
     public int getCosto(){
         return this.cost;
     }
+    @Override
+    public TargetType getTargetType(){ return TargetType.ENEMY;}
+
 }

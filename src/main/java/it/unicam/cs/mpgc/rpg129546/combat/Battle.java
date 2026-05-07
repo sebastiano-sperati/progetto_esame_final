@@ -1,11 +1,16 @@
 package it.unicam.cs.mpgc.rpg129546.combat;
+import it.unicam.cs.mpgc.rpg129546.abilities.Action;
+import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import it.unicam.cs.mpgc.rpg129546.model.Hero;
 import it.unicam.cs.mpgc.rpg129546.model.Enemy;
+
 import java.util.List;
 
 public class Battle {
     private final List<Hero> eroi;
     private final List<Enemy> nemici;
+    private AbilitySelector Aselector = new AbilitySelector();
+    private TargetSelector Tselector = new TargetSelector();
     public Battle(List<Hero> eroi, List<Enemy> nemici){
         this.eroi = eroi;
         this.nemici = nemici;
@@ -32,8 +37,13 @@ public class Battle {
     //*gestione dei turni
     private void heroTurn(){
         System.out.println("E' IL TURNO DEGLI EROI !!!");
-        
-        //*da implementare(sceglie cosa fare -> sceglie il terget -> viene applicato l'attacco -> vengono applicati gli effetti)
+        for (int i = 0; i < eroi.size(); i++) {
+            if(eroi.get(i).isAlive()){
+                Action selected = Aselector.selector((eroi.get(i)));
+                Entity e = Tselector.SelectList(selected,eroi.get(i),eroi,nemici);
+                selected.execute(eroi.get(i),e);
+            }
+        }
     }
     private void enemyTurn(){
         System.out.println("E' IL TURNO DEI NEMICI!!!");

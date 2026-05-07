@@ -1,0 +1,26 @@
+package it.unicam.cs.mpgc.rpg129546.combat;
+
+import it.unicam.cs.mpgc.rpg129546.abilities.Action;
+import it.unicam.cs.mpgc.rpg129546.model.Hero;
+import java.util.Scanner;
+
+public class AbilitySelector {
+    Scanner sc = new Scanner(System.in);
+    public int choice;
+    public Action selector(Hero h){
+        while(true){
+            System.out.println("selezionare un abilità");
+            h.showAbility();
+            choice = sc.nextInt();
+            if(choice>=1 && choice <= h.getAzioni().size()){
+                Action selected = h.getAzioni().get(choice-1);
+                if(h.getAp() < selected.getCosto()){
+                    System.out.println("AP insufficienti");
+                    continue;
+                }
+                return h.getAzioni().get(choice-1);
+            }
+            System.out.println("selezionare un azione disponibile");
+        }
+    }
+}

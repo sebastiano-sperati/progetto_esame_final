@@ -192,5 +192,4 @@ public abstract class Entity {
             System.out.println((i+1) + "-" + action.getNome() + "(Costo : " + action.getCosto() + " AP");
         }
     }
-
 }
