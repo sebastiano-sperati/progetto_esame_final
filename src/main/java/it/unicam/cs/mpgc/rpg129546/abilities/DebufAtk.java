@@ -4,6 +4,8 @@ import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
 public class DebufAtk implements Action{
     private final int cost = 4;
+    private final String nome = "colpo debilitante";
+
     @Override
     public void execute(Entity source, Entity target) {
         if(source.isAlly(target)){
@@ -16,5 +18,13 @@ public class DebufAtk implements Action{
         BaseAtk.applyAttack(source,target,0.7);
 
         target.setAtkDebuff(true);
+    }
+    @Override
+    public String getNome(){
+        return this.nome;
+    }
+    @Override
+    public int getCosto(){
+        return this.cost;
     }
 }

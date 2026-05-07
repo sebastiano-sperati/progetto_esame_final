@@ -4,4 +4,6 @@ import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
 public interface Action {
     void execute (Entity source, Entity target);
+    String getNome();
+    int getCosto();
 }

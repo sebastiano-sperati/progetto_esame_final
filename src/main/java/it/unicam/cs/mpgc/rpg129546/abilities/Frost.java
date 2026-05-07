@@ -4,6 +4,7 @@ import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
 public class Frost implements Action{
     private final int cost = 4;
+    private final String nome = "congelamento";
     @Override
     public void execute(Entity source, Entity target) {
         if(source.isAlly(target)){
@@ -16,5 +17,13 @@ public class Frost implements Action{
         if(Math.random() < source.getChanceFrost()){
             target.setFrozen(true);
         }
+    }
+    @Override
+    public String getNome(){
+        return this.nome;
+    }
+    @Override
+    public int getCosto(){
+        return this.cost;
     }
 }

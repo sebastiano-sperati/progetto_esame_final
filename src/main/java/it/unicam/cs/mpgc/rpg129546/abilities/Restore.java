@@ -4,6 +4,8 @@ import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
 public class Restore implements Action{
     private final int cost = 6;
+    private final String nome = "ristoro";
+
     @Override
     public void execute(Entity source, Entity target) {
         if(!source.isAlly(target)){
@@ -13,5 +15,13 @@ public class Restore implements Action{
         if(source.getAp() < cost) return;
         source.consumeAp(cost);
         target.restore(6);
+    }
+    @Override
+    public String getNome(){
+        return this.nome;
+    }
+    @Override
+    public int getCosto(){
+        return this.cost;
     }
 }

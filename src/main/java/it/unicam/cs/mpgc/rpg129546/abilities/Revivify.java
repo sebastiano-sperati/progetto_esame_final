@@ -4,6 +4,8 @@ import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
 public class Revivify implements Action{
     private final int cost = 8;
+    private final String nome = "resurrezione";
+
     @Override
     public void execute(Entity source, Entity target) {
         if(!source.isAlly(target)){
@@ -15,5 +17,13 @@ public class Revivify implements Action{
         target.setAlive(true);
         int heal = target.getScaledHp()/2;
         target.Heal(heal);
+    }
+    @Override
+    public String getNome(){
+        return this.nome;
+    }
+    @Override
+    public int getCosto(){
+        return this.cost;
     }
 }

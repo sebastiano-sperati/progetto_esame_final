@@ -4,6 +4,8 @@ import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
 public class FireBall implements Action{
     private final int cost = 6;
+    private final String nome = "palla di fuoco";
+
     @Override
     public void execute(Entity source, Entity target) {
         if(source.getAp() < cost) return;
@@ -12,5 +14,13 @@ public class FireBall implements Action{
         if(Math.random() < source.getFireChance()){
             target.setOnFire(true);
         }
+    }
+    @Override
+    public String getNome(){
+        return this.nome;
+    }
+    @Override
+    public int getCosto(){
+        return this.cost;
     }
 }

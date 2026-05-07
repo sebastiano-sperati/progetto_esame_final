@@ -185,4 +185,12 @@ public abstract class Entity {
         if(this.ap>this.maxAp) this.ap=this.maxAp;
     }
 
+    public void showAbility(){
+        for (int i = 0; i < azioni.size(); i++) {
+            Action action = azioni.get(i);
+
+            System.out.println((i+1) + "-" + action.getNome() + "(Costo : " + action.getCosto() + " AP");
+        }
+    }
+
 }

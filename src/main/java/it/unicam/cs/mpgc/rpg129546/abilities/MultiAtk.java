@@ -4,6 +4,7 @@ import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
 public class MultiAtk implements Action {
     private final int cost = 8;
+    private final String nome = "multiattacco";
 
     @Override
     public void execute(Entity source, Entity target) {
@@ -15,5 +16,13 @@ public class MultiAtk implements Action {
         source.consumeAp(cost);
         BaseAtk.applyAttack(source,target,1.0);
         BaseAtk.applyAttack(source,target,1.0);
+    }
+    @Override
+    public String getNome(){
+        return this.nome;
+    }
+    @Override
+    public int getCosto(){
+        return this.cost;
     }
 }

@@ -4,6 +4,8 @@ import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
 public class Ispirazione implements Action{
     private final int cost = 4;
+    private final String nome = "cura";
+
     @Override
     public void execute(Entity source, Entity target) {
         if(!source.isAlly(target)){
@@ -13,5 +15,13 @@ public class Ispirazione implements Action{
         if(source.getAp() < cost) return;
         source.consumeAp(cost);
         target.setInspired(true);
+    }
+    @Override
+    public String getNome(){
+        return this.nome;
+    }
+    @Override
+    public int getCosto(){
+        return this.cost;
     }
 }

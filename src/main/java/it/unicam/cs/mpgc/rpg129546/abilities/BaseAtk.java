@@ -4,6 +4,7 @@ import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
 public class BaseAtk implements Action {
     private final int cost = 0;
+    private final String nome = "attacco base";
 
     @Override
     public void execute(Entity source, Entity target) {
@@ -43,6 +44,14 @@ public class BaseAtk implements Action {
         dmg -= target.getScaledDif();
         if (dmg < 0) dmg = 0;
         target.takeDamage(dmg);
+    }
+    @Override
+    public String getNome(){
+        return this.nome;
+    }
+    @Override
+    public int getCosto(){
+        return this.cost;
     }
 }
 
