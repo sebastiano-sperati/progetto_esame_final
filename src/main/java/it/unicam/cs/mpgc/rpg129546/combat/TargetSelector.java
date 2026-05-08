@@ -28,12 +28,12 @@ public class TargetSelector {
         while (true){
             for (int i = 0; i < list.size(); i++) {
                 System.out.println((i+1) + "-" + list.get(i).getNome());
-                int choice = sc.nextInt();
-                if(choice>=1 && choice<=list.size()){
-                    return list.get(choice-1);
-                }
-                System.out.println("Scelta non valida");
             }
+            int choice = sc.nextInt();
+            if(choice>=1 && choice<=list.size()){
+                return list.get(choice-1);
+            }
+            System.out.println("Scelta non valida");
         }
     }
 
