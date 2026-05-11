@@ -1,8 +1,10 @@
 package it.unicam.cs.mpgc.rpg129546.combat;
 import it.unicam.cs.mpgc.rpg129546.abilities.Action;
+import it.unicam.cs.mpgc.rpg129546.abilities.SplashAbility;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import it.unicam.cs.mpgc.rpg129546.model.Hero;
 import it.unicam.cs.mpgc.rpg129546.model.Enemy;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilityContext;
 
 import java.util.List;
 
@@ -41,7 +43,12 @@ public class Battle {
             if(eroi.get(i).isAlive()){
                 Action selected = Aselector.selector((eroi.get(i)));
                 Entity e = Tselector.SelectList(selected,eroi.get(i),eroi,nemici);
-                selected.execute(eroi.get(i),e);
+                abilityContext ctx = new abilityContext(eroi, nemici);
+                if(selected instanceof SplashAbility){
+                    ((SplashAbility) selected).executeSplash(eroi.get(i), e , (abilityContext) ctx.getEnemys());
+                } else{
+                    selected.execute(eroi.get(i),e);
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.abilities;
 
+import it.unicam.cs.mpgc.rpg129546.effect.InspiredEffect;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import it.unicam.cs.mpgc.rpg129546.model.TargetType;
 
@@ -15,7 +16,7 @@ public class Ispirazione implements Action{
         }
         if(source.getAp() < cost) return;
         source.consumeAp(cost);
-        target.setInspired(true);
+        target.getManager().addEffect(new InspiredEffect());
     }
     @Override
     public String getNome(){

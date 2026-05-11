@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.abilities;
 
+import it.unicam.cs.mpgc.rpg129546.effect.FireEffect;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import it.unicam.cs.mpgc.rpg129546.model.TargetType;
 
@@ -13,7 +14,7 @@ public class FireBall implements Action{
         source.consumeAp(cost);
         BaseAtk.applyAttack(source,target,1.0);
         if(Math.random() < source.getFireChance()){
-            target.setOnFire(true);
+            target.getManager().addEffect(new FireEffect());
         }
     }
     @Override

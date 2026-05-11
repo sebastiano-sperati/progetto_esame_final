@@ -1,7 +1,8 @@
 package it.unicam.cs.mpgc.rpg129546.model;
 
 import it.unicam.cs.mpgc.rpg129546.abilities.Action;
-
+import it.unicam.cs.mpgc.rpg129546.effect.EffectApplier;
+import it.unicam.cs.mpgc.rpg129546.effect.effectManager;
 import java.util.List;
 
 public abstract class Entity {
@@ -14,6 +15,8 @@ public abstract class Entity {
     protected  double critMult, critChance;
     protected boolean isAlive;
     protected int lvl;
+    protected effectManager manager = new effectManager();
+    protected EffectApplier applier = new EffectApplier();
     protected boolean isDefendig;
     protected boolean isCountering;
     protected boolean isScared;
@@ -24,6 +27,8 @@ public abstract class Entity {
     protected List<Action> azioni;
     protected boolean isOnFire;
     protected double fireChance;
+
+
     public Entity(String nome, int maxHp, int maxAp, int dif, int atk, double eva, double critMult, double critChance, int lvl, double chanceFrost){
         this.hp=this.maxHp=maxHp;
         this.ap=this.maxAp=maxAp;
@@ -35,6 +40,8 @@ public abstract class Entity {
         this.nome=nome;
         this.isAlive=true;
         this.lvl=lvl;
+        this.manager = new effectManager();
+        this.applier = new EffectApplier();
         this.isDefendig = false;
         this.isCountering = false;
         this.isScared = false;
@@ -46,121 +53,33 @@ public abstract class Entity {
         this.isOnFire = false;
     }
 
-    public double getFireChance() {
-        return fireChance;
+    public effectManager getManager(){
+        return this.manager;
     }
 
-    public boolean isOnFire() {
-        return isOnFire;
+    public EffectApplier getApplier(){
+        return this.applier;
     }
 
-    public void setOnFire(boolean stato) {
-        isOnFire = stato;
-    }
+    public int getAtk(){return this.atk;}
 
-    public List<Action> getAzioni() {
-        return azioni;
-    }
+    public int getScaledAtk(){return (this.atk + this.lvl * 3);}
 
-    public void setAtkDebuff(boolean stato){ this.isAtkDebuffed = stato; }
+    public int getDif(){return this.dif;}
 
-    public boolean isAtkDebuffed(){ return this.isAtkDebuffed; }
+    public int getScaledDif(){return this.dif + this.lvl * 2;}
 
-    public boolean isAlly(Entity other){
-        return (this instanceof Hero && other instanceof  Hero)||(this instanceof  Enemy && other instanceof  Enemy);
-    }
+    public double getEva(){return this.eva;}
 
-    public void setFrozen(boolean stato){ this.isFrozen = stato; }
+    public double getScaledEva(){return Math.min(this.eva + this.lvl *0.005, 0.5); }
 
-    public double getChanceFrost(){ return this.chanceFrost; }
+    public double getCritMult(){return this.critMult;}
 
-    public boolean isInspired(){ return this.isInspired; }
+    public double getScaledCM(){return this.critMult + this.lvl *0.02;}
 
-    public void setInspired(boolean stato) { this.isInspired = stato; }
+    public double getCritChance(){return this.critChance;}
 
-    public boolean isScared(){ return this.isScared; }
-
-    public void setScared(boolean stato) { this.isScared = stato; }
-
-    public boolean isCountering() { return this.isCountering;}
-
-    public void setCounter(boolean stato){ this.isCountering = stato; }
-
-    public String getNome(){ return nome; }
-
-    public int getLvl(){ return lvl; }
-
-    public int getHp(){
-        return this.hp;
-    }
-
-    public int getMaxHp(){
-        return this.maxHp;
-    }
-
-    public int getAp(){
-        return this.ap;
-    }
-
-    public int getMaxAp(){
-        return this.maxAp;
-    }
-
-    public int getDif(){
-        return this.dif;
-    }
-
-    public int getAtk(){
-        return this.atk;
-    }
-
-    public double getEva(){
-        return this.eva;
-    }
-
-    public double getCritMult(){
-        return this.critMult;
-    }
-
-    public double getCritChance(){
-        return this.critChance;
-    }
-
-    public int getScaledHp(){ return this.maxHp + lvl * 7; }
-
-    public int getScaledAp(){ return this.maxAp + lvl * 3;}
-
-    public double getScaledEva(){
-        if(this.isCountering) return Math.min((this.eva + lvl*0.005) * 1.5,0.5); //*se il beraglio è nello stato counter aumenta l' eva del 50%
-        return Math.min(this.eva + lvl*0.005,0.5);
-    }
-
-    public double getScaledCritMult(){
-        return this.critMult + lvl*0.02;
-    }
-
-    public double getScaledCritChance(){
-        return Math.min(this.critChance + lvl*0.01,0.6);
-    }
-
-    public int getScaledAtk(){
-        if(this.isScared || this.isAtkDebuffed) return (int) ((this.atk + lvl * 3) * 0.75);
-        return this.atk + lvl * 3;
-    }
-
-    public int getScaledDif() {
-        if(this.isCountering || this.isInspired ) return (int)((this.dif + lvl *2)*1.5);//*se il beraglio è nello stato counter o è inspirato aumenta la difesa del 50%
-        if(this.isFrozen) return (int) ((this.dif + lvl * 2) * 0.75);
-        return this.dif + lvl *2;
-    }
-
-    public boolean isAlive() { return isAlive; }
-
-    public void setAlive(boolean stato) { this.isAlive = stato; }
-
-    public boolean isDefendig(){ return isDefendig; }
-
-    public void setDefendig(boolean stato){ this.isDefendig = stato; }
+    public double getScaledCC(){return this.critChance + this.lvl * 0.01;}
 
     public void takeDamage(int amount){
         this.hp -= amount;

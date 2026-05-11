@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.abilities;
 
+import it.unicam.cs.mpgc.rpg129546.effect.counterEffect;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import it.unicam.cs.mpgc.rpg129546.model.TargetType;
 
@@ -16,33 +17,31 @@ public class BaseAtk implements Action {
         if (source.getAp() < cost) return;
         source.consumeAp(cost);
 
-        applyAttack(source, target, 1.0);
+        applyAttack(source, target,1.0);
     }
     public static void applyAttack(Entity source, Entity target , double multiplier){
-        int deviation = 2;
         //EVA
-        if(Math.random() < target.getScaledEva()){
+        if(Math.random() < target.getApplier().modifyEva(target)){
             System.out.println(target.getNome() + " ha evitato l'attacco!");
             //COUNTER
-            if(target.isCountering()){
+            if(target.getManager().hasEffect(counterEffect.class)){
                 System.out.println(target.getNome() + " effettua un contrattacco!");
-                int baseAtk = target.getScaledAtk();
-                int dmg = baseAtk + (int)(Math.random() * (2 * deviation + 1)) - deviation;
-                dmg = (int)(dmg * 1.5); // 150%
-                dmg -= source.getScaledDif();
-                if (dmg < 0) dmg = 0;
+                int danno = target.getApplier().modifyAtk(target);
+                danno = (int)(danno * 1.5);
+                danno -= source.getApplier().modifyDif(source);
+                if (danno < 0) danno = 0;
                 source.takeDamage(dmg);
             }
         return;
         }
-        int baseAtk = source.getScaledAtk();
-        int dmg = baseAtk + (int)(Math.random() * (2 * deviation + 1)) - deviation;
+        int dmg = source.getApplier().modifyAtk(source);
         dmg = (int)(dmg * multiplier);
-        if (Math.random() < source.getScaledCritChance()) {
+
+        if (Math.random() < source.getApplier().modifyCC(source)) {
             System.out.println(source.getNome() + " effettua un attacco critico!");
-            dmg = (int)(dmg * source.getScaledCritMult());
+            dmg = (int)(dmg * source.getApplier().modifyCM(source));
         }
-        dmg -= target.getScaledDif();
+        dmg -= target.getApplier().modifyDif(target);
         if (dmg < 0) dmg = 0;
         target.takeDamage(dmg);
     }

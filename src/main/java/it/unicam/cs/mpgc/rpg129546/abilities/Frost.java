@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.abilities;
 
+import it.unicam.cs.mpgc.rpg129546.effect.FrostEffect;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import it.unicam.cs.mpgc.rpg129546.model.TargetType;
 
@@ -16,7 +17,7 @@ public class Frost implements Action{
         source.consumeAp(cost);
         BaseAtk.applyAttack(source, target, 0.7);
         if(Math.random() < source.getChanceFrost()){
-            target.setFrozen(true);
+            target.getManager().addEffect(new FrostEffect());
         }
     }
     @Override
