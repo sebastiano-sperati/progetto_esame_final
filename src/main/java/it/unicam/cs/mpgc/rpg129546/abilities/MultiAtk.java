@@ -9,10 +9,6 @@ public class MultiAtk implements Action {
 
     @Override
     public void execute(Entity source, Entity target) {
-        if(source.isAlly(target)){
-            System.out.println("non puoi attaccare un alleato");
-            return;
-        }
         if (source.getAp() < cost) return;
         source.consumeAp(cost);
         BaseAtk.applyAttack(source,target,1.0);

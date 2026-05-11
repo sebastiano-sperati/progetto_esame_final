@@ -17,19 +17,9 @@ public abstract class Entity {
     protected int lvl;
     protected effectManager manager = new effectManager();
     protected EffectApplier applier = new EffectApplier();
-    protected boolean isDefendig;
-    protected boolean isCountering;
-    protected boolean isScared;
-    protected boolean isInspired;
-    protected double chanceFrost;
-    protected boolean isFrozen;
-    protected boolean isAtkDebuffed;
     protected List<Action> azioni;
-    protected boolean isOnFire;
-    protected double fireChance;
 
-
-    public Entity(String nome, int maxHp, int maxAp, int dif, int atk, double eva, double critMult, double critChance, int lvl, double chanceFrost){
+    public Entity(String nome, int maxHp, int maxAp, int dif, int atk, double eva, double critMult, double critChance, int lvl){
         this.hp=this.maxHp=maxHp;
         this.ap=this.maxAp=maxAp;
         this.dif=dif;
@@ -42,15 +32,6 @@ public abstract class Entity {
         this.lvl=lvl;
         this.manager = new effectManager();
         this.applier = new EffectApplier();
-        this.isDefendig = false;
-        this.isCountering = false;
-        this.isScared = false;
-        this.isInspired=false;
-        this.chanceFrost = chanceFrost;
-        this.isFrozen = false;
-        this.isAtkDebuffed = false;
-        this.fireChance = fireChance;
-        this.isOnFire = false;
     }
 
     public effectManager getManager(){
@@ -80,6 +61,28 @@ public abstract class Entity {
     public double getCritChance(){return this.critChance;}
 
     public double getScaledCC(){return this.critChance + this.lvl * 0.01;}
+
+    public boolean isAlive(){return this.isAlive;}
+
+    public void setAlive(boolean stato){ this.isAlive = stato;}
+
+    public int getLvl(){ return this.lvl;}
+
+    public int getHp(){return this.hp;}
+
+    public int getMaxAp() {
+        return maxAp + lvl * 2;
+    }
+
+    public int getAp(){return this.ap;}
+
+    public int getMaxHp() {
+        return maxHp + lvl * 2;
+    }
+
+    public String getNome() {return this.nome;}
+
+    public List<Action> getAzioni(){ return this.azioni;}
 
     public void takeDamage(int amount){
         this.hp -= amount;

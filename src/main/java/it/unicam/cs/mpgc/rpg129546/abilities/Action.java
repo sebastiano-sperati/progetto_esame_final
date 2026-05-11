@@ -3,8 +3,6 @@ package it.unicam.cs.mpgc.rpg129546.abilities;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import it.unicam.cs.mpgc.rpg129546.model.TargetType;
 
-import java.util.List;
-
 public interface Action {
     default void execute(Entity source, Entity target) {
 

@@ -19,7 +19,7 @@ public class blessEffect implements Effect{
     }
 
     @Override
-    public int modfyDif(int dif){
+    public int modifyDif(int dif){
         return dif * 2;
     }
 }

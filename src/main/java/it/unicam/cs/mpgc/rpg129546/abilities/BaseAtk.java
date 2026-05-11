@@ -10,10 +10,6 @@ public class BaseAtk implements Action {
 
     @Override
     public void execute(Entity source, Entity target) {
-        if(source.isAlly(target)){
-            System.out.println("non puoi attaccare un alleato");
-            return;
-        }
         if (source.getAp() < cost) return;
         source.consumeAp(cost);
 
@@ -26,10 +22,10 @@ public class BaseAtk implements Action {
             //COUNTER
             if(target.getManager().hasEffect(counterEffect.class)){
                 System.out.println(target.getNome() + " effettua un contrattacco!");
-                int danno = target.getApplier().modifyAtk(target);
-                danno = (int)(danno * 1.5);
-                danno -= source.getApplier().modifyDif(source);
-                if (danno < 0) danno = 0;
+                int dmg = target.getApplier().modifyAtk(target);
+                dmg = (int)(dmg * 1.5);
+                dmg -= source.getApplier().modifyDif(source);
+                if (dmg < 0) dmg = 0;
                 source.takeDamage(dmg);
             }
         return;

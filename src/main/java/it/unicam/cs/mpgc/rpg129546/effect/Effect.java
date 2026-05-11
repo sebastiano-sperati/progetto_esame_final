@@ -32,6 +32,4 @@ public interface Effect {
     default double modifyCritChance(double cc) {
         return cc;
     }
-
-    int modfyDif(int dif);
 }

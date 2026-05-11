@@ -11,8 +11,8 @@ import java.util.List;
 public class Battle {
     private final List<Hero> eroi;
     private final List<Enemy> nemici;
-    private AbilitySelector Aselector = new AbilitySelector();
-    private TargetSelector Tselector = new TargetSelector();
+    private final AbilitySelector Aselector = new AbilitySelector();
+    private final TargetSelector Tselector = new TargetSelector();
     public Battle(List<Hero> eroi, List<Enemy> nemici){
         this.eroi = eroi;
         this.nemici = nemici;

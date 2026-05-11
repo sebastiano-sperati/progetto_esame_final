@@ -2,10 +2,11 @@ package it.unicam.cs.mpgc.rpg129546.model;
 
 import it.unicam.cs.mpgc.rpg129546.abilities.BaseAtk;
 import it.unicam.cs.mpgc.rpg129546.abilities.Defend;
+import it.unicam.cs.mpgc.rpg129546.abilities.MultiAtk;
 
 public class goblin extends Enemy{
-    public goblin(String nome, int maxHp, int maxAp, int dif, int atk, double eva, double critMult, double critChance, int lvl ,double chanceFrost) {
-        super(nome, maxHp, maxAp, dif, atk, eva, critMult, critChance, lvl, chanceFrost);
+    public goblin(String nome, int maxHp, int maxAp, int dif, int atk, double eva, double critMult, double critChance, int lvl) {
+        super(nome, maxHp, maxAp, dif, atk, eva, critMult, critChance, lvl);
         this.hp=this.maxHp=50;
         this.ap=this.maxAp=20;
         this.dif=5;
@@ -15,5 +16,6 @@ public class goblin extends Enemy{
         this.critMult=1.5;
         azioni.add(new BaseAtk());
         azioni.add(new Defend());
+        azioni.add(new MultiAtk());
     }
 }

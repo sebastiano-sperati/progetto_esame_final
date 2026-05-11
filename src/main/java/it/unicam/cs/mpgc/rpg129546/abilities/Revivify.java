@@ -9,14 +9,10 @@ public class Revivify implements Action{
 
     @Override
     public void execute(Entity source, Entity target) {
-        if(!source.isAlly(target)){
-            System.out.println("non puoi rianimare un nemico");
-            return;
-        }
         if(source.getAp() < cost) return;
         source.consumeAp(cost);
         target.setAlive(true);
-        int heal = target.getScaledHp()/2;
+        int heal = target.getMaxAp()/2;
         target.Heal(heal);
     }
     @Override

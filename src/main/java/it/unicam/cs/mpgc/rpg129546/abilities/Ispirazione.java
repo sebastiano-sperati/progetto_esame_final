@@ -10,10 +10,6 @@ public class Ispirazione implements Action{
 
     @Override
     public void execute(Entity source, Entity target) {
-        if(!source.isAlly(target)){
-            System.out.println("non puoi putenziare un nemico");
-            return;
-        }
         if(source.getAp() < cost) return;
         source.consumeAp(cost);
         target.getManager().addEffect(new InspiredEffect());

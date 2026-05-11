@@ -9,13 +9,9 @@ public class Heal implements Action{
 
     @Override
     public void execute(Entity source, Entity target) {
-        if(!source.isAlly(target)){
-            System.out.println("non puoi curare un nemico");
-            return;
-        }
         if(source.getAp() < cost) return;
         source.consumeAp(cost);
-        int heal = (int) (10 + (target.getScaledHp() - target.getHp()) * 0.3);
+        int heal = (int) (10 + (target.getMaxHp() - target.getHp()) * 0.3);
         target.Heal(heal);
     }
     @Override
