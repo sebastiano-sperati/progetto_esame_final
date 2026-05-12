@@ -1,13 +1,14 @@
 package it.unicam.cs.mpgc.rpg129546.combat;
 
 import it.unicam.cs.mpgc.rpg129546.abilities.Action;
+import it.unicam.cs.mpgc.rpg129546.model.Enemy;
 import it.unicam.cs.mpgc.rpg129546.model.Hero;
 import java.util.Scanner;
 
 public class AbilitySelector {
     Scanner sc = new Scanner(System.in);
     public int choice;
-    public Action selector(Hero h){
+    public Action selectorHero(Hero h){
         while(true){
             System.out.println("selezionare un abilità");
             h.showAbility();
@@ -22,5 +23,15 @@ public class AbilitySelector {
             }
             System.out.println("selezionare un azione disponibile");
         }
+    }
+
+    public Action selectorEnemy(Enemy e){
+        Action selected = null;
+        for (int i = 0; i < e.getAzioni().size(); i++) {
+            if (e.getAp() >= e.getAzioni().get(i).getCosto()){
+                selected = e.getAzioni().get(i);
+            }
+        }
+        return selected;
     }
 }

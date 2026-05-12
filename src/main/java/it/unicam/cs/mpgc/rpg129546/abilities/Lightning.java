@@ -14,7 +14,7 @@ public class Lightning implements SplashAbility{
     public void executeSplash(Entity source, Entity target, abilityContext ctx) {
         if(source.getAp() < cost)return;
         source.consumeAp(cost);
-        List<Enemy> nemici = ctx.getEnemys();
+        List<Enemy> nemici = (List<Enemy>) ctx;
         int index = nemici.indexOf(target);
         BaseAtk.applyAttack(source,target,1.0);
         if(index > 0){

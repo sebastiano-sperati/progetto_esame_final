@@ -12,9 +12,9 @@ public class Frost implements Action{
         if(source.getAp() < cost) return;
         source.consumeAp(cost);
         BaseAtk.applyAttack(source, target, 0.7);
-        if(Math.random() < source.getChanceFrost()){
-            target.getManager().addEffect(new FrostEffect());
-        }
+      //  if(Math.random() < source.getChanceFrost()){
+        //    target.getManager().addEffect(new FrostEffect());
+        //}
     }
     @Override
     public String getNome(){

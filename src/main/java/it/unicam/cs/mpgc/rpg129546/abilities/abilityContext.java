@@ -1,22 +1,35 @@
 package it.unicam.cs.mpgc.rpg129546.abilities;
 
 import it.unicam.cs.mpgc.rpg129546.model.Enemy;
+import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import it.unicam.cs.mpgc.rpg129546.model.Hero;
 
 import java.util.List;
 
 public class abilityContext {
-    private List<Hero> alleati;
+    private List<Hero> eroi;
     private List<Enemy> nemici;
-    public abilityContext(List<Hero> alleati, List<Enemy> nemici){
-        this.alleati=alleati;
+    public abilityContext(List<Hero> eroi, List<Enemy> nemici){
+        this.eroi=eroi;
         this.nemici=nemici;
     }
-    public List<Enemy> getEnemys(){
-        return nemici;
-    }
-
-    public List<Hero> getAlleati(){
-        return alleati;
+    public List<? extends Entity> getTargets(Action action, Entity source){
+        switch (action.getTargetType()){
+            case ALLY -> {
+                if (source instanceof Hero){
+                    return eroi;
+                }
+                return nemici;
+            }
+            case ENEMY -> {
+                if(source instanceof Hero){
+                    return nemici;
+                }
+                return eroi;
+            }
+            default -> {
+                return List.of(source);
+            }
+        }
     }
 }

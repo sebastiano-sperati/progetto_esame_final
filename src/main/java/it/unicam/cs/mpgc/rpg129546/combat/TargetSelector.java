@@ -5,16 +5,23 @@ import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import it.unicam.cs.mpgc.rpg129546.model.Hero;
 
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class TargetSelector {
     public Entity SelectList(Action action, Entity source, List<Hero> eroi, List<Enemy> nemici ){
         switch (action.getTargetType()){
             case ALLY ->{
-                return SelectTarget(eroi);
+                if(source instanceof Hero) {
+                    return SelectTargetHero(eroi);
+                }
+                return SelectTargetEnemy(nemici);
             }
             case ENEMY -> {
-                return SelectTarget(nemici);
+                if(source instanceof Hero) {
+                    return SelectTargetHero(nemici);
+                }
+                return SelectTargetEnemy(eroi);
             }
             case SELF -> {
                 return source;
@@ -23,7 +30,7 @@ public class TargetSelector {
         }
 
     }
-    public Entity SelectTarget(List<? extends Entity> list){
+    public Entity SelectTargetHero(List<? extends Entity> list){
         Scanner sc = new Scanner(System.in);
         while (true){
             for (int i = 0; i < list.size(); i++) {
@@ -35,6 +42,12 @@ public class TargetSelector {
             }
             System.out.println("Scelta non valida");
         }
+    }
+
+    public Entity SelectTargetEnemy(List<? extends Entity> list){
+        Random random = new Random();
+        int index = random.nextInt(list.size());
+        return list.get(index);
     }
 
 }

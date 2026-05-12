@@ -41,11 +41,11 @@ public class Battle {
         System.out.println("E' IL TURNO DEGLI EROI !!!");
         for (int i = 0; i < eroi.size(); i++) {
             if(eroi.get(i).isAlive()){
-                Action selected = Aselector.selector((eroi.get(i)));
+                Action selected = Aselector.selectorHero((eroi.get(i)));
                 Entity e = Tselector.SelectList(selected,eroi.get(i),eroi,nemici);
                 abilityContext ctx = new abilityContext(eroi, nemici);
                 if(selected instanceof SplashAbility){
-                    ((SplashAbility) selected).executeSplash(eroi.get(i), e , (abilityContext) ctx.getEnemys());
+                    ((SplashAbility) selected).executeSplash(eroi.get(i), e , (abilityContext) ctx.getTargets(selected,eroi.get(i)));
                 } else{
                     selected.execute(eroi.get(i),e);
                 }
@@ -54,7 +54,16 @@ public class Battle {
     }
     private void enemyTurn(){
         System.out.println("E' IL TURNO DEI NEMICI!!!");
-        //*da implementare
+        for (int i = 0; i < nemici.size(); i++) {
+            if(nemici.get(i).isAlive()){
+                Action selected = Aselector.selectorEnemy(nemici.get(i));
+                Entity e = Tselector.SelectList(selected,nemici.get(i),eroi,nemici);
+                abilityContext ctx = new abilityContext(eroi,nemici);
+                if(selected instanceof  SplashAbility){
+                    ((SplashAbility)selected).executeSplash(nemici.get(i), e ,(abilityContext) ctx.getTargets(selected, nemici.get(i)));
+                }
+            }
+        }
     }
     private void removeDed(){
         nemici.removeIf(n -> !n.isAlive());

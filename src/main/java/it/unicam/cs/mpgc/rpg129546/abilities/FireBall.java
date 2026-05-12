@@ -13,9 +13,9 @@ public class FireBall implements Action{
         if(source.getAp() < cost) return;
         source.consumeAp(cost);
         BaseAtk.applyAttack(source,target,1.0);
-        if(Math.random() < source.getFireChance()){
-            target.getManager().addEffect(new FireEffect());
-        }
+       // if(Math.random() < source.getFireChance()){
+        //    target.getManager().addEffect(new FireEffect());
+        //}
     }
     @Override
     public String getNome(){
