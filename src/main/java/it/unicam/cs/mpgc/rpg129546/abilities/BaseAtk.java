@@ -2,6 +2,7 @@ package it.unicam.cs.mpgc.rpg129546.abilities;
 
 import it.unicam.cs.mpgc.rpg129546.effect.counterEffect;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
+import it.unicam.cs.mpgc.rpg129546.model.Hero;
 import it.unicam.cs.mpgc.rpg129546.model.TargetType;
 
 public class BaseAtk implements Action {
@@ -12,6 +13,11 @@ public class BaseAtk implements Action {
     public void execute(Entity source, Entity target) {
         if (source.getAp() < cost) return;
         source.consumeAp(cost);
+        if(source instanceof Hero) {
+            System.out.println(source.getNome() + " :PRENDI QUESTO " + target.getNome());
+        } else {
+            System.out.println(source.getNome() + " effettua " + this.nome + " contro " + target.getNome());
+        }
 
         applyAttack(source, target,1.0);
     }

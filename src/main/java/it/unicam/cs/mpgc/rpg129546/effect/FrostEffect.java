@@ -2,7 +2,8 @@ package it.unicam.cs.mpgc.rpg129546.effect;
 
 public class FrostEffect implements Effect{
     private final int duration = 2;
-    public int tick = 0;
+    public int tick = duration;
+    public String nome = "ghiacciato";
 
     @Override
     public void tick() {
@@ -17,6 +18,16 @@ public class FrostEffect implements Effect{
     @Override
     public int getDuration() {
         return duration;
+    }
+
+    @Override
+    public String getNome() {
+        return nome;
+    }
+
+    @Override
+    public int getTick() {
+        return tick;
     }
 
     @Override

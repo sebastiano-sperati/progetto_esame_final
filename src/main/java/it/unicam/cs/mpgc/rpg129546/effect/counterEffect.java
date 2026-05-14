@@ -2,7 +2,8 @@ package it.unicam.cs.mpgc.rpg129546.effect;
 
 public class counterEffect implements Effect{
     private final int duration = 1;
-    public int tick = 0;
+    public int tick = duration;
+    private String nome = "contrattacco";
     @Override
     public void tick() {
         tick--;
@@ -16,6 +17,16 @@ public class counterEffect implements Effect{
     @Override
     public int getDuration() {
         return duration;
+    }
+
+    @Override
+    public String getNome() {
+        return nome;
+    }
+
+    @Override
+    public int getTick() {
+        return tick;
     }
 
     @Override

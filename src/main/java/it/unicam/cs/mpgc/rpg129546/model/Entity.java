@@ -20,8 +20,10 @@ public abstract class Entity {
     protected List<Action> azioni;
 
     public Entity(String nome, int maxHp, int maxAp, int dif, int atk, double eva, double critMult, double critChance, int lvl){
-        this.hp=this.maxHp=maxHp;
-        this.ap=this.maxAp=maxAp;
+        this.maxHp=maxHp;
+        this.hp=this.getMaxHp();
+        this.maxAp=maxAp;
+        this.ap=this.getMaxAp();
         this.dif=dif;
         this.atk=atk;
         this.eva=eva;
@@ -99,12 +101,12 @@ public abstract class Entity {
 
     public void Heal(int amount){
         this.hp+=amount;
-        if(this.hp>this.maxHp) this.hp=this.maxHp;
+        if(this.hp>this.getMaxHp()) this.hp=this.getMaxHp();
     }
 
     public void restore(int amount){
         this.ap+=amount;
-        if(this.ap>this.maxAp) this.ap=this.maxAp;
+        if(this.ap>this.getMaxAp()) this.ap=this.getMaxAp();
     }
 
     public void showAbility(){
@@ -112,6 +114,18 @@ public abstract class Entity {
             Action action = azioni.get(i);
 
             System.out.println((i+1) + "-" + action.getNome() + "(Costo : " + action.getCosto() + " AP");
+        }
+    }
+
+    public void showSquadStats(List<? extends Entity> list){
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i).getNome());
+            System.out.print(": HP " + list.get(i).getHp() + "/" + list.get(i).getMaxHp() + " | ");
+            System.out.println("AP " + list.get(i).getAp() + "/" + list.get(i).getMaxAp() );
+            System.out.println("Atk: " + list.get(i).getApplier().modifyAtk(list.get(i)) + " | Dif: " + list.get(i).getApplier().modifyDif(list.get(i)));
+            System.out.println("Prob crit: " + list.get(i).getApplier().modifyCC(list.get(i)) + " Danno critico: " + list.get(i).getApplier().modifyCM(list.get(i))+ " Schivata: " + list.get(i).getApplier().modifyEva(list.get(i)));
+            list.get(i).manager.showEffects();
+            System.out.println();
         }
     }
 }

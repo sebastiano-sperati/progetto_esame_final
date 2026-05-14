@@ -1,6 +1,7 @@
 package it.unicam.cs.mpgc.rpg129546.abilities;
 
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
+import it.unicam.cs.mpgc.rpg129546.model.Hero;
 import it.unicam.cs.mpgc.rpg129546.model.TargetType;
 
 public class Restore implements Action{
@@ -11,7 +12,11 @@ public class Restore implements Action{
     public void execute(Entity source, Entity target) {
         if(source.getAp() < cost) return;
         source.consumeAp(cost);
-        target.restore(6);
+        if(source instanceof Hero) {
+            System.out.println(source.getNome() + " :stringi i denti ancora per un po... " + target.getNome());
+        } else {
+            System.out.println(source.getNome() + " effettua " + this.nome + " contro " + target.getNome());
+        }        target.restore(6);
     }
     @Override
     public String getNome(){

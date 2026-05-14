@@ -1,6 +1,7 @@
 package it.unicam.cs.mpgc.rpg129546.abilities;
 
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
+import it.unicam.cs.mpgc.rpg129546.model.Hero;
 import it.unicam.cs.mpgc.rpg129546.model.TargetType;
 
 public class MultiAtk implements Action {
@@ -11,7 +12,11 @@ public class MultiAtk implements Action {
     public void execute(Entity source, Entity target) {
         if (source.getAp() < cost) return;
         source.consumeAp(cost);
-        BaseAtk.applyAttack(source,target,1.0);
+        if(source instanceof Hero) {
+            System.out.println(source.getNome() + " :ORA SI FA SUL SERIO " + target.getNome());
+        } else {
+            System.out.println(source.getNome() + " effettua " + this.nome + " contro " + target.getNome());
+        }        BaseAtk.applyAttack(source,target,1.0);
         BaseAtk.applyAttack(source,target,1.0);
     }
     @Override

@@ -2,6 +2,7 @@ package it.unicam.cs.mpgc.rpg129546.abilities;
 
 import it.unicam.cs.mpgc.rpg129546.effect.DefenseEffect;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
+import it.unicam.cs.mpgc.rpg129546.model.Hero;
 import it.unicam.cs.mpgc.rpg129546.model.TargetType;
 
 public class Defend implements Action{
@@ -12,7 +13,11 @@ public class Defend implements Action{
     public void execute(Entity source, Entity target) {
         if(source.getAp() < cost) return;
         source.consumeAp(cost);
-        source.getManager().addEffect(new DefenseEffect());
+        if(source instanceof Hero) {
+            System.out.println(source.getNome() + " :ATTENZIONE!!!");
+        } else {
+            System.out.println(source.getNome() + " effettua " + this.nome);
+        }        source.getManager().addEffect(new DefenseEffect());
     }
     @Override
     public String getNome(){

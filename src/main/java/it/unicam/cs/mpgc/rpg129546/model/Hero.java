@@ -12,4 +12,5 @@ public class Hero extends Entity{
         this.azioni=new ArrayList<>(numeroAzioni);
     }
     protected int getXp(){ return this.xp; }
+
 }

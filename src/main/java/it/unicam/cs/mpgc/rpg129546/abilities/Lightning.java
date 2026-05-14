@@ -2,6 +2,7 @@ package it.unicam.cs.mpgc.rpg129546.abilities;
 
 import it.unicam.cs.mpgc.rpg129546.model.Enemy;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
+import it.unicam.cs.mpgc.rpg129546.model.Hero;
 import it.unicam.cs.mpgc.rpg129546.model.TargetType;
 
 import java.util.List;
@@ -16,7 +17,11 @@ public class Lightning implements SplashAbility{
         source.consumeAp(cost);
         List<Enemy> nemici = (List<Enemy>) ctx;
         int index = nemici.indexOf(target);
-        BaseAtk.applyAttack(source,target,1.0);
+        if(source instanceof Hero) {
+            System.out.println(source.getNome() + " :BAHAMU CONCEDIMI LA FORZA " + target.getNome());
+        } else {
+            System.out.println(source.getNome() + " effettua " + this.nome + " contro " + target.getNome());
+        }        BaseAtk.applyAttack(source,target,1.0);
         if(index > 0){
             BaseAtk.applyAttack(source,nemici.get(index-1),0.5);
         }

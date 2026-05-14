@@ -14,6 +14,7 @@ public class Counter implements Action{
     public void execute(Entity source, Entity target) {
     if(source.getAp() < cost) return;
     source.consumeAp(cost);
+    System.out.println(source.getNome() + " :SONO PRONTO...");
     source.getManager().addEffect(new counterEffect());
     }
     @Override

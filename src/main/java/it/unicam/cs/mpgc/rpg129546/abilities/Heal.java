@@ -1,6 +1,7 @@
 package it.unicam.cs.mpgc.rpg129546.abilities;
 
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
+import it.unicam.cs.mpgc.rpg129546.model.Hero;
 import it.unicam.cs.mpgc.rpg129546.model.TargetType;
 
 public class Heal implements Action{
@@ -11,7 +12,11 @@ public class Heal implements Action{
     public void execute(Entity source, Entity target) {
         if(source.getAp() < cost) return;
         source.consumeAp(cost);
-        int heal = (int) (10 + (target.getMaxHp() - target.getHp()) * 0.3);
+        if(source instanceof Hero) {
+            System.out.println(source.getNome() + " :che gli dei abbiano cura di te " + target.getNome());
+        } else {
+            System.out.println(source.getNome() + " utilizza " + this.nome + " su " + target.getNome());
+        }        int heal = (int) (10 + (target.getMaxHp() - target.getHp()) * 0.3);
         target.Heal(heal);
     }
     @Override

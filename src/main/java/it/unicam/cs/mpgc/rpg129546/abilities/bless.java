@@ -3,6 +3,7 @@ package it.unicam.cs.mpgc.rpg129546.abilities;
 import it.unicam.cs.mpgc.rpg129546.effect.blessEffect;
 import it.unicam.cs.mpgc.rpg129546.effect.counterEffect;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
+import it.unicam.cs.mpgc.rpg129546.model.Hero;
 import it.unicam.cs.mpgc.rpg129546.model.TargetType;
 
 public class bless implements Action{
@@ -13,7 +14,11 @@ public class bless implements Action{
     public void execute(Entity source, Entity target) {
         if(source.getAp() < cost) return;
         source.consumeAp(cost);
-        source.getManager().addEffect(new blessEffect());
+        if(source instanceof Hero) {
+            System.out.println(source.getNome() + " : CHE LA GRAZIA SIA CON TE  " + target.getNome());
+        } else {
+            System.out.println(source.getNome() + " utilizza " + this.nome + " su " + target.getNome());
+        }        source.getManager().addEffect(new blessEffect());
     }
     @Override
     public String getNome(){
@@ -24,6 +29,6 @@ public class bless implements Action{
         return this.cost;
     }
     @Override
-    public TargetType getTargetType(){ return TargetType.ENEMY;}
+    public TargetType getTargetType(){ return TargetType.ALLY;}
 
 }

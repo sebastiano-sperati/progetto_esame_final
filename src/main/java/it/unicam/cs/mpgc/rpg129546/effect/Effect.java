@@ -4,6 +4,8 @@ public interface Effect {
     void tick();
     boolean isExpired();
     int getDuration();
+    String getNome();
+    int getTick();
 
     default int modifyAtk(int atk) {
         return atk;
