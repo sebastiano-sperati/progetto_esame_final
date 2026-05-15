@@ -113,7 +113,7 @@ public abstract class Entity {
         for (int i = 0; i < azioni.size(); i++) {
             Action action = azioni.get(i);
 
-            System.out.println((i+1) + "-" + action.getNome() + "(Costo : " + action.getCosto() + " AP");
+            System.out.println((i+1) + "-" + action.getNome() + "(Costo : " + action.getCosto() + " AP)");
         }
     }
 
