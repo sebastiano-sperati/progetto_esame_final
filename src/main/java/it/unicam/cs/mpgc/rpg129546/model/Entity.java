@@ -1,8 +1,12 @@
 package it.unicam.cs.mpgc.rpg129546.model;
 
+import it.unicam.cs.mpgc.rpg129546.Items.Item;
+import it.unicam.cs.mpgc.rpg129546.Items.itemManager;
 import it.unicam.cs.mpgc.rpg129546.abilities.Action;
 import it.unicam.cs.mpgc.rpg129546.effect.EffectApplier;
 import it.unicam.cs.mpgc.rpg129546.effect.effectManager;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Entity {
@@ -15,6 +19,7 @@ public abstract class Entity {
     protected  double critMult, critChance;
     protected boolean isAlive;
     protected int lvl;
+    protected itemManager itemManager = new itemManager();
     protected effectManager manager = new effectManager();
     protected EffectApplier applier = new EffectApplier();
     protected List<Action> azioni;
@@ -38,6 +43,10 @@ public abstract class Entity {
 
     public effectManager getManager(){
         return this.manager;
+    }
+
+    public itemManager getItemManager(){
+        return this.itemManager;
     }
 
     public EffectApplier getApplier(){
@@ -88,7 +97,7 @@ public abstract class Entity {
 
     public void takeDamage(int amount){
         this.hp -= amount;
-        if(this.hp<0){
+        if(this.hp<=0){
             this.hp=0;
             this.isAlive=false;
         }
@@ -123,9 +132,14 @@ public abstract class Entity {
             System.out.print(": HP " + list.get(i).getHp() + "/" + list.get(i).getMaxHp() + " | ");
             System.out.println("AP " + list.get(i).getAp() + "/" + list.get(i).getMaxAp() );
             System.out.println("Atk: " + list.get(i).getApplier().modifyAtk(list.get(i)) + " | Dif: " + list.get(i).getApplier().modifyDif(list.get(i)));
-            System.out.println("Prob crit: " + list.get(i).getApplier().modifyCC(list.get(i)) + " Danno critico: " + list.get(i).getApplier().modifyCM(list.get(i))+ " Schivata: " + list.get(i).getApplier().modifyEva(list.get(i)));
+            System.out.print("Prob crit: ");
+            System.out.printf("%.2f",list.get(i).getApplier().modifyCC(list.get(i)));
+            System.out.print(" Danno critico: " + list.get(i).getApplier().modifyCM(list.get(i)) + " Schivata: ");
+            System.out.printf("%.2f",list.get(i).getApplier().modifyEva(list.get(i)));
+            System.out.println();
             list.get(i).manager.showEffects();
             System.out.println();
         }
     }
+
 }

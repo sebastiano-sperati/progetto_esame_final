@@ -1,5 +1,4 @@
 package it.unicam.cs.mpgc.rpg129546.effect;
-
 public class AtkDebuffEffect implements Effect{
     private final int duration = 3;
     public int tick = duration;
@@ -27,6 +26,9 @@ public class AtkDebuffEffect implements Effect{
     @Override
     public int getTick() {
         return tick;
+    }@Override
+    public tickType getType() {
+        return tickType.STATMOD;
     }
 
     @Override

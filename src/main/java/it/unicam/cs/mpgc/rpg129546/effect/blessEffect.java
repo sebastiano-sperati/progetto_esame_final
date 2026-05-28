@@ -30,6 +30,11 @@ public class blessEffect implements Effect{
     }
 
     @Override
+    public tickType getType() {
+        return tickType.STATMOD;
+    }
+
+    @Override
     public int modifyDif(int dif){
         return dif * 2;
     }

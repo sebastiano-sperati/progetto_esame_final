@@ -1,20 +1,33 @@
 plugins {
-    id 'java'
+    id 'application'
 }
 
-group = 'it.unicam.cs.mpgc.rpg129546'
-version = '1.0-SNAPSHOT'
+group = 'it.unicam.cs.mpgc'
+version = '1.0'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:6.0.0')
+    testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+application {
+    mainClass = 'it.unicam.cs.mpgc.rpg129546.Main'
 }
 
 test {
     useJUnitPlatform()
+}
+
+tasks.named('run'){
+    standardInput=System.in
 }

@@ -30,6 +30,11 @@ public class counterEffect implements Effect{
     }
 
     @Override
+    public tickType getType() {
+        return tickType.STATMOD;
+    }
+
+    @Override
     public int modifyDif(int dif){
         return (int) (dif * 1.5);
     }

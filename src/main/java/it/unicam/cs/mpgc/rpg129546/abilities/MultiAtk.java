@@ -16,7 +16,8 @@ public class MultiAtk implements Action {
             System.out.println(source.getNome() + " :ORA SI FA SUL SERIO " + target.getNome());
         } else {
             System.out.println(source.getNome() + " effettua " + this.nome + " contro " + target.getNome());
-        }        BaseAtk.applyAttack(source,target,1.0);
+        }
+        BaseAtk.applyAttack(source,target,1.0);
         BaseAtk.applyAttack(source,target,1.0);
     }
     @Override

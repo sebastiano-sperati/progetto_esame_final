@@ -1,13 +1,15 @@
 package it.unicam.cs.mpgc.rpg129546.effect;
 
+import it.unicam.cs.mpgc.rpg129546.model.Entity;
+
 public class FireEffect implements Effect{
     private final int duration = 2;
     public int tick = duration;
+    private final int dmg = 10;
     public String nome = "bruciato";
     @Override
     public void tick() {
         tick--;
-        //*molto probabilmente con lo scalare di ogni tick dato che il nemico prende danno di può benissimo richiamare take damage, ma adesso ci ragioniamo
     }
 
     @Override
@@ -28,6 +30,16 @@ public class FireEffect implements Effect{
     @Override
     public int getTick() {
         return tick;
+    }
+
+    @Override
+    public tickType getType() {
+        return tickType.DOT;
+    }
+
+    @Override
+    public void damageOverTime(Entity e){
+        e.takeDamage(dmg);
     }
 
 }

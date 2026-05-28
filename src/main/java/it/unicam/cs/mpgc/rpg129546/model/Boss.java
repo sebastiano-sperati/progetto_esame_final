@@ -7,8 +7,8 @@ public class Boss extends Enemy{
         this.ap=this.maxAp=40;
         this.dif=12;
         this.atk=20;
-        this.eva=0.10;
-        this.critChance=0.15;
-        this.critMult=1.8;
+        this.eva=eva;
+        this.critChance=critChance;
+        this.critMult=critMult;
     }
 }

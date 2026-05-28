@@ -31,6 +31,11 @@ public class FrostEffect implements Effect{
     }
 
     @Override
+    public tickType getType() {
+        return tickType.STATMOD;
+    }
+
+    @Override
     public int modifyDif(int dif){
         return (int) (dif * 0.75);
     }

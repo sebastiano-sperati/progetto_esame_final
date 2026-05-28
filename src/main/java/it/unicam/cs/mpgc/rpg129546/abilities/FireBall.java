@@ -8,6 +8,7 @@ import it.unicam.cs.mpgc.rpg129546.model.TargetType;
 public class FireBall implements Action{
     private final int cost = 6;
     private final String nome = "palla di fuoco";
+    private final double fireChance = 0.25;
 
     @Override
     public void execute(Entity source, Entity target) {
@@ -17,10 +18,9 @@ public class FireBall implements Action{
             System.out.println(source.getNome() + " :LE FIAMME MI GRAZIANO " + target.getNome());
         } else {
             System.out.println(source.getNome() + " effettua " + this.nome + " contro " + target.getNome());
-        }        BaseAtk.applyAttack(source,target,1.0);
-       // if(Math.random() < source.getFireChance()){
-        //    target.getManager().addEffect(new FireEffect());
-        //}
+        }
+        BaseAtk.applyAttack(source,target,1.0);
+        if(Math.random()<fireChance) target.getManager().addEffect(new FireEffect());
     }
     @Override
     public String getNome(){

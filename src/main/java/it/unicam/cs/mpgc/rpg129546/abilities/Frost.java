@@ -8,6 +8,8 @@ import it.unicam.cs.mpgc.rpg129546.model.TargetType;
 public class Frost implements Action{
     private final int cost = 4;
     private final String nome = "congelamento";
+    private final double frostChance = 0.25;
+
     @Override
     public void execute(Entity source, Entity target) {
         if(source.getAp() < cost) return;
@@ -18,9 +20,7 @@ public class Frost implements Action{
             System.out.println(source.getNome() + " effettua " + this.nome + " contro " + target.getNome());
         }
         BaseAtk.applyAttack(source, target, 0.7);
-      //  if(Math.random() < source.getChanceFrost()){
-        //    target.getManager().addEffect(new FrostEffect());
-        //}
+        if(Math.random()<frostChance) target.getManager().addEffect(new FrostEffect());
     }
     @Override
     public String getNome(){

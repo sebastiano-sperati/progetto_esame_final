@@ -31,6 +31,11 @@ public class InspiredEffect implements Effect{
     }
 
     @Override
+    public tickType getType() {
+        return tickType.STATMOD;
+    }
+
+    @Override
     public int modifyAtk(int atk){
         return (int) (atk * 1.25);
     }

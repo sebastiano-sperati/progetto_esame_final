@@ -19,7 +19,7 @@ public class AbilitySelector {
                     System.out.println("AP insufficienti");
                     continue;
                 }
-                return h.getAzioni().get(choice-1);
+                return selected;
             }
             System.out.println("selezionare un azione disponibile");
         }

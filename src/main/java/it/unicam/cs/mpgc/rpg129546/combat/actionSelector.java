@@ -8,6 +8,7 @@ public class actionSelector {
         while (true){
             System.out.println("1-combatti");
             System.out.println("2-mostra statistiche squadra");
+            System.out.println("3-mostra oggetti");
             int choice = sc.nextInt();
             switch (choice){
                 case 1 -> {
@@ -15,6 +16,9 @@ public class actionSelector {
                 }
                 case 2->{
                     return CombatComand.STATS;
+                }
+                case 3->{
+                    return CombatComand.ITEM;
                 }
                 default -> System.out.println("scelta non valida");
             }

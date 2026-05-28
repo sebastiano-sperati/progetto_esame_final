@@ -12,7 +12,7 @@ public class Lightning implements SplashAbility{
     private final String nome = "fulmine";
 
     @Override
-    public void executeSplash(Entity source, Entity target, abilityContext ctx) {
+    public void executeSplash(Entity source, Entity target, List<? extends Entity> ctx) {
         if(source.getAp() < cost)return;
         source.consumeAp(cost);
         List<Enemy> nemici = (List<Enemy>) ctx;
