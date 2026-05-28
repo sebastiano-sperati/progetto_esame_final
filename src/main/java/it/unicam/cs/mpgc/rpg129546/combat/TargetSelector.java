@@ -1,4 +1,5 @@
 package it.unicam.cs.mpgc.rpg129546.combat;
+import it.unicam.cs.mpgc.rpg129546.Items.Item;
 import it.unicam.cs.mpgc.rpg129546.abilities.Action;
 import it.unicam.cs.mpgc.rpg129546.model.Enemy;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
@@ -9,7 +10,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class TargetSelector {
-    public Entity SelectList(Action action, Entity source, List<Hero> eroi, List<Enemy> nemici ){
+    public Entity SelectListAction(Action action, Entity source, List<Hero> eroi, List<Enemy> nemici ){
         switch (action.getTargetType()){
             case ALLY ->{
                 if(source instanceof Hero) {
@@ -30,6 +31,23 @@ public class TargetSelector {
         }
 
     }
+
+    public Entity SelectListItem(Item i, Entity source, List<Hero> eroi, List<Enemy> nemici ){
+        switch (i.getTipo()){
+            case POTION -> {
+                return source;
+            }
+            case THROWABLE -> {
+                if(source instanceof Hero){
+                    return SelectTargetHero(nemici);
+                }
+                return SelectTargetEnemy(eroi);
+
+            }
+            default -> throw new IllegalStateException("bersagio non valido");
+        }
+    }
+
     public Entity SelectTargetHero(List<? extends Entity> list){
         Scanner sc = new Scanner(System.in);
         while (true){

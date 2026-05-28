@@ -11,11 +11,9 @@ public class ItemSelector {
     public Item selector(Hero h){
         while (true){
             System.out.println("selezionare un azione");
-            h.getItemManager().showInventory();
             choice = sc.nextInt();
             if(choice>=1 && choice<= h.getItemManager().getInventario().size()){
-                Item selected = h.getItemManager().getInventario().get(choice-1);
-                return selected;
+                return h.getItemManager().getInventario().get(choice-1);
             }
             System.out.println("selezione non valida");
         }

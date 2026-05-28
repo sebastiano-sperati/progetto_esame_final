@@ -23,27 +23,27 @@ public class BaseAtk implements Action {
     }
     public static void applyAttack(Entity source, Entity target , double multiplier){
         //EVA
-        if(Math.random() < target.getApplier().modifyEva(target)){
+        if(Math.random() < target.getEffectaApplier().modifyEva(target)){
             System.out.println(target.getNome() + " ha evitato l'attacco!");
             //COUNTER
-            if(target.getManager().hasEffect(counterEffect.class)){
+            if(target.getEffectManager().hasEffect(counterEffect.class)){
                 System.out.println(target.getNome() + " effettua un contrattacco!");
-                int dmg = target.getApplier().modifyAtk(target);
+                int dmg = target.getEffectaApplier().modifyAtk(target);
                 dmg = (int)(dmg * 1.5);
-                dmg -= source.getApplier().modifyDif(source);
+                dmg -= source.getEffectaApplier().modifyDif(source);
                 if (dmg < 0) dmg = 0;
                 source.takeDamage(dmg);
             }
         return;
         }
-        int dmg = source.getApplier().modifyAtk(source);
+        int dmg = source.getEffectaApplier().modifyAtk(source);
         dmg = (int)(dmg * multiplier);
 
-        if (Math.random() < source.getApplier().modifyCC(source)) {
+        if (Math.random() < source.getEffectaApplier().modifyCC(source)) {
             System.out.println(source.getNome() + " effettua un attacco critico!");
-            dmg = (int)(dmg * source.getApplier().modifyCM(source));
+            dmg = (int)(dmg * source.getEffectaApplier().modifyCM(source));
         }
-        dmg -= target.getApplier().modifyDif(target);
+        dmg -= target.getEffectaApplier().modifyDif(target);
         if (dmg < 0) dmg = 0;
         target.takeDamage(dmg);
     }

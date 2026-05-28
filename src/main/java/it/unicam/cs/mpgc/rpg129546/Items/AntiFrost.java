@@ -9,6 +9,7 @@ public class AntiFrost implements Item{
     private final int maxQta = 5;
     public int qta = 0;
     public ItemType tipo = ItemType.POTION;
+    private final int prezzo = 15;
 
     @Override
     public String getNome() {
@@ -17,9 +18,7 @@ public class AntiFrost implements Item{
 
     @Override
     public void use(Entity source, Entity target) {
-        for(Effect e: source.getManager().getEffects()){
-            source.getManager().getEffects().removeIf(effect -> effect instanceof FrostEffect);
-        }
+        source.getEffectManager().getEffects().removeIf(effect -> effect instanceof FrostEffect);
     }
 
     @Override
@@ -55,5 +54,10 @@ public class AntiFrost implements Item{
     @Override
     public ItemType getTipo() {
         return tipo;
+    }
+
+    @Override
+    public int getPrezzo() {
+        return prezzo;
     }
 }

@@ -7,6 +7,7 @@ public class HealingPotion implements Item{
     private final int maxQta = 5;
     public int qta = 0;
     public ItemType tipo = ItemType.POTION;
+    private final int prezzo = 5;
     @Override
     public String getNome() {
         return nome;
@@ -50,5 +51,10 @@ public class HealingPotion implements Item{
     @Override
     public ItemType getTipo() {
         return tipo;
+    }
+
+    @Override
+    public int getPrezzo() {
+        return prezzo;
     }
 }

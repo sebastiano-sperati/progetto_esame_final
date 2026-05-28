@@ -8,6 +8,7 @@ public class DefensePotion implements Item{
     private final int maxQta = 5;
     public int qta = 0;
     public ItemType tipo = ItemType.POTION;
+    private final int prezzo = 10;
     @Override
     public String getNome() {
         return nome;
@@ -15,7 +16,7 @@ public class DefensePotion implements Item{
 
     @Override
     public void use(Entity source, Entity target) {
-        source.getManager().addEffect(new PotionDefenseEffect());
+        source.getEffectManager().addEffect(new PotionDefenseEffect());
     }
 
     @Override
@@ -51,5 +52,10 @@ public class DefensePotion implements Item{
     @Override
     public ItemType getTipo() {
         return tipo;
+    }
+
+    @Override
+    public int getPrezzo() {
+        return prezzo;
     }
 }

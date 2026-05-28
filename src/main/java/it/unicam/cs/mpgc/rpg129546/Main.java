@@ -1,7 +1,10 @@
 package it.unicam.cs.mpgc.rpg129546;
+import it.unicam.cs.mpgc.rpg129546.Items.AntiFire;
+import it.unicam.cs.mpgc.rpg129546.Items.AntiFrost;
+import it.unicam.cs.mpgc.rpg129546.Items.PoisonKnives;
+import it.unicam.cs.mpgc.rpg129546.Items.StrenghtPotion;
 import it.unicam.cs.mpgc.rpg129546.combat.Battle;
 import it.unicam.cs.mpgc.rpg129546.model.*;
-import it.unicam.cs.mpgc.rpg129546.abilities.*;
 import it.unicam.cs.mpgc.rpg129546.effect.*;
 import java.util.*;
 
@@ -17,6 +20,16 @@ public class Main {
         heroes.add(tank);
         heroes.add(mage);
         heroes.add(healer);
+
+        dps.getItemManager().addItem(new StrenghtPotion());
+
+        tank.getItemManager().addItem(new PoisonKnives());
+
+        mage.getEffectManager().addEffect(new FireEffect());
+        mage.getItemManager().addItem(new AntiFire());
+
+        healer.getEffectManager().addEffect(new FrostEffect());
+        healer.getItemManager().addItem(new AntiFrost());
 
         Enemy goblin = new goblin("goblin",60,20,4,10,0.10,1.3,0.10,1);
         Enemy orc = new orco("orco",100,25,10,14,0.05,1.4,0.08,1);

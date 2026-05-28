@@ -12,4 +12,5 @@ public interface Item {
     int getQta();
     int getMaxQta();
     ItemType getTipo();
+    int getPrezzo();
 }

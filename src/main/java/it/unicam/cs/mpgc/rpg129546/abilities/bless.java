@@ -1,7 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.abilities;
 
 import it.unicam.cs.mpgc.rpg129546.effect.blessEffect;
-import it.unicam.cs.mpgc.rpg129546.effect.counterEffect;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import it.unicam.cs.mpgc.rpg129546.model.Hero;
 import it.unicam.cs.mpgc.rpg129546.model.TargetType;
@@ -18,7 +17,7 @@ public class bless implements Action{
             System.out.println(source.getNome() + " : CHE LA GRAZIA SIA CON TE  " + target.getNome());
         } else {
             System.out.println(source.getNome() + " utilizza " + this.nome + " su " + target.getNome());
-        }        source.getManager().addEffect(new blessEffect());
+        }        source.getEffectManager().addEffect(new blessEffect());
     }
     @Override
     public String getNome(){

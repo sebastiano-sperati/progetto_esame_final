@@ -20,7 +20,7 @@ public class FireBall implements Action{
             System.out.println(source.getNome() + " effettua " + this.nome + " contro " + target.getNome());
         }
         BaseAtk.applyAttack(source,target,1.0);
-        if(Math.random()<fireChance) target.getManager().addEffect(new FireEffect());
+        if(Math.random()<fireChance) target.getEffectManager().addEffect(new FireEffect());
     }
     @Override
     public String getNome(){

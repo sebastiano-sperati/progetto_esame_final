@@ -8,6 +8,7 @@ public class StrenghtPotion implements Item{
     private final int maxQta = 5;
     public int qta = 0;
     public ItemType tipo = ItemType.POTION;
+    private final int prezzo = 10;
     @Override
     public String getNome() {
         return nome;
@@ -15,7 +16,7 @@ public class StrenghtPotion implements Item{
 
     @Override
     public void use(Entity source, Entity target) {
-        source.getManager().addEffect(new StrenghtEffect());
+        source.getEffectManager().addEffect(new StrenghtEffect());
     }
 
     @Override
@@ -51,5 +52,10 @@ public class StrenghtPotion implements Item{
     @Override
     public ItemType getTipo() {
         return tipo;
+    }
+
+    @Override
+    public int getPrezzo() {
+        return prezzo;
     }
 }

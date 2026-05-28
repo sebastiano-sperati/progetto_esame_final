@@ -20,7 +20,7 @@ public class Frost implements Action{
             System.out.println(source.getNome() + " effettua " + this.nome + " contro " + target.getNome());
         }
         BaseAtk.applyAttack(source, target, 0.7);
-        if(Math.random()<frostChance) target.getManager().addEffect(new FrostEffect());
+        if(Math.random()<frostChance) target.getEffectManager().addEffect(new FrostEffect());
     }
     @Override
     public String getNome(){

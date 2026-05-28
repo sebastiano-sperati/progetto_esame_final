@@ -19,7 +19,7 @@ public class DebufAtk implements Action{
             System.out.println(source.getNome() + " effettua " + this.nome + " contro " + target.getNome());
         }        BaseAtk.applyAttack(source,target,0.7);
 
-        target.getManager().addEffect(new AtkDebuffEffect());
+        target.getEffectManager().addEffect(new AtkDebuffEffect());
     }
     @Override
     public String getNome(){

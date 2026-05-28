@@ -17,7 +17,7 @@ public class Defend implements Action{
             System.out.println(source.getNome() + " :ATTENZIONE!!!");
         } else {
             System.out.println(source.getNome() + " effettua " + this.nome);
-        }        source.getManager().addEffect(new DefenseEffect());
+        }        source.getEffectManager().addEffect(new DefenseEffect());
     }
     @Override
     public String getNome(){

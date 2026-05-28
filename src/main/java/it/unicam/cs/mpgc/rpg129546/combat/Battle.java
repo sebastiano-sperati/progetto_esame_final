@@ -1,6 +1,5 @@
 package it.unicam.cs.mpgc.rpg129546.combat;
 import it.unicam.cs.mpgc.rpg129546.Items.Item;
-import it.unicam.cs.mpgc.rpg129546.Items.ItemType;
 import it.unicam.cs.mpgc.rpg129546.abilities.Action;
 import it.unicam.cs.mpgc.rpg129546.abilities.SplashAbility;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
@@ -46,7 +45,7 @@ public class Battle {
 
         for (int i = 0; i < eroi.size(); i++) {
             if(eroi.get(i).isAlive()){
-                eroi.get(i).getManager().tickAll(eroi.get(i));
+                eroi.get(i).getEffectManager().tickAll(eroi.get(i));
                 System.out.println("TOCCA A " + eroi.get(i).getNome());
                 boolean endTurn = false;
                 while (!endTurn) {
@@ -57,7 +56,7 @@ public class Battle {
                         }
                         case FIGHT -> {
                             Action selected = Aselector.selectorHero((eroi.get(i)));
-                            Entity e = Tselector.SelectList(selected, eroi.get(i), eroi, nemici);
+                            Entity e = Tselector.SelectListAction(selected, eroi.get(i), eroi, nemici);
                             abilityContext ctx = new abilityContext(eroi, nemici);
                             if (selected instanceof SplashAbility) {
                                 ((SplashAbility) selected).executeSplash(eroi.get(i), e,  ctx.getTargets(selected, eroi.get(i)));
@@ -68,13 +67,14 @@ public class Battle {
                             endTurn = true;
                         }
                         case ITEM -> {
-                            Item selected = itemSelector.selector(eroi.get(i));
-                            if(selected.getTipo() == ItemType.POTION){
-                                selected.use(eroi.get(i),eroi.get(i));
-                            } else {
-                                Entity e = Tselector.SelectList(selected, eroi.get(i), eroi, nemici);
-
+                            eroi.get(i).getItemManager().showInventory();
+                            if (!eroi.get(i).getItemManager().getInventario().isEmpty()) {
+                                Item selected = itemSelector.selector(eroi.get(i));
+                                Entity e = Tselector.SelectListItem(selected, eroi.get(i), eroi, nemici);
+                                eroi.get(i).getItemManager().useItem(eroi.get(i), e, selected);
+                                endTurn = true;
                             }
+                            break;
                         }
                     }
                 }
@@ -87,10 +87,10 @@ public class Battle {
 
         for (int i = 0; i < nemici.size(); i++) {
             if(nemici.get(i).isAlive()){
-                nemici.get(i).getManager().tickAll(nemici.get(i));
+                nemici.get(i).getEffectManager().tickAll(nemici.get(i));
                 System.out.println("TOCCA A " + nemici.get(i).getNome() + " ");
                 Action selected = Aselector.selectorEnemy(nemici.get(i));
-                Entity e = Tselector.SelectList(selected,nemici.get(i),eroi,nemici);
+                Entity e = Tselector.SelectListAction(selected,nemici.get(i),eroi,nemici);
                 abilityContext ctx = new abilityContext(eroi,nemici);
                 if(selected instanceof  SplashAbility){
                     ((SplashAbility)selected).executeSplash(nemici.get(i), e , ctx.getTargets(selected, nemici.get(i)));
