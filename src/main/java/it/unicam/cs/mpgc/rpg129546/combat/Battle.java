@@ -1,10 +1,10 @@
 package it.unicam.cs.mpgc.rpg129546.combat;
-import it.unicam.cs.mpgc.rpg129546.Items.Item;
-import it.unicam.cs.mpgc.rpg129546.abilities.Action;
-import it.unicam.cs.mpgc.rpg129546.abilities.SplashAbility;
+import it.unicam.cs.mpgc.rpg129546.Items.Oggetti.Item;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Action;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.SplashAbility;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
-import it.unicam.cs.mpgc.rpg129546.model.Hero;
-import it.unicam.cs.mpgc.rpg129546.model.Enemy;
+import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
+import it.unicam.cs.mpgc.rpg129546.model.Nemici.Enemy;
 import it.unicam.cs.mpgc.rpg129546.abilities.abilityContext;
 
 import java.util.List;

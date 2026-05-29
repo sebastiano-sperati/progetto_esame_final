@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.effect;
 
+import it.unicam.cs.mpgc.rpg129546.effect.Effetti.Effect;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
 import java.util.ArrayList;

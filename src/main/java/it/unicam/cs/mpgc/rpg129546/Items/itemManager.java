@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.Items;
 
+import it.unicam.cs.mpgc.rpg129546.Items.Oggetti.Item;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ public class itemManager {
         if(inventario.isEmpty()) {
             inventario.add(i);
             i.increaseCount();
-        }else {
+        } else {
             for (Item item : inventario) {
                 if (i.getClass() == item.getClass()) {
                     if (item.isFull()) {

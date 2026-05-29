@@ -1,7 +1,7 @@
 package it.unicam.cs.mpgc.rpg129546.combat;
 
-import it.unicam.cs.mpgc.rpg129546.Items.Item;
-import it.unicam.cs.mpgc.rpg129546.model.Hero;
+import it.unicam.cs.mpgc.rpg129546.Items.Oggetti.Item;
+import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
 
 import java.util.Scanner;
 

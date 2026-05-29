@@ -1,10 +1,11 @@
 package it.unicam.cs.mpgc.rpg129546.effect;
 
+import it.unicam.cs.mpgc.rpg129546.effect.Effetti.Effect;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
 public class EffectApplier {
     public int modifyAtk(Entity e){
-        int atk = e.getScaledAtk();
+        int atk = e.getScaledDmg();
         for (Effect effect : e.getEffectManager().getEffects()){
             atk=effect.modifyAtk(atk);
         }

@@ -1,11 +1,17 @@
 package it.unicam.cs.mpgc.rpg129546.model;
 
+import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Armor;
+import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Weapon;
 import it.unicam.cs.mpgc.rpg129546.Items.itemManager;
-import it.unicam.cs.mpgc.rpg129546.abilities.Action;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Action;
 import it.unicam.cs.mpgc.rpg129546.effect.EffectApplier;
 import it.unicam.cs.mpgc.rpg129546.effect.effectManager;
 
 import java.util.List;
+
+import static it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Rarity.STARTER;
+import static it.unicam.cs.mpgc.rpg129546.Equipaggiamento.WeaponScaling.STR;
+import static it.unicam.cs.mpgc.rpg129546.Equipaggiamento.WeaponScaling.WIS;
 
 public abstract class Entity {
     protected String nome;
@@ -13,22 +19,26 @@ public abstract class Entity {
     protected int ap, maxAp;
     protected int dif;
     protected int atk;
+    protected int wis;
     protected double eva;
     protected  double critMult, critChance;
     protected boolean isAlive;
     protected int lvl;
+    protected Weapon arma;
+    private Armor armatura;
     protected itemManager itemManager = new itemManager();
     protected effectManager EffectManager = new effectManager();
     protected EffectApplier EffectaApplier = new EffectApplier();
     protected List<Action> azioni;
 
-    public Entity(String nome, int maxHp, int maxAp, int dif, int atk, double eva, double critMult, double critChance, int lvl){
+    public Entity(String nome, int maxHp, int maxAp, int dif, int atk,int wis, double eva, double critMult, double critChance, int lvl){
         this.maxHp=maxHp;
         this.hp=this.getMaxHp();
         this.maxAp=maxAp;
         this.ap=this.getMaxAp();
         this.dif=dif;
         this.atk=atk;
+        this.wis=wis;
         this.eva=eva;
         this.critChance=critChance;
         this.critMult=critMult;
@@ -37,6 +47,23 @@ public abstract class Entity {
         this.lvl=lvl;
         this.EffectManager = new effectManager();
         this.EffectaApplier = new EffectApplier();
+        this.arma = new Weapon("arma comune",STARTER,STR);
+        this.armatura = new Armor("armatura comune",STARTER);
+    }
+
+    public Weapon getArma(){
+        return this.arma;
+    }
+    public Armor getArmatura(){
+        return this.armatura;
+    }
+
+    public void equipaggiaArma(Weapon armaNuova){
+        this.arma=armaNuova;
+    }
+
+    public void equipaggiaArmatura(Armor armaturaNuova){
+        this.armatura=armaturaNuova;
     }
 
     public effectManager getEffectManager(){
@@ -55,9 +82,20 @@ public abstract class Entity {
 
     public int getScaledAtk(){return (this.atk + this.lvl * 3);}
 
+    public int getWis(){return this.wis;}
+
+    public int getScaledWis(){return (int) (this.wis + this.lvl * 3);}
+
+    public int getScaledDmg(){
+        if(this.arma.getScaling()==WIS){
+            return (int) (this.getScaledWis() * this.arma.getModifier());
+        }
+        return (int) (this.getScaledAtk() * this.arma.getModifier());
+    }
+
     public int getDif(){return this.dif;}
 
-    public int getScaledDif(){return this.dif + this.lvl * 2;}
+    public int getScaledDif(){return (int) ((this.dif + this.lvl * 2) * this.armatura.getModifier());}
 
     public double getEva(){return this.eva;}
 

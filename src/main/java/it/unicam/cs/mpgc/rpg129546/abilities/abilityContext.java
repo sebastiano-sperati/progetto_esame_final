@@ -1,8 +1,9 @@
 package it.unicam.cs.mpgc.rpg129546.abilities;
 
-import it.unicam.cs.mpgc.rpg129546.model.Enemy;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Action;
+import it.unicam.cs.mpgc.rpg129546.model.Nemici.Enemy;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
-import it.unicam.cs.mpgc.rpg129546.model.Hero;
+import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
 
 import java.util.List;
 

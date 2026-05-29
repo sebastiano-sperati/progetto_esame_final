@@ -1,8 +1,8 @@
 package it.unicam.cs.mpgc.rpg129546.combat;
 
-import it.unicam.cs.mpgc.rpg129546.abilities.Action;
-import it.unicam.cs.mpgc.rpg129546.model.Enemy;
-import it.unicam.cs.mpgc.rpg129546.model.Hero;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Action;
+import it.unicam.cs.mpgc.rpg129546.model.Nemici.Enemy;
+import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
 import java.util.Scanner;
 
 public class AbilitySelector {
