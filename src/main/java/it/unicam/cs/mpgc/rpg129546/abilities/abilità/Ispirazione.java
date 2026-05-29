@@ -17,7 +17,9 @@ public class Ispirazione implements Action{
             System.out.println(source.getNome() + " :NON ARRENDERTI " + target.getNome());
         } else {
             System.out.println(source.getNome() + " utilizza " + this.nome + " su " + target.getNome());
-        }        target.getEffectManager().addEffect(new InspiredEffect());
+        }
+
+        target.getEffectManager().addEffect(new InspiredEffect());
     }
     @Override
     public String getNome(){

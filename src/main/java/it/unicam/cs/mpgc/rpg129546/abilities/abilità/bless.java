@@ -17,7 +17,8 @@ public class bless implements Action{
             System.out.println(source.getNome() + " : CHE LA GRAZIA SIA CON TE  " + target.getNome());
         } else {
             System.out.println(source.getNome() + " utilizza " + this.nome + " su " + target.getNome());
-        }        source.getEffectManager().addEffect(new blessEffect());
+        }
+        source.getEffectManager().addEffect(new blessEffect());
     }
     @Override
     public String getNome(){

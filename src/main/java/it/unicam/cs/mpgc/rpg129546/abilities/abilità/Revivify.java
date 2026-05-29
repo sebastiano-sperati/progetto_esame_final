@@ -16,7 +16,9 @@ public class Revivify implements Action{
             System.out.println(source.getNome() + " :ANCORA UNA VOLTA " + target.getNome());
         } else {
             System.out.println(source.getNome() + " effettua " + this.nome + " contro " + target.getNome());
-        }        target.setAlive(true);
+        }
+
+        target.setAlive(true);
         int heal = target.getMaxAp()/2;
         target.Heal(heal);
     }

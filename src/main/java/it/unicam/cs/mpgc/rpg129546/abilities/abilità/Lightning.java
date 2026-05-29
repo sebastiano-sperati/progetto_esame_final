@@ -21,7 +21,8 @@ public class Lightning implements SplashAbility{
             System.out.println(source.getNome() + " :BAHAMU CONCEDIMI LA FORZA " + target.getNome());
         } else {
             System.out.println(source.getNome() + " effettua " + this.nome + " contro " + target.getNome());
-        }        BaseAtk.applyAttack(source,target,1.0);
+        }
+        BaseAtk.applyAttack(source,target,1.0);
         if(index > 0){
             BaseAtk.applyAttack(source,nemici.get(index-1),0.5);
         }

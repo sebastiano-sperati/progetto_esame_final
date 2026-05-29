@@ -17,34 +17,27 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Hero dps1 = new Dps("dps1",80,30,6,14,10,0.10,1.5,0.15,1);
-        Hero dps2 = new Dps("dps2",80,30,6,14,10,0.10,1.5,0.15,1);
-        Hero dps3 = new Dps("dps3",80,30,6,14,10,0.10,1.5,0.15,1);
-        Hero dps4 = new Dps("dps4",80,30,6,14,10,0.10,1.5,0.15,1);
+
+        Hero healer1 = new Healer("healer1",80,30,6,14,10,0.10,1.5,0.15,1);
+        Hero healer2 = new Healer("healer2",80,30,6,14,10,0.10,1.5,0.15,1);
+        Hero healer3 = new Healer("healer3",80,30,6,14,10,0.10,1.5,0.15,1);
+        Hero healer4 = new Healer("healer4",80,30,6,14,10,0.10,1.5,0.15,1);
+
 
         List<Hero> heroes = new ArrayList<>();
-        heroes.add(dps1);
-        heroes.add(dps2);
-        heroes.add(dps3);
-        heroes.add(dps4);
 
-        dps2.equipaggiaArma(new Weapon("bastone magioc",Rarity.STARTER,WeaponScaling.WIS));
-
-        dps3.equipaggiaArma(new Weapon("arma leggendaria", Rarity.LEGGENDARIO,WeaponScaling.STR));
-        dps3.equipaggiaArmatura(new Armor("armatura leggendaria", Rarity.LEGGENDARIO));
+        heroes.add(healer1);
+        heroes.add(healer2);
+        heroes.add(healer3);
+        heroes.add(healer4);
 
 
 
-        Enemy goblin = new goblin("goblin",60,20,4,10,10,0.10,1.3,0.10,1);
-        Enemy orc = new orco("orco",100,25,10,14,10,0.05,1.4,0.08,1);
-        Enemy wraith = new Wraith("wratih",85,30,6,13,10,0.20,1.5,0.15,1);
-        Enemy imp = new imp("imp",55,25,3,11,10,0.25,1.6,0.18,1);
+        Enemy goblin = new goblin("goblin",60,20,4,1000000,10,0.10,1.3,0.10,1);
 
         List<Enemy> enemies = new ArrayList<>();
         enemies.add(goblin);
-        enemies.add(orc);
-        enemies.add(wraith);
-        enemies.add(imp);
+
 
         Battle battle = new Battle(heroes,enemies);
         battle.Start();

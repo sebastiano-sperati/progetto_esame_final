@@ -17,8 +17,9 @@ public class DebufAtk implements Action{
             System.out.println(source.getNome() + " :VEDIAMO COME TE LA CAVI " + target.getNome());
         } else {
             System.out.println(source.getNome() + " effettua " + this.nome + " contro " + target.getNome());
-        }        BaseAtk.applyAttack(source,target,0.7);
+        }
 
+        BaseAtk.applyAttack(source,target,0.7);
         target.getEffectManager().addEffect(new AtkDebuffEffect());
     }
     @Override

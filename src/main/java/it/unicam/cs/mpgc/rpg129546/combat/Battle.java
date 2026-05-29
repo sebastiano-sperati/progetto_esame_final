@@ -28,7 +28,7 @@ public class Battle {
         while (heroseAlive() && enemyAlive()){
             battleManager.StartTurnRestore(nemici,eroi);
             heroTurn();
-            enemyTurn();
+            if(enemyAlive()) enemyTurn();
         }
         End();
     }
@@ -44,66 +44,68 @@ public class Battle {
         System.out.println("E' IL TURNO DEGLI EROI !!!");
 
         for (int i = 0; i < eroi.size(); i++) {
-            if(eroi.get(i).isAlive()){
-                eroi.get(i).getEffectManager().tickAll(eroi.get(i));
-                System.out.println("TOCCA A " + eroi.get(i).getNome());
-                boolean endTurn = false;
-                while (!endTurn) {
-                    CombatComand comand = actionSelector.select();
-                    switch (comand) {
-                        case STATS ->{
-                            eroi.get(i).showSquadStats(eroi);
-                        }
-                        case FIGHT -> {
-                            Action selected = Aselector.selectorHero((eroi.get(i)));
-                            Entity e = Tselector.SelectListAction(selected, eroi.get(i), eroi, nemici);
-                            abilityContext ctx = new abilityContext(eroi, nemici);
-                            if (selected instanceof SplashAbility) {
-                                ((SplashAbility) selected).executeSplash(eroi.get(i), e,  ctx.getTargets(selected, eroi.get(i)));
-                            } else {
-                                selected.execute(eroi.get(i), e);
-                                System.out.println("fatto");
+            if (enemyAlive()) {
+                if (eroi.get(i).isAlive()) {
+                    eroi.get(i).getEffectManager().tickAll(eroi.get(i));
+                    System.out.println("TOCCA A " + eroi.get(i).getNome());
+                    boolean endTurn = false;
+                    while (!endTurn) {
+                        CombatComand comand = actionSelector.select();
+                        switch (comand) {
+                            case STATS -> {
+                                eroi.get(i).showSquadStats(eroi);
                             }
-                            endTurn = true;
-                        }
-                        case ITEM -> {
-                            eroi.get(i).getItemManager().showInventory();
-                            if (!eroi.get(i).getItemManager().getInventario().isEmpty()) {
-                                Item selected = itemSelector.selector(eroi.get(i));
-                                Entity e = Tselector.SelectListItem(selected, eroi.get(i), eroi, nemici);
-                                eroi.get(i).getItemManager().useItem(eroi.get(i), e, selected);
+                            case FIGHT -> {
+                                Action selected = Aselector.selectorHero((eroi.get(i)));
+                                Entity e = Tselector.SelectListAction(selected, eroi.get(i), eroi, nemici);
+                                abilityContext ctx = new abilityContext(eroi, nemici);
+                                if (selected instanceof SplashAbility) {
+                                    ((SplashAbility) selected).executeSplash(eroi.get(i), e, ctx.getTargets(selected, eroi.get(i)));
+                                } else {
+                                    selected.execute(eroi.get(i), e);
+                                    System.out.println("fatto");
+                                }
                                 endTurn = true;
                             }
-                            break;
+                            case ITEM -> {
+                                eroi.get(i).getItemManager().showInventory();
+                                if (!eroi.get(i).getItemManager().getInventario().isEmpty()) {
+                                    Item selected = itemSelector.selector(eroi.get(i));
+                                    Entity e = Tselector.SelectListItem(selected, eroi.get(i), eroi, nemici);
+                                    eroi.get(i).getItemManager().useItem(eroi.get(i), e, selected);
+                                    endTurn = true;
+                                }
+                            }
                         }
                     }
                 }
+                removeDed();
             }
-            removeDed();
         }
     }
     private void enemyTurn(){
         System.out.println("E' IL TURNO DEI NEMICI!!!");
 
         for (int i = 0; i < nemici.size(); i++) {
-            if(nemici.get(i).isAlive()){
-                nemici.get(i).getEffectManager().tickAll(nemici.get(i));
-                System.out.println("TOCCA A " + nemici.get(i).getNome() + " ");
-                Action selected = Aselector.selectorEnemy(nemici.get(i));
-                Entity e = Tselector.SelectListAction(selected,nemici.get(i),eroi,nemici);
-                abilityContext ctx = new abilityContext(eroi,nemici);
-                if(selected instanceof  SplashAbility){
-                    ((SplashAbility)selected).executeSplash(nemici.get(i), e , ctx.getTargets(selected, nemici.get(i)));
-                }else {
-                    selected.execute(nemici.get(i), e);
+            if (heroseAlive()) {
+                if (nemici.get(i).isAlive()) {
+                    nemici.get(i).getEffectManager().tickAll(nemici.get(i));
+                    System.out.println("TOCCA A " + nemici.get(i).getNome() + " ");
+                    Action selected = Aselector.selectorEnemy(nemici.get(i));
+                    Entity e = Tselector.SelectListAction(selected, nemici.get(i), eroi, nemici);
+                    abilityContext ctx = new abilityContext(eroi, nemici);
+                    if (selected instanceof SplashAbility) {
+                        ((SplashAbility) selected).executeSplash(nemici.get(i), e, ctx.getTargets(selected, nemici.get(i)));
+                    } else {
+                        selected.execute(nemici.get(i), e);
+                    }
                 }
+                removeDed();
             }
-            removeDed();
         }
     }
     private void removeDed(){
         nemici.removeIf(n -> !n.isAlive());
-        eroi.removeIf(e -> !e.isAlive());
     }
     private void End(){
         if(heroseAlive()){

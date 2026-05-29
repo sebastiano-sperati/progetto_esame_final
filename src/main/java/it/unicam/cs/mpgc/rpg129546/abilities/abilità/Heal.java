@@ -16,7 +16,9 @@ public class Heal implements Action{
             System.out.println(source.getNome() + " :che gli dei abbiano cura di te " + target.getNome());
         } else {
             System.out.println(source.getNome() + " utilizza " + this.nome + " su " + target.getNome());
-        }        int heal = (int) (10 + (target.getMaxHp() - target.getHp()) * 0.3);
+        }
+
+        int heal = (int) (10 + (target.getMaxHp() - target.getHp()) * 0.3);
         target.Heal(heal);
     }
     @Override

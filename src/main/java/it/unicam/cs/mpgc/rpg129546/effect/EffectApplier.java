@@ -43,7 +43,4 @@ public class EffectApplier {
         }
         return cc;
     }
-    public void applyDOT(Entity entity, Effect effect){
-        effect.damageOverTime(entity);
-    }
 }

@@ -16,7 +16,9 @@ public class Restore implements Action{
             System.out.println(source.getNome() + " :stringi i denti ancora per un po... " + target.getNome());
         } else {
             System.out.println(source.getNome() + " effettua " + this.nome + " contro " + target.getNome());
-        }        target.restore(6);
+        }
+
+        target.restore(6);
     }
     @Override
     public String getNome(){

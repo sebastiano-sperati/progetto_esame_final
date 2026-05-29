@@ -17,7 +17,9 @@ public class Fear implements Action{
             System.out.println(source.getNome() + " :SEI MIOOOOO " + target.getNome());
         } else {
             System.out.println(source.getNome() + " effettua " + this.nome + " contro " + target.getNome());
-        }        target.getEffectManager().addEffect(new ScaredEffect());
+        }
+
+        target.getEffectManager().addEffect(new ScaredEffect());
     }
     @Override
     public String getNome(){

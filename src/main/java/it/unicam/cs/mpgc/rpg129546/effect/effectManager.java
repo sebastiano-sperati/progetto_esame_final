@@ -27,7 +27,7 @@ public class effectManager {
         public void tickAll(Entity owner){
                 for (Effect e : effects){
                         e.tick();
-                        if(e.getType() == tickType.DOT) owner.getEffectaApplier().applyDOT(owner,e);
+                        if(e.getType() == tickType.DOT) e.damageOverTime(owner);
                 }
                 effects.removeIf(Effect::isExpired);
         }
