@@ -2,7 +2,7 @@ package it.unicam.cs.mpgc.rpg129546.model;
 
 import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Armor;
 import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Weapon;
-import it.unicam.cs.mpgc.rpg129546.Items.itemManager;
+import it.unicam.cs.mpgc.rpg129546.Items.inventoryManager;
 import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Action;
 import it.unicam.cs.mpgc.rpg129546.effect.EffectApplier;
 import it.unicam.cs.mpgc.rpg129546.effect.effectManager;
@@ -26,12 +26,12 @@ public abstract class Entity {
     protected int lvl;
     protected Weapon arma;
     private Armor armatura;
-    protected itemManager itemManager = new itemManager();
+    protected inventoryManager inventoryManager = new inventoryManager();
     protected effectManager EffectManager = new effectManager();
     protected EffectApplier EffectaApplier = new EffectApplier();
     protected List<Action> azioni;
 
-    public Entity(String nome, int maxHp, int maxAp, int dif, int atk,int wis, double eva, double critMult, double critChance, int lvl){
+    public Entity(String nome, int maxHp, int maxAp, int dif, int atk, int wis, double eva, double critMult, double critChance, int lvl){
         this.maxHp=maxHp;
         this.hp=this.getMaxHp();
         this.maxAp=maxAp;
@@ -54,6 +54,7 @@ public abstract class Entity {
     public Weapon getArma(){
         return this.arma;
     }
+
     public Armor getArmatura(){
         return this.armatura;
     }
@@ -70,8 +71,8 @@ public abstract class Entity {
         return this.EffectManager;
     }
 
-    public itemManager getItemManager(){
-        return this.itemManager;
+    public inventoryManager getInventoryManager(){
+        return this.inventoryManager;
     }
 
     public EffectApplier getEffectaApplier(){

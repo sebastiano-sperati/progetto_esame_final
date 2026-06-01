@@ -1,5 +1,5 @@
 package it.unicam.cs.mpgc.rpg129546.combat;
-import it.unicam.cs.mpgc.rpg129546.Items.Oggetti.Item;
+import it.unicam.cs.mpgc.rpg129546.Items.Consumabili.Item;
 import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Action;
 import it.unicam.cs.mpgc.rpg129546.model.Nemici.Enemy;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;

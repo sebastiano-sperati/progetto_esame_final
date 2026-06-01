@@ -1,8 +1,8 @@
 package it.unicam.cs.mpgc.rpg129546.Equipaggiamento;
 
-public interface Equipaggiamento {
-    String getNome();
-    int getPrezzo();
+import it.unicam.cs.mpgc.rpg129546.Shop.GenericItem;
+
+public interface Equipaggiamento extends GenericItem {
     Rarity getRarity();
     double getModifier();
 }

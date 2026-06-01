@@ -1,15 +1,14 @@
-package it.unicam.cs.mpgc.rpg129546.Items.Oggetti.Consumabili;
+package it.unicam.cs.mpgc.rpg129546.Items.Consumabili;
 
 import it.unicam.cs.mpgc.rpg129546.Items.ItemType;
-import it.unicam.cs.mpgc.rpg129546.Items.Oggetti.Item;
-import it.unicam.cs.mpgc.rpg129546.effect.Effetti.FireEffect;
+import it.unicam.cs.mpgc.rpg129546.effect.Effetti.Poison;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
-public class AntiFire implements Item {
-    public String nome = "pozione ignifuga";
+public class PoisonKnives implements Item {
+    public String nome = "coltelli veleno";
     private final int maxQta = 5;
     public int qta = 0;
-    public ItemType tipo = ItemType.POTION;
+    public ItemType tipo = ItemType.THROWABLE;
     private final int prezzo = 15;
     @Override
     public String getNome() {
@@ -18,12 +17,12 @@ public class AntiFire implements Item {
 
     @Override
     public void use(Entity source, Entity target) {
-        source.getEffectManager().getEffects().removeIf(effect -> effect instanceof FireEffect);
+        target.getEffectManager().addEffect(new Poison());
     }
 
     @Override
     public boolean isFull() {
-        return qta==maxQta;
+        return qta == maxQta;
     }
 
     @Override

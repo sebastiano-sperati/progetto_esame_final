@@ -1,15 +1,16 @@
-package it.unicam.cs.mpgc.rpg129546.Items.Oggetti.Consumabili;
+package it.unicam.cs.mpgc.rpg129546.Items.Consumabili;
 
 import it.unicam.cs.mpgc.rpg129546.Items.ItemType;
-import it.unicam.cs.mpgc.rpg129546.Items.Oggetti.Item;
+import it.unicam.cs.mpgc.rpg129546.effect.Effetti.FrostEffect;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
-public class StaminaPotion implements Item {
-    public String nome = "pozione di energia";
+public class AntiFrost implements Item {
+    public String nome = "pozioni anti gelo";
     private final int maxQta = 5;
     public int qta = 0;
     public ItemType tipo = ItemType.POTION;
-    private final int prezzo = 5;
+    private final int prezzo = 15;
+
     @Override
     public String getNome() {
         return nome;
@@ -17,7 +18,7 @@ public class StaminaPotion implements Item {
 
     @Override
     public void use(Entity source, Entity target) {
-        source.restore(10);
+        source.getEffectManager().getEffects().removeIf(effect -> effect instanceof FrostEffect);
     }
 
     @Override

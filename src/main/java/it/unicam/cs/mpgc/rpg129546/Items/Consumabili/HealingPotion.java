@@ -1,7 +1,6 @@
-package it.unicam.cs.mpgc.rpg129546.Items.Oggetti.Consumabili;
+package it.unicam.cs.mpgc.rpg129546.Items.Consumabili;
 
 import it.unicam.cs.mpgc.rpg129546.Items.ItemType;
-import it.unicam.cs.mpgc.rpg129546.Items.Oggetti.Item;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
 public class HealingPotion implements Item {

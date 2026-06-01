@@ -1,16 +1,15 @@
-package it.unicam.cs.mpgc.rpg129546.Items.Oggetti.Consumabili;
+package it.unicam.cs.mpgc.rpg129546.Items.Consumabili;
 
 import it.unicam.cs.mpgc.rpg129546.Items.ItemType;
-import it.unicam.cs.mpgc.rpg129546.Items.Oggetti.Item;
-import it.unicam.cs.mpgc.rpg129546.effect.Effetti.Poison;
+import it.unicam.cs.mpgc.rpg129546.effect.Effetti.PotionDefenseEffect;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
-public class PoisonKnives implements Item {
-    public String nome = "coltelli veleno";
+public class DefensePotion implements Item {
+    public String nome = "pozione di difesa";
     private final int maxQta = 5;
     public int qta = 0;
-    public ItemType tipo = ItemType.THROWABLE;
-    private final int prezzo = 15;
+    public ItemType tipo = ItemType.POTION;
+    private final int prezzo = 10;
     @Override
     public String getNome() {
         return nome;
@@ -18,7 +17,7 @@ public class PoisonKnives implements Item {
 
     @Override
     public void use(Entity source, Entity target) {
-        target.getEffectManager().addEffect(new Poison());
+        source.getEffectManager().addEffect(new PotionDefenseEffect());
     }
 
     @Override

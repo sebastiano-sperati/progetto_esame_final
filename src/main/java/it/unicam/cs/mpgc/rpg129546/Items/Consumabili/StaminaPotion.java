@@ -1,16 +1,14 @@
-package it.unicam.cs.mpgc.rpg129546.Items.Oggetti.Consumabili;
+package it.unicam.cs.mpgc.rpg129546.Items.Consumabili;
 
 import it.unicam.cs.mpgc.rpg129546.Items.ItemType;
-import it.unicam.cs.mpgc.rpg129546.Items.Oggetti.Item;
-import it.unicam.cs.mpgc.rpg129546.effect.Effetti.PotionDefenseEffect;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
-public class DefensePotion implements Item {
-    public String nome = "pozione di difesa";
+public class StaminaPotion implements Item {
+    public String nome = "pozione di energia";
     private final int maxQta = 5;
     public int qta = 0;
     public ItemType tipo = ItemType.POTION;
-    private final int prezzo = 10;
+    private final int prezzo = 5;
     @Override
     public String getNome() {
         return nome;
@@ -18,7 +16,7 @@ public class DefensePotion implements Item {
 
     @Override
     public void use(Entity source, Entity target) {
-        source.getEffectManager().addEffect(new PotionDefenseEffect());
+        source.restore(10);
     }
 
     @Override

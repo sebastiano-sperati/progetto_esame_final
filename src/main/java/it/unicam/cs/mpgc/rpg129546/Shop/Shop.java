@@ -1,0 +1,111 @@
+package it.unicam.cs.mpgc.rpg129546.Shop;
+
+import it.unicam.cs.mpgc.rpg129546.Items.Consumabili.*;
+import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Armor;
+import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Equipaggiamento;
+import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Rarity;
+import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Weapon;
+import it.unicam.cs.mpgc.rpg129546.Items.Consumabili.Item;
+import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import static it.unicam.cs.mpgc.rpg129546.Equipaggiamento.WeaponScaling.STR;
+import static it.unicam.cs.mpgc.rpg129546.Equipaggiamento.WeaponScaling.WIS;
+
+public class Shop {
+
+    private final List<GenericItem> catalogo;
+    private final List<Stock> stock;
+
+    public Shop(){
+        this.catalogo=new ArrayList<>();
+        this.stock=new ArrayList<>();
+
+        inizializzaCatalogo();
+    }
+
+    public void inizializzaCatalogo(){
+        catalogo.add(new AntiFire());
+        catalogo.add(new AntiFrost());
+        catalogo.add(new DefensePotion());
+        catalogo.add(new HealingPotion());
+        catalogo.add(new PoisonKnives());
+        catalogo.add(new StaminaPotion());
+        catalogo.add(new StrenghtPotion());
+
+        catalogo.add(new Weapon("spada iniziale", Rarity.STARTER,STR));
+        catalogo.add(new Weapon("bastone iniziale", Rarity.STARTER,WIS));
+
+        catalogo.add(new Weapon("spada comune", Rarity.COMUNE,STR));
+        catalogo.add(new Weapon("bastone comune",Rarity.COMUNE,WIS));
+
+        catalogo.add(new Weapon("spada rara",Rarity.RARO,STR));
+        catalogo.add(new Weapon("bastone raro",Rarity.RARO,WIS));
+
+        catalogo.add(new Weapon("spada leggendaria", Rarity.LEGGENDARIO,STR));
+        catalogo.add(new Weapon("bastone leggendario",Rarity.LEGGENDARIO,WIS));
+
+        catalogo.add(new Armor("armatura iniziale",Rarity.STARTER));
+        catalogo.add(new Armor("armatura comune",Rarity.COMUNE));
+        catalogo.add(new Armor("armatura rara",Rarity.COMUNE));
+        catalogo.add(new Armor("armatura leggendaria",Rarity.LEGGENDARIO));
+    }
+
+    public void refreshStock(){
+        stock.clear();
+
+        Random random = new Random();
+
+        for (int i = 0; i < 5; i++) {
+            GenericItem item = catalogo.get(random.nextInt(catalogo.size()));
+            int qta = item.getShopQta();
+            stock.add(new Stock(item,qta));
+        }
+    }
+
+    public void showStock(){
+        System.out.println("===SHOP===");
+            for (int i = 0; i < stock.size(); i++) {
+                System.out.println((i+1) + " " + stock.get(i).getItem().getNome() + " " + stock.get(i).getItem().getPrezzo() + "$ - qta: " + stock.get(i).getQta());
+            }
+    }
+
+    public void buyItem(Hero h, int index){
+        GenericItem item = stock.get(index).getItem();
+
+        if(h.getGold()<item.getPrezzo()){
+            System.out.println("denaro insufficiente");
+            return;
+        }
+
+        h.subGold(item.getPrezzo());
+
+        if(item instanceof Equipaggiamento){
+            if(item instanceof Weapon) {
+                h.equipaggiaArma((Weapon) item);
+            } else {
+                h.equipaggiaArmatura((Armor) item);
+            }
+        } else {
+            h.getInventoryManager().addItem((Item) item);
+        }
+
+        stock.get(index).decreaseQta();
+        if(stock.get(index).soldOut()) stock.remove(index);
+
+        System.out.println(h.getNome() + "acquista" + item.getNome());
+    }
+
+    public void sellItem(Hero h, int index){
+        GenericItem item = h.getInventoryManager().getInventario().get(index);
+
+        h.addGold(item.getPrezzo()/2);
+
+        h.getInventoryManager().getInventario().remove(index);
+
+        System.out.println(h.getNome() + "vende" + item.getNome());
+    }
+}
