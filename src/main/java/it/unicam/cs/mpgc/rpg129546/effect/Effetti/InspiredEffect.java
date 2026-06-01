@@ -1,6 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.effect.Effetti;
 
-import it.unicam.cs.mpgc.rpg129546.effect.tickType;
+import it.unicam.cs.mpgc.rpg129546.effect.TickType;
 
 public class InspiredEffect implements Effect{
     private final int duration = 3;
@@ -33,8 +33,8 @@ public class InspiredEffect implements Effect{
     }
 
     @Override
-    public tickType getType() {
-        return tickType.STATMOD;
+    public TickType getType() {
+        return TickType.STATMOD;
     }
 
     @Override

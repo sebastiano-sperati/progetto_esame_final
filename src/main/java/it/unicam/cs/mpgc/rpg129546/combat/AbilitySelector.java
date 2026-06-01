@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class AbilitySelector {
     Scanner sc = new Scanner(System.in);
     public int choice;
+    //selector per il giocatore
     public Action selectorHero(Hero h){
         while(true){
             System.out.println("selezionare un abilità");
@@ -24,7 +25,7 @@ public class AbilitySelector {
             System.out.println("selezionare un azione disponibile");
         }
     }
-
+    //selector per l'ai (sceglie sempre l'azione più costosa disponibile
     public Action selectorEnemy(Enemy e){
         Action selected = null;
         for (int i = 0; i < e.getAzioni().size(); i++) {

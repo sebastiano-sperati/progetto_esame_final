@@ -6,7 +6,7 @@ import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class inventoryManager {
+public class InventoryManager {
 
     private List<Item> inventario = new ArrayList<>();
 

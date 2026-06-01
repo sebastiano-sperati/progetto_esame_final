@@ -1,11 +1,11 @@
 package it.unicam.cs.mpgc.rpg129546.effect.Effetti;
 
-import it.unicam.cs.mpgc.rpg129546.effect.tickType;
+import it.unicam.cs.mpgc.rpg129546.effect.TickType;
 
-public class counterEffect implements Effect{
-    private final int duration = 1;
+public class BlessEffect implements Effect{
+    private final int duration = 3;
     public int tick = duration;
-    private String nome = "contrattacco";
+    public String nome = "benedizione";
     @Override
     public void tick() {
         tick--;
@@ -32,17 +32,12 @@ public class counterEffect implements Effect{
     }
 
     @Override
-    public tickType getType() {
-        return tickType.STATMOD;
+    public TickType getType() {
+        return TickType.STATMOD;
     }
 
     @Override
     public int modifyDif(int dif){
-        return (int) (dif * 1.5);
-    }
-
-    @Override
-    public double modifyEva(double eva){
-        return eva * 1.5;
+        return dif * 2;
     }
 }

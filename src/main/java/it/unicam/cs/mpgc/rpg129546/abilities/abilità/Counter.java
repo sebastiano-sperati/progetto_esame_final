@@ -1,6 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.abilities.abilità;
 
-import it.unicam.cs.mpgc.rpg129546.effect.Effetti.counterEffect;
+import it.unicam.cs.mpgc.rpg129546.effect.Effetti.CounterEffect;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import it.unicam.cs.mpgc.rpg129546.model.TargetType;
 
@@ -10,10 +10,12 @@ public class Counter implements Action{
 
     @Override
     public void execute(Entity source, Entity target) {
+
     if(source.getAp() < cost) return;
     source.consumeAp(cost);
+
     System.out.println(source.getNome() + " :SONO PRONTO...");
-    source.getEffectManager().addEffect(new counterEffect());
+    source.getEffectManager().addEffect(new CounterEffect());
     }
     @Override
     public String getNome(){

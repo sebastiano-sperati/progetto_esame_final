@@ -1,13 +1,13 @@
 package it.unicam.cs.mpgc.rpg129546.effect.Effetti;
 
-import it.unicam.cs.mpgc.rpg129546.effect.tickType;
+import it.unicam.cs.mpgc.rpg129546.effect.TickType;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;public interface Effect {
     void tick();
     boolean isExpired();
     int getDuration();
     String getNome();
     int getTick();
-    tickType getType();
+    TickType getType();
     default void damageOverTime(Entity e){}
 
     default int modifyAtk(int atk) {

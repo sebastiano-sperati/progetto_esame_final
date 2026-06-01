@@ -31,9 +31,9 @@ public class Hero extends Entity {
 
     public void addXp(int rewardedXp){
         this.xp += rewardedXp;
-        if(this.xp >= this.sogliaLvlUp){
+        while(this.xp >= this.sogliaLvlUp){
             this.xp = this.xp - this.sogliaLvlUp;
-            this.sogliaLvlUp = (this.sogliaLvlUp * 20) / 100;
+            this.sogliaLvlUp = (int) (this.sogliaLvlUp * 1.2);
             this.lvlUp();
         }
     }

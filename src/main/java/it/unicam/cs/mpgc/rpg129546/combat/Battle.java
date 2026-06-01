@@ -7,7 +7,7 @@ import it.unicam.cs.mpgc.rpg129546.abilities.abilità.SplashAbility;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
 import it.unicam.cs.mpgc.rpg129546.model.Nemici.Enemy;
-import it.unicam.cs.mpgc.rpg129546.abilities.abilityContext;
+import it.unicam.cs.mpgc.rpg129546.abilities.AbilityContext;
 import it.unicam.cs.mpgc.rpg129546.Shop.ShopSelector;
 
 import java.util.Scanner;
@@ -18,7 +18,7 @@ public class Battle {
     private final List<Enemy> nemici;
     private final AbilitySelector Aselector = new AbilitySelector();
     private final TargetSelector Tselector = new TargetSelector();
-    private final actionSelector actionSelector = new actionSelector();
+    private final ActionSelector actionSelector = new ActionSelector();
     private final ItemSelector itemSelector = new ItemSelector();
     private final BattleManager battleManager = new BattleManager();
     private final ShopSelector selector = new ShopSelector();
@@ -68,7 +68,7 @@ public class Battle {
                             case FIGHT -> {
                                 Action selected = Aselector.selectorHero((eroi.get(i)));
                                 Entity e = Tselector.SelectListAction(selected, eroi.get(i), eroi, nemici);
-                                abilityContext ctx = new abilityContext(eroi, nemici);
+                                AbilityContext ctx = new AbilityContext(eroi, nemici);
                                 if (selected instanceof SplashAbility) {
                                     ((SplashAbility) selected).executeSplash(eroi.get(i), e, ctx.getTargets(selected, eroi.get(i)));
                                 } else {
@@ -103,7 +103,7 @@ public class Battle {
                     System.out.println("TOCCA A " + nemici.get(i).getNome() + " ");
                     Action selected = Aselector.selectorEnemy(nemici.get(i));
                     Entity e = Tselector.SelectListAction(selected, nemici.get(i), eroi, nemici);
-                    abilityContext ctx = new abilityContext(eroi, nemici);
+                    AbilityContext ctx = new AbilityContext(eroi, nemici);
                     if (selected instanceof SplashAbility) {
                         ((SplashAbility) selected).executeSplash(nemici.get(i), e, ctx.getTargets(selected, nemici.get(i)));
                     } else {

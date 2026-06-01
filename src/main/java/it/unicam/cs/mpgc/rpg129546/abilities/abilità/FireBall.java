@@ -13,11 +13,13 @@ public class FireBall implements Action{
     public void execute(Entity source, Entity target) {
         if(source.getAp() < cost) return;
         source.consumeAp(cost);
+
         if(source instanceof Hero) {
             System.out.println(source.getNome() + " :LE FIAMME MI GRAZIANO " + target.getNome());
         } else {
             System.out.println(source.getNome() + " effettua " + this.nome + " contro " + target.getNome());
         }
+
         BaseAtk.applyAttack(source,target,1.0);
         double fireChance = 0.25;
         if(Math.random()< fireChance) target.getEffectManager().addEffect(new FireEffect());

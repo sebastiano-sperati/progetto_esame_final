@@ -2,7 +2,7 @@ package it.unicam.cs.mpgc.rpg129546.combat;
 
 import java.util.Scanner;
 
-public class actionSelector {
+public class ActionSelector {
     private final Scanner sc = new Scanner(System.in);
     public CombatComand select(){
         while (true){

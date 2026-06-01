@@ -7,10 +7,10 @@ import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
 
 import java.util.List;
 
-public class abilityContext {
+public class AbilityContext {
     private List<Hero> eroi;
     private List<Enemy> nemici;
-    public abilityContext(List<Hero> eroi, List<Enemy> nemici){
+    public AbilityContext(List<Hero> eroi, List<Enemy> nemici){
         this.eroi=eroi;
         this.nemici=nemici;
     }

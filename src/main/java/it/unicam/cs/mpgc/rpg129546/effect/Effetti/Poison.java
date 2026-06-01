@@ -1,6 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.effect.Effetti;
 
-import it.unicam.cs.mpgc.rpg129546.effect.tickType;
+import it.unicam.cs.mpgc.rpg129546.effect.TickType;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
 public class Poison implements Effect{
@@ -34,8 +34,8 @@ public class Poison implements Effect{
     }
 
     @Override
-    public tickType getType() {
-        return tickType.DOT;
+    public TickType getType() {
+        return TickType.DOT;
     }
 
     @Override

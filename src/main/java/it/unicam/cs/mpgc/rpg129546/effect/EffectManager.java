@@ -6,7 +6,7 @@ import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class effectManager {
+public class EffectManager {
         private List<Effect> effects = new ArrayList<>();
 
         public void addEffect(Effect e) {
@@ -27,7 +27,7 @@ public class effectManager {
         public void tickAll(Entity owner){
                 for (Effect e : effects){
                         e.tick();
-                        if(e.getType() == tickType.DOT) e.damageOverTime(owner);
+                        if(e.getType() == TickType.DOT) e.damageOverTime(owner);
                 }
                 effects.removeIf(Effect::isExpired);
         }

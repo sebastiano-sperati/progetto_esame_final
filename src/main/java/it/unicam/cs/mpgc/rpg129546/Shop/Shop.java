@@ -28,8 +28,8 @@ public class Shop {
     }
 
     public void inizializzaCatalogo(){
-        catalogo.add(new AntiFire());
-        catalogo.add(new AntiFrost());
+        catalogo.add(new AntiFirePotion());
+        catalogo.add(new AntiFrostPotion());
         catalogo.add(new DefensePotion());
         catalogo.add(new HealingPotion());
         catalogo.add(new PoisonKnives());
