@@ -45,13 +45,13 @@ public class Shop {
         catalogo.add(new Weapon("spada rara",Rarity.RARO,STR));
         catalogo.add(new Weapon("bastone raro",Rarity.RARO,WIS));
 
-        catalogo.add(new Weapon("spada leggendaria", Rarity.LEGGENDARIO,STR));
-        catalogo.add(new Weapon("bastone leggendario",Rarity.LEGGENDARIO,WIS));
+        catalogo.add(new Weapon("spada leggendaria", Rarity.LEGENDARIO,STR));
+        catalogo.add(new Weapon("bastone leggendario",Rarity.LEGENDARIO,WIS));
 
         catalogo.add(new Armor("armatura iniziale",Rarity.STARTER));
         catalogo.add(new Armor("armatura comune",Rarity.COMUNE));
         catalogo.add(new Armor("armatura rara",Rarity.COMUNE));
-        catalogo.add(new Armor("armatura leggendaria",Rarity.LEGGENDARIO));
+        catalogo.add(new Armor("armatura leggendaria",Rarity.LEGENDARIO));
     }
 
     public void refreshStock(){
@@ -66,22 +66,17 @@ public class Shop {
         }
     }
 
-    public void showStock(){
-        System.out.println("===SHOP===");
-            for (int i = 0; i < stock.size(); i++) {
-                System.out.println((i+1) + " " + stock.get(i).getItem().getNome() + " " + stock.get(i).getItem().getPrezzo() + "$ - qta: " + stock.get(i).getQta());
-            }
-    }
+    public List<Stock> getStock(){return this.stock;}
 
     public void buyItem(Hero h, int index){
         GenericItem item = stock.get(index).getItem();
 
-        if(h.getGold()<item.getPrezzo()){
+        if(h.getHeroStatusManager().getGold()<item.getPrezzo()){
             System.out.println("denaro insufficiente");
             return;
         }
 
-        h.subGold(item.getPrezzo());
+        h.getHeroStatusManager().subGold(item.getPrezzo());
 
         if(item instanceof Equipaggiamento){
             if(item instanceof Weapon) {
@@ -102,7 +97,7 @@ public class Shop {
     public void sellItem(Hero h, int index){
         GenericItem item = h.getInventoryManager().getInventario().get(index);
 
-        h.addGold(item.getPrezzo()/2);
+        h.getHeroStatusManager().addGold(item.getPrezzo()/2);
 
         h.getInventoryManager().getInventario().remove(index);
 

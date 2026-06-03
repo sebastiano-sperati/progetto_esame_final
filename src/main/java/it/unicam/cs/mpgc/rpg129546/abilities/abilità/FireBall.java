@@ -11,8 +11,8 @@ public class FireBall implements Action{
 
     @Override
     public void execute(Entity source, Entity target) {
-        if(source.getAp() < cost) return;
-        source.consumeAp(cost);
+        if(source.getStatusManager().getAp() < cost) return;
+        source.getStatusManager().consumeAp(cost);
 
         if(source instanceof Hero) {
             System.out.println(source.getNome() + " :LE FIAMME MI GRAZIANO " + target.getNome());

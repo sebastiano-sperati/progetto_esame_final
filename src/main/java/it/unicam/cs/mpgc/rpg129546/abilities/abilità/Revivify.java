@@ -10,17 +10,17 @@ public class Revivify implements Action{
 
     @Override
     public void execute(Entity source, Entity target) {
-        if(source.getAp() < cost) return;
-        source.consumeAp(cost);
+        if(source.getStatusManager().getAp() < cost) return;
+        source.getStatusManager().consumeAp(cost);
         if(source instanceof Hero) {
             System.out.println(source.getNome() + " :ANCORA UNA VOLTA " + target.getNome());
         } else {
             System.out.println(source.getNome() + " effettua " + this.nome + " contro " + target.getNome());
         }
 
-        target.setAlive(true);
-        int heal = target.getMaxAp()/2;
-        target.Heal(heal);
+        target.getStatusManager().setAlive(true);
+        int heal = target.getStatusManager().getMaxAp()/2;
+        target.getStatusManager().Heal(heal);
     }
     @Override
     public String getNome(){

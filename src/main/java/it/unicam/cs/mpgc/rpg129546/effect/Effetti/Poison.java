@@ -40,6 +40,6 @@ public class Poison implements Effect{
 
     @Override
     public void damageOverTime(Entity e){
-        e.takeDamage(dmg);
+        e.getStatusManager().takeDamage(dmg);
     }
 }

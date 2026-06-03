@@ -4,16 +4,16 @@ import it.unicam.cs.mpgc.rpg129546.effect.Effetti.Effect;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
 public class EffectApplier {
-    public int modifyAtk(Entity e){
-        int atk = e.getScaledDmg();
+    public int modifyDmg(Entity e){
+        int dmg = e.getStatsManager().getScaledDmg();
         for (Effect effect : e.getEffectManager().getEffects()){
-            atk=effect.modifyAtk(atk);
+            dmg =effect.modifyAtk(dmg);
         }
-        return atk;
+        return dmg;
     }
 
     public int modifyDif(Entity e){
-        int dif = e.getScaledDif();
+        int dif = e.getStatsManager().getScaledDif();
         for (Effect effect:e.getEffectManager().getEffects()){
             dif=effect.modifyDif(dif);
         }
@@ -21,7 +21,7 @@ public class EffectApplier {
     }
 
     public double modifyEva(Entity e){
-        double eva = e.getScaledEva();
+        double eva = e.getStatsManager().getScaledEva();
         for (Effect effect : e.getEffectManager().getEffects()){
             eva=effect.modifyEva(eva);
         }
@@ -29,7 +29,7 @@ public class EffectApplier {
     }
 
     public double modifyCM(Entity e){
-        double cm = e.getScaledCM();
+        double cm = e.getStatsManager().getScaledCM();
         for (Effect effect : e.getEffectManager().getEffects()){
             cm=effect.modifyCritMult(cm);
         }
@@ -37,7 +37,7 @@ public class EffectApplier {
     }
 
     public double modifyCC(Entity e){
-        double cc = e.getScaledCC();
+        double cc = e.getStatsManager().getScaledCC();
         for (Effect effect : e.getEffectManager().getEffects()){
             cc = effect.modifyCritChance(cc);
         }

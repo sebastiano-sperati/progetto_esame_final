@@ -29,15 +29,6 @@ public class InventoryManager {
         item.increaseCount();
         inventario.add(item);
     }
-    public void showInventory(){
-        if(inventario.isEmpty()){
-            System.out.println("l'inventario e' vuoto");
-            return;
-        }
-        for (int i = 0; i < inventario.size(); i++) {
-            System.out.println("[" + (i+1)  + " - " + inventario.get(i).getNome() + "-" + inventario.get(i).getQta() + "/" + inventario.get(i).getMaxQta() + " - " + inventario.get(i).getPrezzo() + "$ ]");
-        }
-    }
 
     public void useItem(Entity source, Entity target, Item i){
         i.use(source,target);

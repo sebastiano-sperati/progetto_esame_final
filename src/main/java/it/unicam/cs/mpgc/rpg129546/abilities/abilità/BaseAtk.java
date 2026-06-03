@@ -12,8 +12,8 @@ public class BaseAtk implements Action {
     @Override
     public void execute(Entity source, Entity target) {
         // controlla se l'abilità può essere effettuata
-        if (source.getAp() < cost) return;
-        source.consumeAp(cost);
+        if (source.getStatusManager().getAp() < cost) return;
+        source.getStatusManager().consumeAp(cost);
 
         if(source instanceof Hero) {
             System.out.println(source.getNome() + " :PRENDI QUESTO " + target.getNome());
@@ -31,16 +31,16 @@ public class BaseAtk implements Action {
             if(target.getEffectManager().hasEffect(CounterEffect.class)){
                 System.out.println(target.getNome() + " effettua un contrattacco!");
 
-                int dmg = target.getEffectaApplier().modifyAtk(target);
+                int dmg = target.getEffectaApplier().modifyDmg(target);
                 dmg = (int)(dmg * 1.5);
                 dmg -= source.getEffectaApplier().modifyDif(source);
                 if (dmg < 0) dmg = 0;
-                source.takeDamage(dmg);
+                source.getStatusManager().takeDamage(dmg);
             }
         return;
         }
         // calcolo danno
-        int dmg = source.getEffectaApplier().modifyAtk(source);
+        int dmg = source.getEffectaApplier().modifyDmg(source);
         dmg = (int)(dmg * multiplier);
 
         if (Math.random() < source.getEffectaApplier().modifyCC(source)) {
@@ -49,7 +49,7 @@ public class BaseAtk implements Action {
         }
         dmg -= target.getEffectaApplier().modifyDif(target);
         if (dmg < 0) dmg = 0;
-        target.takeDamage(dmg);
+        target.getStatusManager().takeDamage(dmg);
     }
     @Override
     public String getNome(){

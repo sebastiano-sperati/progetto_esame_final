@@ -52,7 +52,7 @@ public class TargetSelector {
         Scanner sc = new Scanner(System.in);
         while (true){
             for (int i = 0; i < list.size(); i++) {
-                System.out.println((i+1) + "-" + list.get(i).getNome() + list.get(i).getHp() + "/" + list.get(i).getMaxHp());
+                System.out.println((i+1) + "-" + list.get(i).getNome() + list.get(i).getStatusManager().getHp() + "/" + list.get(i).getStatusManager().getMaxHp());
             }
             int choice = sc.nextInt();
             if(choice>=1 && choice<=list.size()){

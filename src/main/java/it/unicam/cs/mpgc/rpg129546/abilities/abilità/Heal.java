@@ -10,16 +10,16 @@ public class Heal implements Action{
 
     @Override
     public void execute(Entity source, Entity target) {
-        if(source.getAp() < cost) return;
-        source.consumeAp(cost);
+        if(source.getStatusManager().getAp() < cost) return;
+        source.getStatusManager().consumeAp(cost);
         if(source instanceof Hero) {
             System.out.println(source.getNome() + " :che gli dei abbiano cura di te " + target.getNome());
         } else {
             System.out.println(source.getNome() + " utilizza " + this.nome + " su " + target.getNome());
         }
 
-        int heal = (int) (10 + (target.getMaxHp() - target.getHp()) * 0.3);
-        target.Heal(heal);
+        int heal = (int) (10 + (target.getStatusManager().getMaxHp() - target.getStatusManager().getHp()) * 0.3);
+        target.getStatusManager().Heal(heal);
     }
     @Override
     public String getNome(){

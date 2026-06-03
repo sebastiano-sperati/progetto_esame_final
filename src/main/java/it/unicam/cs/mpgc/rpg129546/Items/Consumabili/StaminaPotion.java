@@ -16,7 +16,7 @@ public class StaminaPotion implements Item {
 
     @Override
     public void use(Entity source, Entity target) {
-        source.restore(10);
+        source.getStatusManager().restore(10);
     }
 
     @Override

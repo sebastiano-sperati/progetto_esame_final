@@ -10,15 +10,15 @@ public class Restore implements Action{
 
     @Override
     public void execute(Entity source, Entity target) {
-        if(source.getAp() < cost) return;
-        source.consumeAp(cost);
+        if(source.getStatusManager().getAp() < cost) return;
+        source.getStatusManager().consumeAp(cost);
         if(source instanceof Hero) {
             System.out.println(source.getNome() + " :stringi i denti ancora per un po... " + target.getNome());
         } else {
             System.out.println(source.getNome() + " effettua " + this.nome + " contro " + target.getNome());
         }
 
-        target.restore(6);
+        target.getStatusManager().restore(6);
     }
     @Override
     public String getNome(){

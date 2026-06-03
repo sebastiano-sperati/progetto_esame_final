@@ -4,7 +4,7 @@ public enum Rarity {
     STARTER(1.0,25),
     COMUNE(1.15,150),
     RARO(1.5,200),
-    LEGGENDARIO(2.0,350);
+    LEGENDARIO(2.0,350);
 
     private final double modifier;
     private final int prezzo;

@@ -12,8 +12,8 @@ public class Lightning implements SplashAbility{
 
     @Override
     public void executeSplash(Entity source, Entity target, List<? extends Entity> ctx) {
-        if(source.getAp() < cost)return;
-        source.consumeAp(cost);
+        if(source.getStatusManager().getAp() < cost)return;
+        source.getStatusManager().consumeAp(cost);
         List<? extends Entity> targets = ctx;
         int index = targets.indexOf(target);
         if(source instanceof Hero) {

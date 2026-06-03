@@ -16,7 +16,7 @@ public class HealingPotion implements Item {
 
     @Override
     public void use(Entity source, Entity target) {
-        source.Heal(10);
+        source.getStatusManager().Heal(10);
     }
 
     @Override

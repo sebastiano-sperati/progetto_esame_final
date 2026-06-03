@@ -20,7 +20,7 @@ public class Enemy extends Entity {
     }
 
     public int getScaledTaglia() {
-        return this.taglia + (2 + this.getLvl());
+        return this.taglia + (2 + this.getStatusManager().getLvl());
     }
 
     public int getXpDrop() {
@@ -28,6 +28,6 @@ public class Enemy extends Entity {
     }
 
     public int getScaledXpDrop(){
-        return this.xpDrop + (2 * this.getLvl());
+        return this.xpDrop + (2 * this.getStatusManager().getLvl());
     }
 }

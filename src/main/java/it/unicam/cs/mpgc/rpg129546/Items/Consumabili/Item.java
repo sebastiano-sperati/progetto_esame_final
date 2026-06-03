@@ -16,7 +16,7 @@ public interface Item extends GenericItem {
     int getMaxQta();
     ItemType getTipo();
     @Override
-    public default int getShopQta(){
+    default int getShopQta(){
         Random random = new Random();
         return random.nextInt(6) + 2;
     }

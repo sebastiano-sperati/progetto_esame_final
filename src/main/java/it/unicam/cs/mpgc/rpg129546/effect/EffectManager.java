@@ -18,12 +18,6 @@ public class EffectManager {
                 return effects;
         }
 
-        public void showEffects(){
-                for (int i = 0; i < effects.size(); i++) {
-                        System.out.println("[" + effects.get(i).getNome() + "-" + effects.get(i).getTick() + "/" + effects.get(i).getDuration() + "]");
-                }
-        }
-
         public void tickAll(Entity owner){
                 for (Effect e : effects){
                         e.tick();

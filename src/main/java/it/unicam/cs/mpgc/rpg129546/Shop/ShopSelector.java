@@ -15,7 +15,7 @@ public class ShopSelector {
         return switch (choice){
             case 1 -> ShopComand.BUY;
             case 2 -> ShopComand.SELL;
-            case 3 -> ShopComand.ECXIT;
+            case 3 -> ShopComand.EXIT;
             default ->  throw new IllegalStateException();
         };
     }

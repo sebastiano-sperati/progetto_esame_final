@@ -8,28 +8,27 @@ import java.util.List;
 public class BattleManager {
     public void BattleStartConditions(List<Enemy>nemici, List<Hero>eroi){
         for (Hero h : eroi){
-            h.Heal(h.getMaxHp());
+            h.getStatusManager().Heal(h.getStatusManager().getMaxHp());
         }
 
         for (Enemy e : nemici){
-            e.Heal(e.getMaxHp());
+            e.getStatusManager().Heal(e.getStatusManager().getMaxHp());
         }
 
     }
 
     public void StartTurnRestore(List<Enemy>nemici, List<Hero>eroi){
         for (Hero h : eroi){
-            if (h.isAlive()){
-                h.restore(2);
+            if (h.getStatusManager().isAlive()){
+                h.getStatusManager().restore(2);
             }
         }
 
         for (Enemy e : nemici) {
-            if(e.isAlive()){
-                e.restore(2);
+            if(e.getStatusManager().isAlive()){
+                e.getStatusManager().restore(2);
             }
         }
-
     }
 
     public int goldReward(List<Enemy>list){

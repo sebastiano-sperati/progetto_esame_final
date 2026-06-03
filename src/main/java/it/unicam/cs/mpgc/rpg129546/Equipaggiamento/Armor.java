@@ -8,6 +8,7 @@ public class Armor implements Equipaggiamento{
         this.nome=nome;
         this.rarity=rarity;
     }
+
     @Override
     public String getNome() {
         return nome;
