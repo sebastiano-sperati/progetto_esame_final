@@ -6,4 +6,5 @@ public interface GenericItem {
     default int getShopQta(){
         return 1;
     }
+    GenericItem getCopy();
 }

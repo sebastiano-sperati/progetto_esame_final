@@ -5,7 +5,6 @@ import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Armor;
 import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Equipaggiamento;
 import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Rarity;
 import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Weapon;
-import it.unicam.cs.mpgc.rpg129546.Items.Consumabili.Item;
 import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
 
 import java.util.ArrayList;
@@ -69,7 +68,7 @@ public class Shop {
     public List<Stock> getStock(){return this.stock;}
 
     public void buyItem(Hero h, int index){
-        GenericItem item = stock.get(index).getItem();
+        GenericItem item = stock.get(index).getItem().getCopy();
 
         if(h.getHeroStatusManager().getGold()<item.getPrezzo()){
             System.out.println("denaro insufficiente");
@@ -85,7 +84,7 @@ public class Shop {
                 h.equipaggiaArmatura((Armor) item);
             }
         } else {
-            h.getInventoryManager().addItem((Item) item);
+            h.getInventoryManager().addItem((Item)item);
         }
 
         stock.get(index).decreaseQta();

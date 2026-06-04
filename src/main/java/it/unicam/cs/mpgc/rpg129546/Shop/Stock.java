@@ -4,7 +4,7 @@ public class Stock {
     GenericItem item;
     int qta;
     public Stock(GenericItem item, int qta){
-        this.item=item;
+        this.item= item;
         this.qta=qta;
     }
 

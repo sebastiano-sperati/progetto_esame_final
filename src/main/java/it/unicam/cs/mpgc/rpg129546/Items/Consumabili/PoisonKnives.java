@@ -1,6 +1,7 @@
 package it.unicam.cs.mpgc.rpg129546.Items.Consumabili;
 
 import it.unicam.cs.mpgc.rpg129546.Items.ItemType;
+import it.unicam.cs.mpgc.rpg129546.Shop.GenericItem;
 import it.unicam.cs.mpgc.rpg129546.effect.Effetti.Poison;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 
@@ -13,6 +14,11 @@ public class PoisonKnives implements Item {
     @Override
     public String getNome() {
         return nome;
+    }
+
+    @Override
+    public GenericItem getCopy() {
+        return new PoisonKnives();
     }
 
     @Override

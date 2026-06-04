@@ -23,10 +23,10 @@ public class Main {
         heroes.add(healer);
         heroes.add(mage);
 
-        Goblin goblin1 = new Goblin("goblin1",10,10,3, 5,2,0.2,0.2,0.2,1,45,4);
-        Goblin goblin2 = new Goblin("goblin2",10,10,3, 5,2,0.2,0.2,0.2,1,45,4);
-        Goblin goblin3 = new Goblin("goblin3",10,10,3, 5,2,0.2,0.2,0.2,1,45,4);
-        Goblin goblin4 = new Goblin("goblin4",10,10,3, 5,2,0.2,0.2,0.2,1,45,4);
+        Goblin goblin1 = new Goblin("goblin1",1,10,0, 5,2,0.2,0.2,0.2,1,45,4);
+        Goblin goblin2 = new Goblin("goblin2",1,10,0, 5,2,0.2,0.2,0.2,1,45,4);
+        Goblin goblin3 = new Goblin("goblin3",1,10,0, 5,2,0.2,0.2,0.2,1,45,4);
+        Goblin goblin4 = new Goblin("goblin4",1,10,0, 5,2,0.2,0.2,0.2,1,45,4);
 
         List<Enemy> enemies = new ArrayList<>();
 

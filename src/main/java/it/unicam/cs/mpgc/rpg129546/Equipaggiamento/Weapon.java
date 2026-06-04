@@ -1,5 +1,7 @@
 package it.unicam.cs.mpgc.rpg129546.Equipaggiamento;
 
+import it.unicam.cs.mpgc.rpg129546.Shop.GenericItem;
+
 public class Weapon implements Equipaggiamento{
     private final String nome;
     private final Rarity rarity;
@@ -14,6 +16,11 @@ public class Weapon implements Equipaggiamento{
     @Override
     public String getNome() {
         return nome;
+    }
+
+    @Override
+    public GenericItem getCopy() {
+        return new Weapon(nome,rarity,scaling);
     }
 
     @Override
