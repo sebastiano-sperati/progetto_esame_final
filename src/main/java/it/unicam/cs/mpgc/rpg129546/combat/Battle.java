@@ -1,8 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.combat;
 
 import it.unicam.cs.mpgc.rpg129546.Items.Consumabili.Item;
-import it.unicam.cs.mpgc.rpg129546.Shop.Shop;
-import it.unicam.cs.mpgc.rpg129546.Shop.ShopComand;
 import it.unicam.cs.mpgc.rpg129546.Show.ShowInventory;
 import it.unicam.cs.mpgc.rpg129546.Show.ShowSquasStats;
 import it.unicam.cs.mpgc.rpg129546.Show.ShowStock;
@@ -14,7 +12,6 @@ import it.unicam.cs.mpgc.rpg129546.model.Nemici.Enemy;
 import it.unicam.cs.mpgc.rpg129546.abilities.AbilityContext;
 import it.unicam.cs.mpgc.rpg129546.Shop.ShopSelector;
 
-import java.util.Scanner;
 import java.util.List;
 
 public class Battle {
@@ -28,7 +25,7 @@ public class Battle {
     private final ShopSelector selector = new ShopSelector();
     private final ShowSquasStats squadStatsView = new ShowSquasStats();
     private final ShowInventory inventoryView = new ShowInventory();
-    private final ShowStock stockView = new ShowStock();
+
     public Battle(List<Hero> eroi, List<Enemy> nemici){
         this.eroi = eroi;
         this.nemici = nemici;
@@ -37,26 +34,19 @@ public class Battle {
     public void Start(){
         System.out.println("INIZIA LA BATTAGLIA!!!");
 
-        battleManager.BattleStartConditions(nemici,eroi);
-
-        int goldReward = battleManager.goldReward(nemici);
-        int xpReward = battleManager.xpReward(nemici);
-
         while (heroseAlive() && enemyAlive()){
             battleManager.StartTurnRestore(nemici,eroi);
             heroTurn();
             if(enemyAlive()) enemyTurn();
         }
-        End(goldReward, xpReward);
     }
+
     //* metodi per controllare che sia in vita almeno un eroe o un nemico
-    private boolean heroseAlive(){
+    public boolean heroseAlive(){
         return eroi.stream().anyMatch(hero -> hero.getStatusManager().isAlive());
     }
-    private boolean enemyAlive(){
+    private boolean enemyAlive(){return nemici.stream().anyMatch(enemy -> enemy.getStatusManager().isAlive());}
 
-        return nemici.stream().anyMatch(enemy -> enemy.getStatusManager().isAlive());
-    }
     //*gestione dei turni
     private void heroTurn(){
         System.out.println("E' IL TURNO DEGLI EROI !!!");
@@ -81,7 +71,6 @@ public class Battle {
                                     ((SplashAbility) selected).executeSplash(eroi.get(i), e, ctx.getTargets(selected, eroi.get(i)));
                                 } else {
                                     selected.execute(eroi.get(i), e);
-                                    System.out.println("fatto");
                                 }
                                 endTurn = true;
                             }
@@ -97,7 +86,7 @@ public class Battle {
                         }
                     }
                 }
-                removeDed();
+                organizeEnemy();
             }
         }
     }
@@ -118,69 +107,22 @@ public class Battle {
                         selected.execute(nemici.get(i), e);
                     }
                 }
-                removeDed();
+                organizeEnemy();
             }
         }
     }
-    private void removeDed(){
-        nemici.removeIf(n -> !n.getStatusManager().isAlive());
-    }
 
-    private void End(int goldReward, int xpReward){
-        if(heroseAlive()){
-            System.out.println("VITTORIA !!!");
-
-            giveGoldReward(goldReward);
-            giveXpReward(xpReward);
-
-            enterShop();
-        } else {
-            System.out.println("sconfitta...");
-        }
-    }
-
-    private void enterShop(){
-        Shop shop = new Shop();
-
-        shop.refreshStock();
-
-
-        for (int i = 0; i < eroi.size(); i++) {
-            boolean exit = false;
-            while (!exit) {
-                System.out.println(eroi.get(i).getNome() + " - saldo : " + eroi.get(i).getHeroStatusManager().getGold() + "$");
-                ShopComand comand = selector.select();
-                switch (comand) {
-                    case BUY -> {
-                        System.out.println("selezionare l'articolo");
-                        stockView.showStock(shop.getStock());
-                        Scanner sc = new Scanner(System.in);
-                        int choice = sc.nextInt();
-                        shop.buyItem(eroi.get(i),choice-1);
-                    }
-                    case SELL -> {
-                        System.out.println("selezionare l'oggetto");
-                        inventoryView.showInventory(eroi.get(i));
-                        Scanner sc = new Scanner(System.in);
-                        int choice = sc.nextInt();
-                        shop.sellItem(eroi.get(i),choice-1);
-                    }
-                    case EXIT -> {
-                        exit = true;
+    private void organizeEnemy(){
+        for (int i = 0; i < nemici.size()-1; i++) {
+            if(!nemici.get(i).getStatusManager().isAlive()) {
+                for (int j = i + 1; j < nemici.size(); j++) {
+                    if(nemici.get(j).getStatusManager().isAlive()){
+                        Enemy temp = nemici.get(i);
+                        nemici.set(i,nemici.get(j));
+                        nemici.set(j,temp);
                     }
                 }
             }
-        }
-    }
-    private void giveGoldReward(int reward){
-        for (int i = 0; i < eroi.size(); i++) {
-            eroi.get(i).getHeroStatusManager().addGold(reward);
-        }
-    }
-
-    private void giveXpReward(int reward){
-        for (int i = 0; i < eroi.size(); i++) {
-            eroi.get(i).getHeroStatusManager().addXp(reward);
         }
     }
 }

@@ -6,16 +6,7 @@ import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
 import java.util.List;
 
 public class BattleManager {
-    public void BattleStartConditions(List<Enemy>nemici, List<Hero>eroi){
-        for (Hero h : eroi){
-            h.getStatusManager().Heal(h.getStatusManager().getMaxHp());
-        }
 
-        for (Enemy e : nemici){
-            e.getStatusManager().Heal(e.getStatusManager().getMaxHp());
-        }
-
-    }
 
     public void StartTurnRestore(List<Enemy>nemici, List<Hero>eroi){
         for (Hero h : eroi){

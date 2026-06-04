@@ -14,15 +14,15 @@ public class TargetSelector {
         switch (action.getTargetType()){
             case ALLY ->{
                 if(source instanceof Hero) {
-                    return SelectTargetHero(eroi);
+                    return HeroSelectHero(eroi);
                 }
-                return SelectTargetEnemy(nemici);
+                return SelectorEnemy(nemici);
             }
             case ENEMY -> {
                 if(source instanceof Hero) {
-                    return SelectTargetHero(nemici);
+                    return HeroSelectEnemy(nemici);
                 }
-                return SelectTargetEnemy(eroi);
+                return SelectorEnemy(eroi);
             }
             case SELF -> {
                 return source;
@@ -39,16 +39,35 @@ public class TargetSelector {
             }
             case THROWABLE -> {
                 if(source instanceof Hero){
-                    return SelectTargetHero(nemici);
+                    return HeroSelectEnemy(nemici);
                 }
-                return SelectTargetEnemy(eroi);
+                return SelectorEnemy(eroi);
 
             }
             default -> throw new IllegalStateException("bersagio non valido");
         }
     }
 
-    public Entity SelectTargetHero(List<? extends Entity> list){
+    public Entity HeroSelectEnemy(List<? extends Entity> list){
+        Scanner sc = new Scanner(System.in);
+        int index = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i).getStatusManager().isAlive()) index++;
+        }
+        while (true){
+            for (int i = 0; i < index; i++) {
+                System.out.println((i+1) + "-" + list.get(i).getNome() + list.get(i).getStatusManager().getHp() + "/" + list.get(i).getStatusManager().getMaxHp());
+            }
+            int choice = sc.nextInt();
+            if(choice>=1 && choice<=index){
+                return list.get(choice-1);
+            }
+            System.out.println("Scelta non valida");
+        }
+    }
+
+
+    public Entity HeroSelectHero(List<? extends Entity> list) {
         Scanner sc = new Scanner(System.in);
         while (true){
             for (int i = 0; i < list.size(); i++) {
@@ -60,9 +79,10 @@ public class TargetSelector {
             }
             System.out.println("Scelta non valida");
         }
-    }
+   }
 
-    public Entity SelectTargetEnemy(List<? extends Entity> list){
+
+    public Entity SelectorEnemy(List<? extends Entity> list){
         Random random = new Random();
         int index = random.nextInt(list.size());
         return list.get(index);
