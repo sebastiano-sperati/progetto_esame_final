@@ -1,6 +1,7 @@
 package it.unicam.cs.mpgc.rpg129546.Equipaggiamento;
 
 import it.unicam.cs.mpgc.rpg129546.Shop.GenericItem;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Armor implements Equipaggiamento{
     private final String nome;
@@ -16,6 +17,7 @@ public class Armor implements Equipaggiamento{
         return nome;
     }
 
+    @JsonIgnore
     @Override
     public GenericItem getCopy() {
         return new Armor(nome, rarity);

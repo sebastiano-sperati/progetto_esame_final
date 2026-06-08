@@ -14,6 +14,7 @@ public class AbilityContext {
         this.eroi=eroi;
         this.nemici=nemici;
     }
+
     public List<? extends Entity> getTargets(Action action, Entity source){
         switch (action.getTargetType()){
             case ALLY -> {

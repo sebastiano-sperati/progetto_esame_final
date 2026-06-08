@@ -29,9 +29,9 @@ public class AbilitySelector {
     }
     //selector per l'ai (sceglie sempre l'azione più costosa disponibile
     public Action selectorEnemy(Enemy e){
-        Action selected = null;
+        Action selected = e.getAzioni().get(0);
         for (int i = 0; i < e.getAzioni().size(); i++) {
-            if (e.getStatusManager().getAp() >= e.getAzioni().get(i).getCosto()){
+            if (e.getStatusManager().getAp() >= e.getAzioni().get(i).getCosto() && selected.getCosto() < e.getAzioni().get(i).getCosto()){
                 selected = e.getAzioni().get(i);
             }
         }

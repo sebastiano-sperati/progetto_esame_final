@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.Items.Consumabili;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.unicam.cs.mpgc.rpg129546.Items.ItemType;
 import it.unicam.cs.mpgc.rpg129546.Shop.GenericItem;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
@@ -15,6 +16,7 @@ public class HealingPotion implements Item {
         return nome;
     }
 
+    @JsonIgnore
     @Override
     public GenericItem getCopy() {
         return new HealingPotion();

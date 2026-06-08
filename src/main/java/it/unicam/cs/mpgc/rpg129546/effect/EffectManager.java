@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EffectManager {
+
         private List<Effect> effects = new ArrayList<>();
 
         public void addEffect(Effect e) {

@@ -1,5 +1,7 @@
 package it.unicam.cs.mpgc.rpg129546.Game;
 
+import it.unicam.cs.mpgc.rpg129546.Persistence.SaveData;
+import it.unicam.cs.mpgc.rpg129546.Persistence.SaveManager;
 import it.unicam.cs.mpgc.rpg129546.Shop.Shop;
 import it.unicam.cs.mpgc.rpg129546.Shop.ShopComand;
 import it.unicam.cs.mpgc.rpg129546.Shop.ShopSelector;
@@ -9,29 +11,37 @@ import it.unicam.cs.mpgc.rpg129546.model.Nemici.Enemy;
 import it.unicam.cs.mpgc.rpg129546.Show.ShowStock;
 import it.unicam.cs.mpgc.rpg129546.Show.ShowInventory;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Game {
 
     private final List<Hero> eroi;
-    private final Shop shop;
+    public SaveData saveData;
+    private Shop shop;
 
     private int floor;
-    private ShopSelector selector;
-    private ShowStock stockView;
-    private ShowInventory inventoryView;
-    private EnemyFactory EnemyFacctory;
+    public ShopSelector selector;
+    public ShowStock stockView;
+    public ShowInventory inventoryView;
+    public EnemyFactory EnemyFacctory;
 
     public Game(List<Hero> eroi){
         this.eroi=eroi;
         this.shop=new Shop();
-        this.floor=1;
+        this.floor=4;
+        this.selector= new ShopSelector();
+        this.stockView=new ShowStock();
+        this.inventoryView = new ShowInventory();
+        this.EnemyFacctory = new EnemyFactory();
+        this.shop = new Shop();
+
     }
 
     public void Start(){
 
-        while (true){
+        while (floor <= 10){
 
             System.out.println("===PIANO "+ floor +"===");
 
@@ -40,6 +50,10 @@ public class Game {
             Battle battle = new Battle(eroi,nemici);
 
             battle.Start();
+
+            for(Hero h : eroi){
+                h.getEffectManager().getEffects().clear();
+            }
 
             if(!battle.heroseAlive()){
                 break;
@@ -52,12 +66,24 @@ public class Game {
             enterShop();
 
             floor++;
+
+
+            System.out.println("salvare e uscire?");
+            System.out.println("1-SI         0-NO");
+            
+            int choice = 0;
+            Scanner sc = new Scanner(System.in);
+            choice = sc.nextInt();
+            
+            if(choice==1) {
+                saveGame();
+                return;
+            }
         }
         System.out.println("GAME OVER");
     }
 
     private void enterShop(){
-        Shop shop = new Shop();
 
         shop.refreshStock();
 
@@ -88,5 +114,32 @@ public class Game {
                 }
             }
         }
+    }
+    public List<Hero> getHeroes() {
+        return eroi;
+    }
+
+    public int getFloor() {
+        return floor;
+    }
+
+    public void saveGame() {
+
+        try {
+
+            SaveData data = new SaveData(eroi, floor);
+
+            SaveManager.save(data);
+
+            System.out.println("Partita salvata!");
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+    }
+
+    public void setFloor(int floor){
+        this.floor = floor;
     }
 }

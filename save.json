@@ -1,0 +1,197 @@
+{
+  "heroes" : [ {
+    "nome" : "Furia della Battaglia",
+    "dif" : 4,
+    "atk" : 12,
+    "wis" : 6,
+    "eva" : 0.25,
+    "critMult" : 2.2,
+    "critChance" : 0.25,
+    "arma" : {
+      "nome" : "arma comune",
+      "rarity" : "STARTER",
+      "scaling" : "STR",
+      "modifier" : 1.0,
+      "prezzo" : 25,
+      "shopQta" : 1
+    },
+    "armatura" : {
+      "nome" : "armatura comune",
+      "rarity" : "STARTER",
+      "modifier" : 1.0,
+      "prezzo" : 25,
+      "shopQta" : 1
+    },
+    "inventoryManager" : {
+      "inventario" : [ {
+        "nome" : "pozione di forza",
+        "maxQta" : 5,
+        "qta" : 1,
+        "tipo" : "POTION",
+        "prezzo" : 10,
+        "full" : false,
+        "empty" : false,
+        "shopQta" : 4
+      } ]
+    },
+    "statusManager" : {
+      "hp" : 22,
+      "maxHp" : 22,
+      "ap" : 17,
+      "maxAp" : 25,
+      "lvl" : 1,
+      "alive" : true
+    },
+    "heroStatusManager" : {
+      "hp" : 22,
+      "maxHp" : 22,
+      "ap" : 12,
+      "maxAp" : 25,
+      "lvl" : 4,
+      "gold" : 8,
+      "alive" : true
+    },
+    "effectManager" : {
+      "effects" : [ ]
+    }
+  }, {
+    "nome" : "Guardia di Ferro",
+    "dif" : 12,
+    "atk" : 5,
+    "wis" : 3,
+    "eva" : 0.05,
+    "critMult" : 1.4,
+    "critChance" : 0.05,
+    "arma" : {
+      "nome" : "arma comune",
+      "rarity" : "STARTER",
+      "scaling" : "STR",
+      "modifier" : 1.0,
+      "prezzo" : 25,
+      "shopQta" : 1
+    },
+    "armatura" : {
+      "nome" : "armatura comune",
+      "rarity" : "STARTER",
+      "modifier" : 1.0,
+      "prezzo" : 25,
+      "shopQta" : 1
+    },
+    "inventoryManager" : {
+      "inventario" : [ ]
+    },
+    "statusManager" : {
+      "hp" : 55,
+      "maxHp" : 55,
+      "ap" : 12,
+      "maxAp" : 12,
+      "lvl" : 1,
+      "alive" : true
+    },
+    "heroStatusManager" : {
+      "hp" : 55,
+      "maxHp" : 55,
+      "ap" : 5,
+      "maxAp" : 12,
+      "lvl" : 4,
+      "gold" : 18,
+      "alive" : true
+    },
+    "effectManager" : {
+      "effects" : [ ]
+    }
+  }, {
+    "nome" : "Recluso",
+    "dif" : 5,
+    "atk" : 14,
+    "wis" : 12,
+    "eva" : 0.1,
+    "critMult" : 1.8,
+    "critChance" : 0.1,
+    "arma" : {
+      "nome" : "arma comune",
+      "rarity" : "STARTER",
+      "scaling" : "STR",
+      "modifier" : 1.0,
+      "prezzo" : 25,
+      "shopQta" : 1
+    },
+    "armatura" : {
+      "nome" : "armatura comune",
+      "rarity" : "STARTER",
+      "modifier" : 1.0,
+      "prezzo" : 25,
+      "shopQta" : 1
+    },
+    "inventoryManager" : {
+      "inventario" : [ ]
+    },
+    "statusManager" : {
+      "hp" : 21,
+      "maxHp" : 24,
+      "ap" : 35,
+      "maxAp" : 35,
+      "lvl" : 1,
+      "alive" : true
+    },
+    "heroStatusManager" : {
+      "hp" : 24,
+      "maxHp" : 24,
+      "ap" : 14,
+      "maxAp" : 35,
+      "lvl" : 4,
+      "gold" : 18,
+      "alive" : true
+    },
+    "effectManager" : {
+      "effects" : [ ]
+    }
+  }, {
+    "nome" : "Alto Chierico",
+    "dif" : 7,
+    "atk" : 6,
+    "wis" : 15,
+    "eva" : 0.1,
+    "critMult" : 1.6,
+    "critChance" : 0.1,
+    "arma" : {
+      "nome" : "arma comune",
+      "rarity" : "STARTER",
+      "scaling" : "STR",
+      "modifier" : 1.0,
+      "prezzo" : 25,
+      "shopQta" : 1
+    },
+    "armatura" : {
+      "nome" : "armatura comune",
+      "rarity" : "STARTER",
+      "modifier" : 1.0,
+      "prezzo" : 25,
+      "shopQta" : 1
+    },
+    "inventoryManager" : {
+      "inventario" : [ ]
+    },
+    "statusManager" : {
+      "hp" : 30,
+      "maxHp" : 30,
+      "ap" : 30,
+      "maxAp" : 30,
+      "lvl" : 1,
+      "alive" : true
+    },
+    "heroStatusManager" : {
+      "hp" : 30,
+      "maxHp" : 30,
+      "ap" : 6,
+      "maxAp" : 30,
+      "lvl" : 4,
+      "gold" : 18,
+      "alive" : true
+    },
+    "effectManager" : {
+      "effects" : [ ]
+    }
+  } ],
+  "floor" : 5
+}

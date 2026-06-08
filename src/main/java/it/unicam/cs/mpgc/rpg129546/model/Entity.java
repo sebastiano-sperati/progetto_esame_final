@@ -6,6 +6,8 @@ import it.unicam.cs.mpgc.rpg129546.Items.InventoryManager;
 import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Action;
 import it.unicam.cs.mpgc.rpg129546.effect.EffectApplier;
 import it.unicam.cs.mpgc.rpg129546.effect.EffectManager;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 import java.util.List;
 
@@ -80,10 +82,12 @@ public abstract class Entity {
         return this.inventoryManager;
     }
 
+    @JsonIgnore
     public EffectApplier getEffectaApplier(){
         return this.EffectaApplier;
     }
 
+    @JsonIgnore
     public StatsManager getStatsManager(){return this.statsManager;}
 
     public StatusManager getStatusManager(){return this.statusManager;}
@@ -102,5 +106,6 @@ public abstract class Entity {
 
     public String getNome() {return this.nome;}
 
+    @JsonIgnore
     public List<Action> getAzioni(){ return this.azioni;}
 }

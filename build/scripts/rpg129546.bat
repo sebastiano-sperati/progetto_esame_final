@@ -70,7 +70,7 @@ goto fail
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\rpg129546-1.0.jar
+set CLASSPATH=%APP_HOME%\lib\rpg129546-1.0.jar;%APP_HOME%\lib\jackson-core-2.20.0.jar;%APP_HOME%\lib\jackson-databind-2.20.0.jar;%APP_HOME%\lib\jackson-annotations-2.20.jar
 
 
 @rem Execute rpg129546

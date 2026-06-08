@@ -1,42 +1,55 @@
 package it.unicam.cs.mpgc.rpg129546;
-import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Rarity;
-import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Weapon;
-import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.WeaponScaling;
-import it.unicam.cs.mpgc.rpg129546.Shop.Shop;
-import it.unicam.cs.mpgc.rpg129546.combat.Battle;
+import it.unicam.cs.mpgc.rpg129546.Game.Game;
+import it.unicam.cs.mpgc.rpg129546.Game.HeroFactory;
+import it.unicam.cs.mpgc.rpg129546.Persistence.SaveData;
+import it.unicam.cs.mpgc.rpg129546.Persistence.SaveManager;
 import it.unicam.cs.mpgc.rpg129546.model.Eroi.*;
 import it.unicam.cs.mpgc.rpg129546.model.Nemici.*;
 
 import java.util.*;
 
 public class Main {
+
     public static void main(String[] args) {
-        Dps dps = new Dps("dps",10,10,3,5,2,0.2,0.2,0.2,1,10);
-        Tank tank = new Tank("tank",10,10,3,5,4,0.2,0.2,0.2,1,10);
-        Healer healer = new Healer("healer",10,10,3,2,5,0.2,0.2,0.2,1,10);
-        Mage mage= new Mage("mage",10,10,3,3,5,0.2,0.2,0.2,1,10);
 
-        List<Hero> heroes = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
 
-        heroes.add(dps);
-        heroes.add(tank);
-        heroes.add(healer);
-        heroes.add(mage);
+        System.out.println("=== RPG GAME ===");
+        System.out.println("1) Nuova partita");
+        System.out.println("2) Carica partita");
+        System.out.println("3) Esci");
 
-        Goblin goblin1 = new Goblin("goblin1",1,10,0, 5,2,0.2,0.2,0.2,1,45,4);
-        Goblin goblin2 = new Goblin("goblin2",1,10,0, 5,2,0.2,0.2,0.2,1,45,4);
-        Goblin goblin3 = new Goblin("goblin3",1,10,0, 5,2,0.2,0.2,0.2,1,45,4);
-        Goblin goblin4 = new Goblin("goblin4",1,10,0, 5,2,0.2,0.2,0.2,1,45,4);
+        Game game = null;
+        while (true) {
 
-        List<Enemy> enemies = new ArrayList<>();
+            int choice = 0;
+            choice = sc.nextInt();
 
-        enemies.add(goblin1);
-        enemies.add(goblin2);
-        enemies.add(goblin3);
-        enemies.add(goblin4);
+            switch (choice) {
 
-        Battle battle = new Battle(heroes,enemies);
+                case 1 -> {
+                    List<Hero> heroes = HeroFactory.generate();
+                    game = new Game(heroes);
+                }
 
-        battle.Start();
+                case 2 -> {
+                    try {
+                        SaveData data = SaveManager.load();
+                        game = new Game(data.getHeroes());
+                        game.saveData.setFloor(data.getFloor());
+                    } catch (Exception e) {
+                        System.out.println("Nessun salvataggio trovato!");
+                    }
+                }
+
+                case 3 -> {
+                    return;
+                }
+            }
+
+            if (game != null) {
+                game.Start();
+            }
+        }
     }
 }

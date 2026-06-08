@@ -1,9 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.Game;
 
-import it.unicam.cs.mpgc.rpg129546.model.Nemici.Enemy;
-import it.unicam.cs.mpgc.rpg129546.model.Nemici.Imp;
-import it.unicam.cs.mpgc.rpg129546.model.Nemici.Orco;
-import it.unicam.cs.mpgc.rpg129546.model.Nemici.Wraith;
+import it.unicam.cs.mpgc.rpg129546.model.Nemici.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +15,15 @@ public class EnemyFactory {
 
         List<Enemy> nemici = new ArrayList<>();
 
-        for (int i = 0; i < ammount; i++) {
+        int i = 0;
+
+        if(floor == 10){
+            nemici.add(new Boss("Re dei Dannati", 250, 50, 12, 18, 18, 0.15, 2.5, 0.25, floor, 20, 100));
+            i++;
+        }
+        while (i < ammount) {
             nemici.add(randomEnemy(floor));
+            i++;
         }
         return nemici;
     }
@@ -28,14 +32,22 @@ public class EnemyFactory {
         Random random = new Random();
         return switch (random.nextInt(4)){
 
-            case 0 -> new Wraith("Wraith", 15, 20, 2, 3, 12, 0.20, 2.0, 0.20, floor, 1, 20);
+            case 0 -> new Wraith("Wraith", 1, 20, 2, 3, 12, 0.20, 2.0, 0.20, floor, 1, 20);
 
-            case 1 -> new Orco("Orco", 40, 10, 8, 4, 3, 0.05, 1.5, 0.05, floor, 5,15);
+            case 1 -> new Orco("Orco", 1, 10, 8, 4, 3, 0.05, 1.5, 0.05, floor, 5,15);
 
-            case 2 -> new Imp("Imp", 20, 15, 3, 9, 4, 0.15, 1.8, 0.15, floor, 1, 15);
+            case 2 -> new Imp("Imp", 1, 15, 3, 9, 4, 0.15, 1.8, 0.15, floor, 1, 15);
 
-            default -> new Wraith("Wraith", 15, 20, 2, 3, 12, 0.20, 2.0, 0.20, floor, 1, 20);
+            default -> new Goblin("Goblin", 1, 10, 4, 5, 5, 0.10, 1.5, 0.10, floor, 2, 10);
 
         };
     }
+
+    //*  case 0 -> new Wraith("Wraith", 15, 20, 2, 3, 12, 0.20, 2.0, 0.20, floor, 1, 20);
+    //
+    //            case 1 -> new Orco("Orco", 40, 10, 8, 4, 3, 0.05, 1.5, 0.05, floor, 5,15);
+    //
+    //            case 2 -> new Imp("Imp", 20, 15, 3, 9, 4, 0.15, 1.8, 0.15, floor, 1, 15);
+    //
+    //            default -> new Goblin("Goblin", 25, 10, 4, 5, 5, 0.10, 1.5, 0.10, floor, 2, 10);
 }
