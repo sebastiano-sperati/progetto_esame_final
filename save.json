@@ -4,73 +4,73 @@
     "nome" : "Furia della Battaglia",
     "hp" : 22,
     "maxHp" : 22,
-    "ap" : 25,
+    "ap" : 1,
     "maxAp" : 25,
     "atk" : 12,
     "def" : 4,
     "wis" : 6,
-    "lvl" : 3,
-    "xp" : 0,
-    "gold" : 9943,
-    "sogliaLvlUp" : 14,
+    "lvl" : 8,
+    "xp" : 11,
+    "gold" : 9726,
+    "sogliaLvlUp" : 31,
     "weapon" : {
       "nome" : "arma iniziale",
       "rarity" : "STARTER",
       "scaling" : "STR"
     },
     "armor" : {
-      "nome" : "armatura rara",
+      "nome" : "armatura comune",
       "rarity" : "COMUNE"
     },
-    "inventory" : [ {
-      "nome" : "pozione di difesa",
-      "qta" : 1
-    } ]
+    "inventory" : [ ]
   }, {
     "type" : "Tank",
     "nome" : "Guardia di Ferro",
     "hp" : 55,
     "maxHp" : 55,
-    "ap" : 12,
+    "ap" : 4,
     "maxAp" : 12,
     "atk" : 5,
     "def" : 12,
     "wis" : 3,
-    "lvl" : 3,
-    "xp" : 0,
-    "gold" : 9743,
-    "sogliaLvlUp" : 14,
+    "lvl" : 8,
+    "xp" : 11,
+    "gold" : 10016,
+    "sogliaLvlUp" : 31,
     "weapon" : {
       "nome" : "arma iniziale",
       "rarity" : "STARTER",
       "scaling" : "STR"
     },
     "armor" : {
-      "nome" : "armatura leggendaria",
-      "rarity" : "LEGENDARIO"
+      "nome" : "armatura iniziale",
+      "rarity" : "STARTER"
     },
     "inventory" : [ {
-      "nome" : "pozione di difesa",
+      "nome" : "pozione di forza",
       "qta" : 1
+    }, {
+      "nome" : "pozione di difesa",
+      "qta" : 2
     } ]
   }, {
     "type" : "Mage",
     "nome" : "Recluso",
     "hp" : 24,
     "maxHp" : 24,
-    "ap" : 35,
+    "ap" : 11,
     "maxAp" : 35,
     "atk" : 14,
     "def" : 5,
     "wis" : 12,
-    "lvl" : 3,
-    "xp" : 0,
-    "gold" : 10093,
-    "sogliaLvlUp" : 14,
+    "lvl" : 8,
+    "xp" : 11,
+    "gold" : 9686,
+    "sogliaLvlUp" : 31,
     "weapon" : {
-      "nome" : "arma iniziale",
-      "rarity" : "STARTER",
-      "scaling" : "STR"
+      "nome" : "bastone leggendario",
+      "rarity" : "LEGENDARIO",
+      "scaling" : "WIS"
     },
     "armor" : {
       "nome" : "armatura iniziale",
@@ -90,10 +90,10 @@
     "atk" : 6,
     "def" : 7,
     "wis" : 15,
-    "lvl" : 3,
-    "xp" : 0,
-    "gold" : 10083,
-    "sogliaLvlUp" : 14,
+    "lvl" : 8,
+    "xp" : 11,
+    "gold" : 9993,
+    "sogliaLvlUp" : 31,
     "weapon" : {
       "nome" : "arma iniziale",
       "rarity" : "STARTER",
@@ -103,10 +103,7 @@
       "nome" : "armatura iniziale",
       "rarity" : "STARTER"
     },
-    "inventory" : [ {
-      "nome" : "pozione di forza",
-      "qta" : 2
-    } ]
+    "inventory" : [ ]
   } ],
-  "floor" : 2
+  "floor" : 4
 }

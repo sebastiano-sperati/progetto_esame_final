@@ -48,13 +48,13 @@ public class StatusManager {
     }
 
     public void Heal(int amount){
-        this.hp+=amount;
-        if(this.hp>this.getMaxHp()) this.hp=this.getMaxHp();
+        this.hp += amount;
+        if(this.hp > owner.getStatsManager().getScaledMaxHP()) this.hp = owner.getStatsManager().getScaledMaxHP();
     }
 
     public void restore(int amount){
         this.ap+=amount;
-        if(this.ap>this.getMaxAp()) this.ap=this.getMaxAp();
+        if(this.ap>owner.getStatsManager().getScaledMaxAp()) this.ap=owner.getStatsManager().getScaledMaxAp();
     }
 
     public void lvlUp(){

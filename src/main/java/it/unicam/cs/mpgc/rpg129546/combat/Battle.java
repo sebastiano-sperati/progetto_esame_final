@@ -21,7 +21,6 @@ public class Battle {
     private final ActionSelector actionSelector = new ActionSelector();
     private final ItemSelector itemSelector = new ItemSelector();
     private final BattleManager battleManager = new BattleManager();
-    private final ShopSelector selector = new ShopSelector();
     private final ShowSquasStats squadStatsView = new ShowSquasStats();
     private final ShowInventory inventoryView = new ShowInventory();
 
@@ -32,10 +31,15 @@ public class Battle {
 
     public void Start(){
         System.out.println("INIZIA LA BATTAGLIA!!!");
+
         battleManager.BattleStartConditions(eroi);
+
         while (heroseAlive() && enemyAlive()){
+
             battleManager.StartTurnRestore(nemici,eroi);
+
             heroTurn();
+
             if(enemyAlive()) enemyTurn();
         }
     }

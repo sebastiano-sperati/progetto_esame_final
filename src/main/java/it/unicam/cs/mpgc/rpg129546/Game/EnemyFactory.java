@@ -11,15 +11,14 @@ public class EnemyFactory {
     public static List<Enemy> generate(int floor) {
         Random random = new Random();
 
-        int ammount = 1;
-                //random.nextInt(6) + 2;
+        int ammount = random.nextInt(floor) + 2;;
 
         List<Enemy> nemici = new ArrayList<>();
 
         int i = 0;
 
         if(floor == 10){
-            nemici.add(new Boss("Re dei Dannati", 250, 50, 12, 18, 18, 0.15, 2.5, 0.25, floor, 20, 100));
+            nemici.add(new Boss("Re dei Dannati", 250, 50, 12, 18, 18, 0.15, 2.5, 0.25, 1, 20, 100));
             i++;
         }
         while (i < ammount) {

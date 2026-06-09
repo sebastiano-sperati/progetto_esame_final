@@ -74,7 +74,7 @@ public class Game {
             System.out.println("salvare e uscire?");
             System.out.println("1-SI         0-NO");
             
-            int choice = 0;
+            int choice;
             Scanner sc = new Scanner(System.in);
             choice = sc.nextInt();
             
