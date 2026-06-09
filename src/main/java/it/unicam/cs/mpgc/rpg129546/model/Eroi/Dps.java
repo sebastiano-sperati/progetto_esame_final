@@ -11,4 +11,6 @@ public class Dps extends Hero{
         azioni.add(new Counter());
         azioni.add(new MultiAtk());
     }
+
+    public Dps(){}
 }

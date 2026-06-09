@@ -102,4 +102,8 @@ public class Shop {
 
         System.out.println(h.getNome() + "vende" + item.getNome());
     }
+
+    public List<GenericItem> getCatalogo(){
+        return this.catalogo;
+    }
 }

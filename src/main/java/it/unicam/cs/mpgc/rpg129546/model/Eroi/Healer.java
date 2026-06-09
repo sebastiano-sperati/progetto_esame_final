@@ -11,4 +11,5 @@ public class Healer extends Hero{
         azioni.add(new Restore());
         azioni.add(new Revivify());
     }
+    public Healer(){}
 }

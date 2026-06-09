@@ -1,197 +1,103 @@
 {
   "heroes" : [ {
+    "type" : "Dps",
     "nome" : "Furia della Battaglia",
-    "dif" : 4,
+    "hp" : 22,
+    "maxHp" : 22,
+    "ap" : 25,
+    "maxAp" : 25,
     "atk" : 12,
+    "def" : 4,
     "wis" : 6,
-    "eva" : 0.25,
-    "critMult" : 2.2,
-    "critChance" : 0.25,
-    "arma" : {
-      "nome" : "arma comune",
+    "lvl" : 2,
+    "xp" : 2,
+    "gold" : 10183,
+    "sogliaLvlUp" : 12,
+    "weapon" : {
+      "nome" : "arma iniziale",
       "rarity" : "STARTER",
-      "scaling" : "STR",
-      "modifier" : 1.0,
-      "prezzo" : 25,
-      "shopQta" : 1
+      "scaling" : "STR"
     },
-    "armatura" : {
-      "nome" : "armatura comune",
-      "rarity" : "STARTER",
-      "modifier" : 1.0,
-      "prezzo" : 25,
-      "shopQta" : 1
+    "armor" : {
+      "nome" : "armatura iniziale",
+      "rarity" : "STARTER"
     },
-    "inventoryManager" : {
-      "inventario" : [ {
-        "nome" : "pozione di forza",
-        "maxQta" : 5,
-        "qta" : 1,
-        "tipo" : "POTION",
-        "prezzo" : 10,
-        "full" : false,
-        "empty" : false,
-        "shopQta" : 4
-      } ]
-    },
-    "statusManager" : {
-      "hp" : 22,
-      "maxHp" : 22,
-      "ap" : 17,
-      "maxAp" : 25,
-      "lvl" : 1,
-      "alive" : true
-    },
-    "heroStatusManager" : {
-      "hp" : 22,
-      "maxHp" : 22,
-      "ap" : 12,
-      "maxAp" : 25,
-      "lvl" : 4,
-      "gold" : 8,
-      "alive" : true
-    },
-    "effectManager" : {
-      "effects" : [ ]
-    }
+    "inventory" : [ {
+      "nome" : "pozione di difesa",
+      "qta" : 2
+    } ]
   }, {
+    "type" : "Tank",
     "nome" : "Guardia di Ferro",
-    "dif" : 12,
+    "hp" : 55,
+    "maxHp" : 55,
+    "ap" : 12,
+    "maxAp" : 12,
     "atk" : 5,
+    "def" : 12,
     "wis" : 3,
-    "eva" : 0.05,
-    "critMult" : 1.4,
-    "critChance" : 0.05,
-    "arma" : {
-      "nome" : "arma comune",
+    "lvl" : 2,
+    "xp" : 2,
+    "gold" : 10203,
+    "sogliaLvlUp" : 12,
+    "weapon" : {
+      "nome" : "arma iniziale",
       "rarity" : "STARTER",
-      "scaling" : "STR",
-      "modifier" : 1.0,
-      "prezzo" : 25,
-      "shopQta" : 1
+      "scaling" : "STR"
     },
-    "armatura" : {
-      "nome" : "armatura comune",
-      "rarity" : "STARTER",
-      "modifier" : 1.0,
-      "prezzo" : 25,
-      "shopQta" : 1
+    "armor" : {
+      "nome" : "armatura iniziale",
+      "rarity" : "STARTER"
     },
-    "inventoryManager" : {
-      "inventario" : [ ]
-    },
-    "statusManager" : {
-      "hp" : 55,
-      "maxHp" : 55,
-      "ap" : 12,
-      "maxAp" : 12,
-      "lvl" : 1,
-      "alive" : true
-    },
-    "heroStatusManager" : {
-      "hp" : 55,
-      "maxHp" : 55,
-      "ap" : 5,
-      "maxAp" : 12,
-      "lvl" : 4,
-      "gold" : 18,
-      "alive" : true
-    },
-    "effectManager" : {
-      "effects" : [ ]
-    }
+    "inventory" : [ ]
   }, {
+    "type" : "Mage",
     "nome" : "Recluso",
-    "dif" : 5,
+    "hp" : 24,
+    "maxHp" : 24,
+    "ap" : 35,
+    "maxAp" : 35,
     "atk" : 14,
+    "def" : 5,
     "wis" : 12,
-    "eva" : 0.1,
-    "critMult" : 1.8,
-    "critChance" : 0.1,
-    "arma" : {
-      "nome" : "arma comune",
+    "lvl" : 2,
+    "xp" : 2,
+    "gold" : 10203,
+    "sogliaLvlUp" : 12,
+    "weapon" : {
+      "nome" : "arma iniziale",
       "rarity" : "STARTER",
-      "scaling" : "STR",
-      "modifier" : 1.0,
-      "prezzo" : 25,
-      "shopQta" : 1
+      "scaling" : "STR"
     },
-    "armatura" : {
-      "nome" : "armatura comune",
-      "rarity" : "STARTER",
-      "modifier" : 1.0,
-      "prezzo" : 25,
-      "shopQta" : 1
+    "armor" : {
+      "nome" : "armatura iniziale",
+      "rarity" : "STARTER"
     },
-    "inventoryManager" : {
-      "inventario" : [ ]
-    },
-    "statusManager" : {
-      "hp" : 21,
-      "maxHp" : 24,
-      "ap" : 35,
-      "maxAp" : 35,
-      "lvl" : 1,
-      "alive" : true
-    },
-    "heroStatusManager" : {
-      "hp" : 24,
-      "maxHp" : 24,
-      "ap" : 14,
-      "maxAp" : 35,
-      "lvl" : 4,
-      "gold" : 18,
-      "alive" : true
-    },
-    "effectManager" : {
-      "effects" : [ ]
-    }
+    "inventory" : [ ]
   }, {
+    "type" : "Healer",
     "nome" : "Alto Chierico",
-    "dif" : 7,
+    "hp" : 30,
+    "maxHp" : 30,
+    "ap" : 30,
+    "maxAp" : 30,
     "atk" : 6,
+    "def" : 7,
     "wis" : 15,
-    "eva" : 0.1,
-    "critMult" : 1.6,
-    "critChance" : 0.1,
-    "arma" : {
-      "nome" : "arma comune",
+    "lvl" : 2,
+    "xp" : 2,
+    "gold" : 10203,
+    "sogliaLvlUp" : 12,
+    "weapon" : {
+      "nome" : "arma iniziale",
       "rarity" : "STARTER",
-      "scaling" : "STR",
-      "modifier" : 1.0,
-      "prezzo" : 25,
-      "shopQta" : 1
+      "scaling" : "STR"
     },
-    "armatura" : {
-      "nome" : "armatura comune",
-      "rarity" : "STARTER",
-      "modifier" : 1.0,
-      "prezzo" : 25,
-      "shopQta" : 1
+    "armor" : {
+      "nome" : "armatura iniziale",
+      "rarity" : "STARTER"
     },
-    "inventoryManager" : {
-      "inventario" : [ ]
-    },
-    "statusManager" : {
-      "hp" : 30,
-      "maxHp" : 30,
-      "ap" : 30,
-      "maxAp" : 30,
-      "lvl" : 1,
-      "alive" : true
-    },
-    "heroStatusManager" : {
-      "hp" : 30,
-      "maxHp" : 30,
-      "ap" : 6,
-      "maxAp" : 30,
-      "lvl" : 4,
-      "gold" : 18,
-      "alive" : true
-    },
-    "effectManager" : {
-      "effects" : [ ]
-    }
+    "inventory" : [ ]
   } ],
-  "floor" : 5
+  "floor" : 2
 }

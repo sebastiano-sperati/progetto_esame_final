@@ -64,6 +64,11 @@ public class DefensePotion implements Item {
     }
 
     @Override
+    public void setQta(int ammount) {
+        this.qta = ammount;
+    }
+
+    @Override
     public int getPrezzo() {
         return prezzo;
     }

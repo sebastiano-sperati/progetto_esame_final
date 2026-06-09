@@ -23,7 +23,7 @@ public class HeroStatusManager extends StatusManager {
         if(this.gold < 0) this.gold = 0;
     }
 
-    protected int getXp(){ return this.xp; }
+    public int getXp(){ return this.xp; }
 
     public void addXp(int rewardedXp){
         this.xp += rewardedXp;
@@ -32,5 +32,21 @@ public class HeroStatusManager extends StatusManager {
             this.sogliaLvlUp = (int) (this.sogliaLvlUp * 1.2);
             this.lvlUp();
         }
+    }
+
+    public int getSogliaLvlUp() {
+        return sogliaLvlUp;
+    }
+
+    public void setSogliaLvlUp(int sogliaLvlUp) {
+        this.sogliaLvlUp = sogliaLvlUp;
+    }
+
+    public void setXp(int xp) {
+        this.xp = xp;
+    }
+
+    public void setGold(int gold){
+        this.gold=gold;
     }
 }

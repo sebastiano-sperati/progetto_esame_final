@@ -54,8 +54,12 @@ public abstract class Entity {
         this.inventoryManager = new InventoryManager();
         this.statsManager = new StatsManager(this);
         this.statusManager = new StatusManager(this,this.hp,this.maxHp,this.ap,this.maxAp, this.lvl,this.isAlive);
-        this.arma = new Weapon("arma comune",STARTER,STR);
-        this.armatura = new Armor("armatura comune",STARTER);
+        this.arma = new Weapon("arma iniziale",STARTER,STR);
+        this.armatura = new Armor("armatura iniziale" ,STARTER);
+    }
+
+    public Entity() {
+
     }
 
     public Weapon getArma(){

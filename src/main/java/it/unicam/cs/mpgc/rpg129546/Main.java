@@ -1,10 +1,18 @@
 package it.unicam.cs.mpgc.rpg129546;
+import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Armor;
+import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Rarity;
+import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Weapon;
+import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.WeaponScaling;
 import it.unicam.cs.mpgc.rpg129546.Game.Game;
 import it.unicam.cs.mpgc.rpg129546.Game.HeroFactory;
+import it.unicam.cs.mpgc.rpg129546.Items.Consumabili.HealingPotion;
+import it.unicam.cs.mpgc.rpg129546.Items.Consumabili.Item;
+import it.unicam.cs.mpgc.rpg129546.Persistence.Loaders.SaveLoader;
+import it.unicam.cs.mpgc.rpg129546.Persistence.Savers.ItemSave;
+import it.unicam.cs.mpgc.rpg129546.Persistence.Savers.HeroSave;
 import it.unicam.cs.mpgc.rpg129546.Persistence.SaveData;
 import it.unicam.cs.mpgc.rpg129546.Persistence.SaveManager;
 import it.unicam.cs.mpgc.rpg129546.model.Eroi.*;
-import it.unicam.cs.mpgc.rpg129546.model.Nemici.*;
 
 import java.util.*;
 
@@ -20,8 +28,6 @@ public class Main {
         System.out.println("3) Esci");
 
         Game game = null;
-        while (true) {
-
             int choice = 0;
             choice = sc.nextInt();
 
@@ -34,11 +40,13 @@ public class Main {
 
                 case 2 -> {
                     try {
+
                         SaveData data = SaveManager.load();
-                        game = new Game(data.getHeroes());
-                        game.saveData.setFloor(data.getFloor());
+
+                        game = SaveLoader.loadGame(data);
+
                     } catch (Exception e) {
-                        System.out.println("Nessun salvataggio trovato!");
+                        e.printStackTrace();
                     }
                 }
 
@@ -52,4 +60,3 @@ public class Main {
             }
         }
     }
-}

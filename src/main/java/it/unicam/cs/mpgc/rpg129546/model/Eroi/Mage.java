@@ -11,4 +11,5 @@ public class Mage extends Hero{
         azioni.add(new FireBall());
         azioni.add(new Lightning());
     }
+    public Mage(){}
 }

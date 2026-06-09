@@ -1,26 +1,26 @@
 package it.unicam.cs.mpgc.rpg129546.Persistence;
 
-import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
+import it.unicam.cs.mpgc.rpg129546.Persistence.Savers.HeroSave;
 
 import java.util.List;
 
 public class SaveData {
 
-    private List<Hero> heroes;
+    private List<HeroSave> heroes;
     private int floor;
 
     public SaveData() {}
 
-    public SaveData(List<Hero> heroes, int floor) {
+    public SaveData(List<HeroSave> heroes, int floor) {
         this.heroes = heroes;
         this.floor = floor;
     }
 
-    public List<Hero> getHeroes() {
+    public List<HeroSave> getHeroes() {
         return heroes;
     }
 
-    public void setHeroes(List<Hero> heroes) {
+    public void setHeroes(List<HeroSave> heroes) {
         this.heroes = heroes;
     }
 

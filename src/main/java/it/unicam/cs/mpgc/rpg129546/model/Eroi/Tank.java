@@ -11,4 +11,5 @@ public class Tank extends Hero{
         azioni.add(new Ispirazione());
         azioni.add(new Fear());
     }
+    public Tank(){}
 }

@@ -20,4 +20,5 @@ public interface Item extends GenericItem {
         Random random = new Random();
         return random.nextInt(6) + 2;
     }
+    void setQta(int ammount);
 }

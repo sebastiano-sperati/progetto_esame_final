@@ -21,7 +21,7 @@ public class InventoryManager {
                     return;
                 }
 
-                item.increaseCount();
+                i.increaseCount();
                 return;
             }
         }

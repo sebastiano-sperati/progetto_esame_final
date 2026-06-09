@@ -63,6 +63,11 @@ public class HealingPotion implements Item {
     }
 
     @Override
+    public void setQta(int ammount) {
+        this.qta = ammount;
+    }
+
+    @Override
     public int getPrezzo() {
         return prezzo;
     }

@@ -32,7 +32,7 @@ public class Battle {
 
     public void Start(){
         System.out.println("INIZIA LA BATTAGLIA!!!");
-
+        battleManager.BattleStartConditions(eroi);
         while (heroseAlive() && enemyAlive()){
             battleManager.StartTurnRestore(nemici,eroi);
             heroTurn();

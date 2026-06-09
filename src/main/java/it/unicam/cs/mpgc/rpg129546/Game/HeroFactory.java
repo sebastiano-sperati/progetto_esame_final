@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.Game;
 
+import it.unicam.cs.mpgc.rpg129546.Persistence.Savers.HeroSave;
 import it.unicam.cs.mpgc.rpg129546.model.Eroi.*;
 
 import java.util.ArrayList;
@@ -19,6 +20,78 @@ public class HeroFactory {
         eroi.add(healer);
 
         return eroi;
+    }
+    public static Hero generateSave(String type, HeroSave save) {
+
+        switch (type) {
+
+            case "Dps":
+            case "DPS":
+                return new Dps(
+                        save.nome,
+                        save.maxHp,
+                        save.maxAp,
+                        save.def,
+                        save.atk,
+                        save.wis,
+                        0.25,
+                        2.2,
+                        0.25,
+                        save.lvl,
+                        10
+                );
+
+            case "Tank":
+            case "TANK":
+                return new Tank(
+                        save.nome,
+                        save.maxHp,
+                        save.maxAp,
+                        save.def,
+                        save.atk,
+                        save.wis,
+                        0.05,
+                        1.4,
+                        0.05,
+                        save.lvl,
+                        10
+                );
+
+            case "Mage":
+            case "MAGE":
+                return new Mage(
+                        save.nome,
+                        save.maxHp,
+                        save.maxAp,
+                        save.def,
+                        save.atk,
+                        save.wis,
+                        0.10,
+                        1.8,
+                        0.10,
+                        save.lvl,
+                        10
+                );
+
+            case "Healer":
+            case "HEALER":
+                return new Healer(
+                        save.nome,
+                        save.maxHp,
+                        save.maxAp,
+                        save.def,
+                        save.atk,
+                        save.wis,
+                        0.10,
+                        1.6,
+                        0.10,
+                        save.lvl,
+                        10
+                );
+
+            default:
+                throw new IllegalArgumentException("Unknown hero nome: " + type);
+        }
     }
 }
 
