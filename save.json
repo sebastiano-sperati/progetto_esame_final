@@ -9,22 +9,22 @@
     "atk" : 12,
     "def" : 4,
     "wis" : 6,
-    "lvl" : 2,
-    "xp" : 2,
-    "gold" : 10183,
-    "sogliaLvlUp" : 12,
+    "lvl" : 3,
+    "xp" : 0,
+    "gold" : 9943,
+    "sogliaLvlUp" : 14,
     "weapon" : {
       "nome" : "arma iniziale",
       "rarity" : "STARTER",
       "scaling" : "STR"
     },
     "armor" : {
-      "nome" : "armatura iniziale",
-      "rarity" : "STARTER"
+      "nome" : "armatura rara",
+      "rarity" : "COMUNE"
     },
     "inventory" : [ {
       "nome" : "pozione di difesa",
-      "qta" : 2
+      "qta" : 1
     } ]
   }, {
     "type" : "Tank",
@@ -36,20 +36,23 @@
     "atk" : 5,
     "def" : 12,
     "wis" : 3,
-    "lvl" : 2,
-    "xp" : 2,
-    "gold" : 10203,
-    "sogliaLvlUp" : 12,
+    "lvl" : 3,
+    "xp" : 0,
+    "gold" : 9743,
+    "sogliaLvlUp" : 14,
     "weapon" : {
       "nome" : "arma iniziale",
       "rarity" : "STARTER",
       "scaling" : "STR"
     },
     "armor" : {
-      "nome" : "armatura iniziale",
-      "rarity" : "STARTER"
+      "nome" : "armatura leggendaria",
+      "rarity" : "LEGENDARIO"
     },
-    "inventory" : [ ]
+    "inventory" : [ {
+      "nome" : "pozione di difesa",
+      "qta" : 1
+    } ]
   }, {
     "type" : "Mage",
     "nome" : "Recluso",
@@ -60,10 +63,10 @@
     "atk" : 14,
     "def" : 5,
     "wis" : 12,
-    "lvl" : 2,
-    "xp" : 2,
-    "gold" : 10203,
-    "sogliaLvlUp" : 12,
+    "lvl" : 3,
+    "xp" : 0,
+    "gold" : 10093,
+    "sogliaLvlUp" : 14,
     "weapon" : {
       "nome" : "arma iniziale",
       "rarity" : "STARTER",
@@ -73,7 +76,10 @@
       "nome" : "armatura iniziale",
       "rarity" : "STARTER"
     },
-    "inventory" : [ ]
+    "inventory" : [ {
+      "nome" : "pozione di forza",
+      "qta" : 1
+    } ]
   }, {
     "type" : "Healer",
     "nome" : "Alto Chierico",
@@ -84,10 +90,10 @@
     "atk" : 6,
     "def" : 7,
     "wis" : 15,
-    "lvl" : 2,
-    "xp" : 2,
-    "gold" : 10203,
-    "sogliaLvlUp" : 12,
+    "lvl" : 3,
+    "xp" : 0,
+    "gold" : 10083,
+    "sogliaLvlUp" : 14,
     "weapon" : {
       "nome" : "arma iniziale",
       "rarity" : "STARTER",
@@ -97,7 +103,10 @@
       "nome" : "armatura iniziale",
       "rarity" : "STARTER"
     },
-    "inventory" : [ ]
+    "inventory" : [ {
+      "nome" : "pozione di forza",
+      "qta" : 2
+    } ]
   } ],
   "floor" : 2
 }

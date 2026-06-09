@@ -1,0 +1,63 @@
+package it.unicam.cs.mpgc.rpg129546.Persistence.Savers;
+
+import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Armor;
+import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Weapon;
+import it.unicam.cs.mpgc.rpg129546.Items.Consumabili.Item;
+import it.unicam.cs.mpgc.rpg129546.Shop.GenericItem;
+import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class GenericSaver {
+
+    public void GenericSaver(HeroSave save, Hero h){
+        HeroSaver(save,h);
+        EquipSaver(save,h.getArma(),h.getArmatura());
+        InvSaver(save,h);
+    }
+
+    public void HeroSaver(HeroSave save, Hero hero){
+        save.type = hero.getClass().getSimpleName();
+        save.nome = hero.getNome();
+
+        save.hp = hero.getStatusManager().getHp();
+        save.maxHp = hero.getStatusManager().getMaxHp();
+
+        save.ap = hero.getStatusManager().getAp();
+        save.maxAp = hero.getStatusManager().getMaxAp();
+
+        save.atk = hero.getAtk();
+        save.def = hero.getDif();
+        save.wis = hero.getWis();
+
+        save.lvl = hero.getHeroStatusManager().getLvl();
+        save.gold = hero.getHeroStatusManager().getGold();
+
+        save.xp = hero.getHeroStatusManager().getXp();
+        save.sogliaLvlUp = hero.getHeroStatusManager().getSogliaLvlUp();
+    }
+
+    public void EquipSaver(HeroSave save, Weapon w, Armor a){
+        save.weapon = new WeaponSave();
+        save.weapon.nome = w.getNome();
+        save.weapon.rarity = String.valueOf(w.getRarity());
+        save.weapon.scaling = String.valueOf(w.getScaling());
+
+        save.armor = new ArmorSave();
+        save.armor.nome = a.getNome();
+        save.armor.rarity = a.getRarity().name();
+        save.inventory = new ArrayList<>();
+    }
+
+    public void InvSaver(HeroSave save, Hero h){
+        for(Item i : h.getInventoryManager().getInventario()){
+            ItemSave itemSave = new ItemSave();
+
+            itemSave.nome = i.getNome();
+            itemSave.qta = i.getQta();
+
+            save.inventory.add(itemSave);
+        }
+    }
+}

@@ -15,16 +15,8 @@ public class Enemy extends Entity {
         this.xpDrop= xpDrop;
     }
 
-    public int getTaglia() {
-        return this.taglia;
-    }
-
     public int getScaledTaglia() {
         return this.taglia + (2 + this.getStatusManager().getLvl());
-    }
-
-    public int getXpDrop() {
-        return this.xpDrop;
     }
 
     public int getScaledXpDrop(){

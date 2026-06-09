@@ -13,7 +13,6 @@ import java.util.List;
 
 import static it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Rarity.STARTER;
 import static it.unicam.cs.mpgc.rpg129546.Equipaggiamento.WeaponScaling.STR;
-import static it.unicam.cs.mpgc.rpg129546.Equipaggiamento.WeaponScaling.WIS;
 
 public abstract class Entity {
     protected String nome;

@@ -20,15 +20,7 @@ public class SaveData {
         return heroes;
     }
 
-    public void setHeroes(List<HeroSave> heroes) {
-        this.heroes = heroes;
-    }
-
     public int getFloor() {
         return floor;
-    }
-
-    public void setFloor(int floor) {
-        this.floor = floor;
     }
 }

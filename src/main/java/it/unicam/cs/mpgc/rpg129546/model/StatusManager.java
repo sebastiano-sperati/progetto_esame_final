@@ -9,11 +9,9 @@ public class StatusManager {
     private final int maxAp;
     private  int lvl;
     private  boolean isAlive;
-    private StatsManager statsManager;
 
     public StatusManager(Entity owner,int hp, int maxHp, int ap, int maxAp, int lvl,boolean isAlive) {
         this.owner = owner;
-        this.statsManager = new StatsManager(owner);
         this.hp = hp;
         this.maxHp = maxHp;
         this.ap = ap;
@@ -72,9 +70,4 @@ public class StatusManager {
     public void setAp(int ammount ){
         this.ap = ammount;
     }
-
-    public StatsManager getStatsManager(){
-        return this.statsManager;
-    }
-
 }

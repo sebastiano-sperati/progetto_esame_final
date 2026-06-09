@@ -1,15 +1,7 @@
 package it.unicam.cs.mpgc.rpg129546;
-import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Armor;
-import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Rarity;
-import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Weapon;
-import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.WeaponScaling;
 import it.unicam.cs.mpgc.rpg129546.Game.Game;
 import it.unicam.cs.mpgc.rpg129546.Game.HeroFactory;
-import it.unicam.cs.mpgc.rpg129546.Items.Consumabili.HealingPotion;
-import it.unicam.cs.mpgc.rpg129546.Items.Consumabili.Item;
 import it.unicam.cs.mpgc.rpg129546.Persistence.Loaders.SaveLoader;
-import it.unicam.cs.mpgc.rpg129546.Persistence.Savers.ItemSave;
-import it.unicam.cs.mpgc.rpg129546.Persistence.Savers.HeroSave;
 import it.unicam.cs.mpgc.rpg129546.Persistence.SaveData;
 import it.unicam.cs.mpgc.rpg129546.Persistence.SaveManager;
 import it.unicam.cs.mpgc.rpg129546.model.Eroi.*;

@@ -26,20 +26,4 @@ public class BattleManager {
             }
         }
     }
-
-    public int goldReward(List<Enemy>list){
-        int reward = 0;
-        for (int i = 0; i < list.size(); i++) {
-            reward += list.get(i).getScaledTaglia();
-        }
-        return reward;
-    }
-
-    public int xpReward(List<Enemy>list){
-        int reward = 0;
-        for (int i = 0; i < list.size(); i++) {
-            reward += list.get(i).getScaledXpDrop();
-        }
-        return reward;
-    }
 }
