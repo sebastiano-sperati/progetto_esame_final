@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.model.Eroi;
 
+import it.unicam.cs.mpgc.rpg129546.abilities.CharacterAllocation;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
@@ -32,6 +33,10 @@ public class Hero extends Entity {
         this.azioni=new ArrayList<>(numeroAzioni);
         this.sogliaLvlUp = sogliaLvlUp;
         this.heroStatusManager = new HeroStatusManager(this,hp,maxHp,atk,maxAp,lvl,isAlive,xp,sogliaLvlUp,gold);
+    }
+
+    public CharacterAllocation getCharacterAllocation() {
+        return null;
     }
 
     public Hero() {

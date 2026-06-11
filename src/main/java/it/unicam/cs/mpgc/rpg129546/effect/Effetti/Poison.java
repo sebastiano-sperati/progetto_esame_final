@@ -40,6 +40,7 @@ public class Poison implements Effect{
 
     @Override
     public void damageOverTime(Entity e){
+        System.out.println(e.getNome() + " subisce " + dmg + " danni da " + nome);
         e.getStatusManager().takeDamage(dmg);
     }
 }

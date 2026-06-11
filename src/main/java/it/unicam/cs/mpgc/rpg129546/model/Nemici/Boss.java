@@ -1,6 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.model.Nemici;
 
-import it.unicam.cs.mpgc.rpg129546.abilities.abilità.*;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.BaseAbilities.*;
 
 public class Boss extends Enemy{
     public Boss(String nome, int maxHp, int maxAp, int dif, int atk,int wis, double eva, double critMult, double critChance, int lvl, int taglia, int xpDrop) {

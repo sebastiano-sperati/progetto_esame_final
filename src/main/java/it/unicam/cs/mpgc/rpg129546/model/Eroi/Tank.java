@@ -1,6 +1,7 @@
 package it.unicam.cs.mpgc.rpg129546.model.Eroi;
 
-import it.unicam.cs.mpgc.rpg129546.abilities.abilità.*;
+import it.unicam.cs.mpgc.rpg129546.abilities.CharacterAllocation;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.BaseAbilities.*;
 
 public class Tank extends Hero{
     public Tank(String nome, int maxHp, int maxAp, int dif, int atk,int wis, double eva, double critMult, double critChance, int lvl, int sogliaLvlUp) {
@@ -12,4 +13,8 @@ public class Tank extends Hero{
         azioni.add(new Fear());
     }
     public Tank(){}
+    @Override
+    public CharacterAllocation getCharacterAllocation(){
+        return CharacterAllocation.TANK;
+    }
 }

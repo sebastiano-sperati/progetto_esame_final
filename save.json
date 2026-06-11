@@ -2,41 +2,38 @@
   "heroes" : [ {
     "type" : "Dps",
     "nome" : "Furia della Battaglia",
-    "hp" : 22,
+    "hp" : 52,
     "maxHp" : 22,
-    "ap" : 1,
+    "ap" : 55,
     "maxAp" : 25,
-    "atk" : 12,
-    "def" : 4,
-    "wis" : 6,
-    "lvl" : 8,
-    "xp" : 11,
-    "gold" : 9726,
-    "sogliaLvlUp" : 31,
+    "lvl" : 1,
+    "xp" : 9,
+    "gold" : 10023,
+    "sogliaLvlUp" : 105,
     "weapon" : {
       "nome" : "arma iniziale",
       "rarity" : "STARTER",
       "scaling" : "STR"
     },
     "armor" : {
-      "nome" : "armatura comune",
-      "rarity" : "COMUNE"
+      "nome" : "armatura iniziale",
+      "rarity" : "STARTER"
     },
-    "inventory" : [ ]
+    "inventory" : [ {
+      "nome" : "pozione di energia",
+      "qta" : 1
+    } ]
   }, {
     "type" : "Tank",
     "nome" : "Guardia di Ferro",
-    "hp" : 55,
+    "hp" : 85,
     "maxHp" : 55,
-    "ap" : 4,
+    "ap" : 42,
     "maxAp" : 12,
-    "atk" : 5,
-    "def" : 12,
-    "wis" : 3,
-    "lvl" : 8,
-    "xp" : 11,
-    "gold" : 10016,
-    "sogliaLvlUp" : 31,
+    "lvl" : 1,
+    "xp" : 9,
+    "gold" : 10028,
+    "sogliaLvlUp" : 105,
     "weapon" : {
       "nome" : "arma iniziale",
       "rarity" : "STARTER",
@@ -46,54 +43,39 @@
       "nome" : "armatura iniziale",
       "rarity" : "STARTER"
     },
-    "inventory" : [ {
-      "nome" : "pozione di forza",
-      "qta" : 1
-    }, {
-      "nome" : "pozione di difesa",
-      "qta" : 2
-    } ]
+    "inventory" : [ ]
   }, {
     "type" : "Mage",
     "nome" : "Recluso",
-    "hp" : 24,
+    "hp" : 54,
     "maxHp" : 24,
-    "ap" : 11,
+    "ap" : 65,
     "maxAp" : 35,
-    "atk" : 14,
-    "def" : 5,
-    "wis" : 12,
-    "lvl" : 8,
-    "xp" : 11,
-    "gold" : 9686,
-    "sogliaLvlUp" : 31,
+    "lvl" : 1,
+    "xp" : 9,
+    "gold" : 10028,
+    "sogliaLvlUp" : 105,
     "weapon" : {
-      "nome" : "bastone leggendario",
-      "rarity" : "LEGENDARIO",
-      "scaling" : "WIS"
+      "nome" : "arma iniziale",
+      "rarity" : "STARTER",
+      "scaling" : "STR"
     },
     "armor" : {
       "nome" : "armatura iniziale",
       "rarity" : "STARTER"
     },
-    "inventory" : [ {
-      "nome" : "pozione di forza",
-      "qta" : 1
-    } ]
+    "inventory" : [ ]
   }, {
     "type" : "Healer",
     "nome" : "Alto Chierico",
-    "hp" : 30,
+    "hp" : 60,
     "maxHp" : 30,
-    "ap" : 30,
+    "ap" : 60,
     "maxAp" : 30,
-    "atk" : 6,
-    "def" : 7,
-    "wis" : 15,
-    "lvl" : 8,
-    "xp" : 11,
-    "gold" : 9993,
-    "sogliaLvlUp" : 31,
+    "lvl" : 1,
+    "xp" : 9,
+    "gold" : 10028,
+    "sogliaLvlUp" : 105,
     "weapon" : {
       "nome" : "arma iniziale",
       "rarity" : "STARTER",
@@ -105,5 +87,5 @@
     },
     "inventory" : [ ]
   } ],
-  "floor" : 4
+  "floor" : 3
 }

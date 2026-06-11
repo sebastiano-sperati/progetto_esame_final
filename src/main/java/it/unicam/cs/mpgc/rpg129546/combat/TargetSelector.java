@@ -1,6 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.combat;
 import it.unicam.cs.mpgc.rpg129546.Items.Consumabili.Item;
-import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Action;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface.Action;
 import it.unicam.cs.mpgc.rpg129546.model.Nemici.Enemy;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
@@ -56,7 +56,7 @@ public class TargetSelector {
         }
         while (true){
             for (int i = 0; i < index; i++) {
-                System.out.println((i+1) + "-" + list.get(i).getNome() + list.get(i).getStatusManager().getHp() + "/" + list.get(i).getStatusManager().getMaxHp());
+                System.out.println((i+1) + "-" + list.get(i).getNome() + list.get(i).getStatusManager().getHp() + "/" + list.get(i).getStatsManager().getScaledMaxHP());
             }
             int choice = sc.nextInt();
             if(choice>=1 && choice<=index){

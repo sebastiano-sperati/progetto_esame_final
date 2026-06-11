@@ -1,7 +1,8 @@
 package it.unicam.cs.mpgc.rpg129546.combat;
 
 import it.unicam.cs.mpgc.rpg129546.Show.ShowAbility;
-import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Action;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface.Action;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface.Ultimate;
 import it.unicam.cs.mpgc.rpg129546.model.Nemici.Enemy;
 import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
 import java.util.Scanner;
@@ -18,6 +19,12 @@ public class AbilitySelector {
             choice = sc.nextInt();
             if(choice>=1 && choice <= h.getAzioni().size()){
                 Action selected = h.getAzioni().get(choice-1);
+                if(selected instanceof Ultimate){
+                    if(!((Ultimate) selected).isReady()){
+                        System.out.println("ancore non è il momento...");
+                        continue;
+                    }
+                }
                 if(h.getStatusManager().getAp() < selected.getCosto()){
                     System.out.println("AP insufficienti");
                     continue;

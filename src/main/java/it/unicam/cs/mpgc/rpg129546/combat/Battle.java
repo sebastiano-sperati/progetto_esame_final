@@ -3,13 +3,12 @@ package it.unicam.cs.mpgc.rpg129546.combat;
 import it.unicam.cs.mpgc.rpg129546.Items.Consumabili.Item;
 import it.unicam.cs.mpgc.rpg129546.Show.ShowInventory;
 import it.unicam.cs.mpgc.rpg129546.Show.ShowSquasStats;
-import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Action;
-import it.unicam.cs.mpgc.rpg129546.abilities.abilità.SplashAbility;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface.Action;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface.SplashAbility;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
 import it.unicam.cs.mpgc.rpg129546.model.Nemici.Enemy;
 import it.unicam.cs.mpgc.rpg129546.abilities.AbilityContext;
-import it.unicam.cs.mpgc.rpg129546.Shop.ShopSelector;
 
 import java.util.List;
 
@@ -32,9 +31,12 @@ public class Battle {
     public void Start(){
         System.out.println("INIZIA LA BATTAGLIA!!!");
 
-        battleManager.BattleStartConditions(eroi);
+        battleManager.BattleStartConditions(eroi,nemici);
 
         while (heroseAlive() && enemyAlive()){
+
+            battleManager.ChargeUltimat(eroi);
+
 
             battleManager.StartTurnRestore(nemici,eroi);
 

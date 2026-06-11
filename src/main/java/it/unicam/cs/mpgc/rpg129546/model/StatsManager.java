@@ -10,10 +10,16 @@ public class StatsManager {
     }
 
     public int getScaledDmg(){
+        System.out.println(
+                owner.getNome()
+                        + " livello usato per atk = "
+                        + owner.getStatusManager().getLvl()
+        );
         if(owner.getArma().getScaling() == WeaponScaling.STR) {
             return (int) (getScaledAtk() * owner.getArma().getModifier());
         }
         return (int) (getScaledWis() * owner.getArma().getModifier());
+
     }
 
     public int getScaledAtk(){
@@ -42,8 +48,5 @@ public class StatsManager {
         return owner.getStatusManager().getMaxHp() + owner.getStatusManager().getLvl() * 2;
     }
 
-    public int getScaledMaxAp(){
-        return owner.getStatusManager().getMaxAp() + owner.getStatusManager().getLvl() * 2;
-
-    }
+    public int getScaledMaxAp(){return owner.getStatusManager().getMaxAp() + owner.getStatusManager().getLvl() * 2;}
 }

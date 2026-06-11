@@ -27,67 +27,19 @@ public class HeroFactory {
 
             case "Dps":
             case "DPS":
-                return new Dps(
-                        save.nome,
-                        save.maxHp,
-                        save.maxAp,
-                        save.def,
-                        save.atk,
-                        save.wis,
-                        0.25,
-                        2.2,
-                        0.25,
-                        save.lvl,
-                        10
-                );
+                return new Dps(save.nome, save.maxHp, save.maxAp,4, 12, 6, 0.25, 2.2, 0.25, save.lvl, save.sogliaLvlUp);
 
             case "Tank":
             case "TANK":
-                return new Tank(
-                        save.nome,
-                        save.maxHp,
-                        save.maxAp,
-                        save.def,
-                        save.atk,
-                        save.wis,
-                        0.05,
-                        1.4,
-                        0.05,
-                        save.lvl,
-                        10
-                );
+                return new Tank(save.nome, save.maxHp, save.maxAp, 12, 5, 3,0.05, 1.4, 0.05, save.lvl, save.sogliaLvlUp);
 
             case "Mage":
             case "MAGE":
-                return new Mage(
-                        save.nome,
-                        save.maxHp,
-                        save.maxAp,
-                        save.def,
-                        save.atk,
-                        save.wis,
-                        0.10,
-                        1.8,
-                        0.10,
-                        save.lvl,
-                        10
-                );
+                return new Mage(save.nome, save.maxHp, save.maxAp,5, 14, 12, 0.10, 1.8, 0.10, save.lvl, save.sogliaLvlUp);
 
             case "Healer":
             case "HEALER":
-                return new Healer(
-                        save.nome,
-                        save.maxHp,
-                        save.maxAp,
-                        save.def,
-                        save.atk,
-                        save.wis,
-                        0.10,
-                        1.6,
-                        0.10,
-                        save.lvl,
-                        10
-                );
+                return new Healer(save.nome, save.maxHp, save.maxAp, 7, 6, 15, 0.10, 1.6, 0.10, save.lvl, save.sogliaLvlUp);
 
             default:
                 throw new IllegalArgumentException("Unknown hero nome: " + type);

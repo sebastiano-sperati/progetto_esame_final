@@ -12,9 +12,6 @@ public class HeroSave {
     public int ap;
     public int maxAp;
 
-    public int atk;
-    public int def;
-    public int wis;
 
     public int lvl;
     public int xp;

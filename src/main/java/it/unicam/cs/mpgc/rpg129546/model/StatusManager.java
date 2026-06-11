@@ -1,13 +1,17 @@
 package it.unicam.cs.mpgc.rpg129546.model;
 
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface.Action;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Ultimate.UltimateRegistry;
+import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
+
 public class StatusManager {
 
-    private final Entity owner;
+    protected final Entity owner;
     private int hp;
     private final int maxHp;
     private  int ap;
     private final int maxAp;
-    private  int lvl;
+    protected int lvl;
     private  boolean isAlive;
 
     public StatusManager(Entity owner,int hp, int maxHp, int ap, int maxAp, int lvl,boolean isAlive) {
@@ -17,7 +21,7 @@ public class StatusManager {
         this.ap = ap;
         this.maxAp = maxAp;
         this.lvl = lvl;
-        this.isAlive=true;
+        this.isAlive=isAlive;
     }
 
     public int getHp(){return this.hp;}
@@ -30,12 +34,23 @@ public class StatusManager {
 
     public int getLvl(){return this.lvl;}
 
+    public void lvlUp(){
+        this.lvl++;
+        if (owner instanceof Hero) {
+            if (this.lvl == 5) {
+                Action action = UltimateRegistry.getUltimateFor((Hero) owner);
+                owner.getAzioni().add(action);
+            }
+        }
+    }
+
     public boolean isAlive(){return this.isAlive;}
 
     public void setAlive(boolean stato){this.isAlive = stato;}
 
     public void takeDamage(int amount){
         this.hp -= amount;
+        System.out.println(owner.getNome() + " subisce " + amount + " danni");
         if(this.hp<=0){
             this.hp=0;
             this.isAlive=false;
@@ -55,12 +70,6 @@ public class StatusManager {
     public void restore(int amount){
         this.ap+=amount;
         if(this.ap>owner.getStatsManager().getScaledMaxAp()) this.ap=owner.getStatsManager().getScaledMaxAp();
-    }
-
-    public void lvlUp(){
-        this.lvl++;
-        owner.getStatusManager().Heal(owner.getStatsManager().getScaledMaxHP());
-        owner.getStatusManager().Heal(owner.getStatsManager().getScaledMaxAp());
     }
 
     public void setHp(int ammount){

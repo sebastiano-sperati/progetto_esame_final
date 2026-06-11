@@ -1,5 +1,8 @@
 package it.unicam.cs.mpgc.rpg129546.model.Eroi;
 
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface.Action;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface.Ultimate;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Ultimate.UltimateRegistry;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import it.unicam.cs.mpgc.rpg129546.model.StatusManager;
 
@@ -29,9 +32,17 @@ public class HeroStatusManager extends StatusManager {
         this.xp += rewardedXp;
         while(this.xp >= this.sogliaLvlUp){
             this.xp = this.xp - this.sogliaLvlUp;
+            System.out.println("LEVEL UP!");
             this.sogliaLvlUp = (int) (this.sogliaLvlUp * 1.2);
             this.lvlUp();
+            System.out.println("Nuovo livello: " + this.getLvl());
         }
+    }
+
+    public void lvlUp() {
+        owner.getStatusManager().lvlUp();
+        owner.getStatusManager().Heal(owner.getStatsManager().getScaledMaxHP());
+        owner.getStatusManager().restore(owner.getStatsManager().getScaledMaxAp());
     }
 
     public int getSogliaLvlUp() {
@@ -49,4 +60,5 @@ public class HeroStatusManager extends StatusManager {
     public void setGold(int gold){
         this.gold=gold;
     }
-}
+
+    }

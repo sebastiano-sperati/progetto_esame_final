@@ -27,10 +27,6 @@ public class GenericSaver {
         save.ap = hero.getStatusManager().getAp();
         save.maxAp = hero.getStatusManager().getMaxAp();
 
-        save.atk = hero.getAtk();
-        save.def = hero.getDif();
-        save.wis = hero.getWis();
-
         save.lvl = hero.getHeroStatusManager().getLvl();
         save.gold = hero.getHeroStatusManager().getGold();
 

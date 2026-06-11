@@ -1,6 +1,8 @@
 package it.unicam.cs.mpgc.rpg129546.model.Nemici;
 
-import it.unicam.cs.mpgc.rpg129546.abilities.abilità.*;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.BaseAbilities.BaseAtk;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.BaseAbilities.DebufAtk;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.BaseAbilities.Defend;
 
 public class Orco extends Enemy{
     public Orco(String nome, int maxHp, int maxAp, int dif, int atk, int wis, double eva, double critMult, double critChance, int lvl, int taglia, int xpDrop) {

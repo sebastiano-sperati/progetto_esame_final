@@ -3,7 +3,7 @@ package it.unicam.cs.mpgc.rpg129546.model;
 import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Armor;
 import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Weapon;
 import it.unicam.cs.mpgc.rpg129546.Items.InventoryManager;
-import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Action;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface.Action;
 import it.unicam.cs.mpgc.rpg129546.effect.EffectApplier;
 import it.unicam.cs.mpgc.rpg129546.effect.EffectManager;
 import com.fasterxml.jackson.annotation.JsonIgnore;

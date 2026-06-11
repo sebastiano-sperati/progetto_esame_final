@@ -32,13 +32,13 @@ public class EnemyFactory {
         Random random = new Random();
         return switch (random.nextInt(4)){
 
-            case 0 -> new Wraith("Wraith", 15, 20, 2, 3, 12, 0.20, 2.0, 0.20, floor, 1, 20);
+          //  case 0 -> new Wraith("Wraith", 15, 20, 2, 3, 12, 0.20, 2.0, 0.20, floor, 1, 200);
 
-            case 1 -> new Orco("Orco", 40, 10, 8, 4, 3, 0.05, 1.5, 0.05, floor, 5,15);
+          //  case 1 -> new Orco("Orco", 40, 10, 8, 4, 3, 0.05, 1.5, 0.05, floor, 5,150);
 
-            case 2 -> new Imp("Imp", 20, 15, 3, 9, 4, 0.15, 1.8, 0.15, floor, 1, 15);
+          //  case 2 -> new Imp("Imp", 20, 15, 3, 9, 4, 0.15, 1.8, 0.15, floor, 1, 150);
 
-            default -> new Goblin("Goblin", 25, 10, 4, 5, 5, 0.10, 1.5, 0.10, floor, 2, 10);
+            default -> new Goblin("Goblin", 25, 10, 4, 5, 5, 0.10, 1.5, 0.10, floor, 2, 100);
         };
     }
 }

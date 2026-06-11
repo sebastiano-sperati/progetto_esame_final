@@ -6,6 +6,8 @@ import it.unicam.cs.mpgc.rpg129546.Persistence.SaveManager;
 import it.unicam.cs.mpgc.rpg129546.Shop.Shop;
 import it.unicam.cs.mpgc.rpg129546.Shop.ShopComand;
 import it.unicam.cs.mpgc.rpg129546.Shop.ShopSelector;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface.Action;
+import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface.Ultimate;
 import it.unicam.cs.mpgc.rpg129546.combat.Battle;
 import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
 import it.unicam.cs.mpgc.rpg129546.model.Nemici.Enemy;
@@ -56,6 +58,11 @@ public class Game {
 
             for(Hero h : eroi){
                 h.getEffectManager().getEffects().clear();
+                for(Action a : h.getAzioni()){
+                    if(a instanceof Ultimate){
+                        ((Ultimate) a).resetCharge();
+                    }
+                }
             }
 
             if(!battle.heroseAlive()){
@@ -69,7 +76,6 @@ public class Game {
             enterShop();
 
             floor++;
-
 
             System.out.println("salvare e uscire?");
             System.out.println("1-SI         0-NO");
