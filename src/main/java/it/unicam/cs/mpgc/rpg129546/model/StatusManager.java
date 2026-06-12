@@ -1,7 +1,7 @@
 package it.unicam.cs.mpgc.rpg129546.model;
 
 import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface.Action;
-import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Ultimate.UltimateRegistry;
+import it.unicam.cs.mpgc.rpg129546.abilities.AbilityRegistry;
 import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
 
 public class StatusManager {
@@ -37,10 +37,7 @@ public class StatusManager {
     public void lvlUp(){
         this.lvl++;
         if (owner instanceof Hero) {
-            if (this.lvl == 5) {
-                Action action = UltimateRegistry.getUltimateFor((Hero) owner);
-                owner.getAzioni().add(action);
-            }
+            AbilityRegistry.getAbilityFor((Hero) owner);
         }
     }
 

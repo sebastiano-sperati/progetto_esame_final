@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.abilities.abilità.BaseAbilities;
 
+import it.unicam.cs.mpgc.rpg129546.abilities.CharacterAllocation;
 import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface.Action;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
@@ -31,5 +32,15 @@ public class Restore implements Action {
     }
     @Override
     public TargetType getTargetType(){ return TargetType.ALLY;}
+
+    @Override
+    public int getUnlockLvl() {
+        return 5;
+    }
+
+    @Override
+    public CharacterAllocation getCaracterAllocation() {
+        return CharacterAllocation.HEALER;
+    }
 
 }

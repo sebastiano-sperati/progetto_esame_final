@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.abilities.abilità.BaseAbilities;
 
+import it.unicam.cs.mpgc.rpg129546.abilities.CharacterAllocation;
 import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface.SplashAbility;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
@@ -30,6 +31,12 @@ public class Lightning implements SplashAbility {
             BaseAtk.applyAttack(source, targets.get(index+1),0.5);
         }
     }
+
+    @Override
+    public CharacterAllocation getCaracterAllocation() {
+        return CharacterAllocation.MAGE;
+    }
+
     @Override
     public String getNome(){
         return this.nome;
@@ -41,4 +48,8 @@ public class Lightning implements SplashAbility {
     @Override
     public TargetType getTargetType(){ return TargetType.ENEMY;}
 
+    @Override
+    public int getUnlockLvl() {
+        return 7;
+    }
 }

@@ -8,9 +8,6 @@ public class Healer extends Hero{
         super(nome, maxHp, maxAp, dif, atk,wis, eva, critMult, critChance, lvl, sogliaLvlUp);
         azioni.add(new BaseAtk());
         azioni.add(new Defend());
-        azioni.add(new Heal());
-        azioni.add(new Restore());
-        azioni.add(new Revivify());
     }
     public Healer(){}
     @Override

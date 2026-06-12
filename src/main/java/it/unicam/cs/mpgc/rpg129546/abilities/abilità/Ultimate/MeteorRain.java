@@ -58,6 +58,16 @@ public class MeteorRain implements SplashAbility, Ultimate {
     }
 
     @Override
+    public int getUnlockLvl() {
+        return 10;
+    }
+
+    @Override
+    public CharacterAllocation getCaracterAllocation() {
+        return CharacterAllocation.MAGE;
+    }
+
+    @Override
     public int getCharge() {
         return charge;
     }
@@ -76,10 +86,5 @@ public class MeteorRain implements SplashAbility, Ultimate {
     @Override
     public int getRequiredCharge() {
         return 5;
-    }
-
-    @Override
-    public CharacterAllocation getCharacterAllocation() {
-        return CharacterAllocation.MAGE;
     }
 }

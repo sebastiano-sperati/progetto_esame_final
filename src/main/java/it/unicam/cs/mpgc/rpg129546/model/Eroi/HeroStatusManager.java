@@ -1,8 +1,5 @@
 package it.unicam.cs.mpgc.rpg129546.model.Eroi;
 
-import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface.Action;
-import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface.Ultimate;
-import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Ultimate.UltimateRegistry;
 import it.unicam.cs.mpgc.rpg129546.model.Entity;
 import it.unicam.cs.mpgc.rpg129546.model.StatusManager;
 

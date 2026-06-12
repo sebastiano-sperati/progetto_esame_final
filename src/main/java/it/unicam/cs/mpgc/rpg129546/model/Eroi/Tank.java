@@ -8,9 +8,6 @@ public class Tank extends Hero{
         super(nome, maxHp, maxAp, dif, atk,wis, eva, critMult, critChance, lvl, sogliaLvlUp);
         azioni.add(new BaseAtk());
         azioni.add(new Defend());
-        azioni.add(new Bless());
-        azioni.add(new Ispirazione());
-        azioni.add(new Fear());
     }
     public Tank(){}
     @Override

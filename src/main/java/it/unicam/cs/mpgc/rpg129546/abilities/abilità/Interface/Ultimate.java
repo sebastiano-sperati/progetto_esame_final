@@ -1,6 +1,5 @@
 package it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface;
 
-import it.unicam.cs.mpgc.rpg129546.abilities.CharacterAllocation;
 
 public interface Ultimate {
     int getCharge();
@@ -14,7 +13,4 @@ public interface Ultimate {
     default boolean isReady() {
         return getCharge() >= getRequiredCharge();
     }
-
-    CharacterAllocation getCharacterAllocation();
-
 }

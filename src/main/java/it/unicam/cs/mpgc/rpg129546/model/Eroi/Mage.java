@@ -8,9 +8,6 @@ public class Mage extends Hero{
         super(nome, maxHp, maxAp, dif, atk, wis, eva, critMult, critChance, lvl,sogliaLvlUp);
         azioni.add(new BaseAtk());
         azioni.add(new Defend());
-        azioni.add(new Frost());
-        azioni.add(new FireBall());
-        azioni.add(new Lightning());
     }
     public Mage(){}
     @Override

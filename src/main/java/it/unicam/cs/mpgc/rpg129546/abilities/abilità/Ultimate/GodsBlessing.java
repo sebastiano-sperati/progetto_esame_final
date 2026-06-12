@@ -49,6 +49,16 @@ public class GodsBlessing implements SplashAbility, Ultimate {
     }
 
     @Override
+    public int getUnlockLvl() {
+        return 10;
+    }
+
+    @Override
+    public CharacterAllocation getCaracterAllocation() {
+        return CharacterAllocation.HEALER;
+    }
+
+    @Override
     public int getCharge() {
         return charge;
     }
@@ -67,10 +77,5 @@ public class GodsBlessing implements SplashAbility, Ultimate {
     @Override
     public int getRequiredCharge() {
         return 5;
-    }
-
-    @Override
-    public CharacterAllocation getCharacterAllocation() {
-        return CharacterAllocation.HEALER;
     }
 }

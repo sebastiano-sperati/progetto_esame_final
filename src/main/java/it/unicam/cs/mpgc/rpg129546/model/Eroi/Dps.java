@@ -8,9 +8,6 @@ public class Dps extends Hero{
         super(nome, maxHp, maxAp, dif, atk,wis, eva, critMult, critChance, lvl,sogliaLvlUp);
         azioni.add(new BaseAtk());
         azioni.add(new Defend());
-        azioni.add(new DebufAtk());
-        azioni.add(new Counter());
-        azioni.add(new MultiAtk());
     }
 
     public CharacterAllocation getCharacterAllocation(){
