@@ -111,4 +111,11 @@ public abstract class Entity {
 
     @JsonIgnore
     public List<Action> getAzioni(){ return this.azioni;}
+
+    public boolean hasAbility(Action a){
+        for(Action action : azioni){
+            if(action.getClass() == a.getClass()) return true;
+        }
+        return false;
+    }
 }

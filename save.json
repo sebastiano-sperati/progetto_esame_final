@@ -2,14 +2,14 @@
   "heroes" : [ {
     "type" : "Dps",
     "nome" : "Furia della Battaglia",
-    "hp" : 48,
+    "hp" : 30,
     "maxHp" : 22,
-    "ap" : 51,
+    "ap" : 33,
     "maxAp" : 25,
-    "lvl" : 13,
-    "xp" : 67,
-    "gold" : 9672,
-    "sogliaLvlUp" : 74,
+    "lvl" : 4,
+    "xp" : 1,
+    "gold" : 9617,
+    "sogliaLvlUp" : 16,
     "weapon" : {
       "nome" : "spada leggendaria",
       "rarity" : "LEGENDARIO",
@@ -19,18 +19,21 @@
       "nome" : "armatura iniziale",
       "rarity" : "STARTER"
     },
-    "inventory" : [ ]
+    "inventory" : [ {
+      "nome" : "coltelli veleno",
+      "qta" : 4
+    } ]
   }, {
     "type" : "Tank",
     "nome" : "Guardia di Ferro",
-    "hp" : 81,
+    "hp" : 63,
     "maxHp" : 55,
-    "ap" : 38,
+    "ap" : 20,
     "maxAp" : 12,
-    "lvl" : 13,
-    "xp" : 67,
-    "gold" : 10022,
-    "sogliaLvlUp" : 74,
+    "lvl" : 4,
+    "xp" : 1,
+    "gold" : 10027,
+    "sogliaLvlUp" : 16,
     "weapon" : {
       "nome" : "arma iniziale",
       "rarity" : "STARTER",
@@ -44,18 +47,18 @@
   }, {
     "type" : "Mage",
     "nome" : "Recluso",
-    "hp" : 50,
+    "hp" : 32,
     "maxHp" : 24,
-    "ap" : 61,
+    "ap" : 43,
     "maxAp" : 35,
-    "lvl" : 13,
-    "xp" : 67,
-    "gold" : 10022,
-    "sogliaLvlUp" : 74,
+    "lvl" : 4,
+    "xp" : 1,
+    "gold" : 9677,
+    "sogliaLvlUp" : 16,
     "weapon" : {
-      "nome" : "arma iniziale",
-      "rarity" : "STARTER",
-      "scaling" : "STR"
+      "nome" : "bastone leggendario",
+      "rarity" : "LEGENDARIO",
+      "scaling" : "WIS"
     },
     "armor" : {
       "nome" : "armatura iniziale",
@@ -65,18 +68,18 @@
   }, {
     "type" : "Healer",
     "nome" : "Alto Chierico",
-    "hp" : 56,
+    "hp" : 38,
     "maxHp" : 30,
-    "ap" : 56,
+    "ap" : 38,
     "maxAp" : 30,
-    "lvl" : 13,
-    "xp" : 67,
-    "gold" : 10022,
-    "sogliaLvlUp" : 74,
+    "lvl" : 4,
+    "xp" : 1,
+    "gold" : 9662,
+    "sogliaLvlUp" : 16,
     "weapon" : {
-      "nome" : "arma iniziale",
-      "rarity" : "STARTER",
-      "scaling" : "STR"
+      "nome" : "bastone leggendario",
+      "rarity" : "LEGENDARIO",
+      "scaling" : "WIS"
     },
     "armor" : {
       "nome" : "armatura iniziale",
