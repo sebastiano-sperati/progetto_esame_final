@@ -87,4 +87,4 @@ public class WorldSlash implements SplashAbility, Ultimate {
     public int getRequiredCharge() {
         return 5;
     }
-}
+    }

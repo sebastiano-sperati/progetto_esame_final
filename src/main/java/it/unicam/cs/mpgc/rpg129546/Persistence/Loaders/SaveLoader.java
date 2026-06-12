@@ -4,6 +4,7 @@ import it.unicam.cs.mpgc.rpg129546.Game.Game;
 import it.unicam.cs.mpgc.rpg129546.Persistence.SaveData;
 import it.unicam.cs.mpgc.rpg129546.Persistence.Savers.HeroSave;
 import it.unicam.cs.mpgc.rpg129546.Shop.Shop;
+import it.unicam.cs.mpgc.rpg129546.abilities.AbilityRegistry;
 import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
 
 import java.util.ArrayList;
@@ -19,6 +20,8 @@ public class SaveLoader {
             InventoryLoader.load(h,save.inventory,new Shop());
 
             EquipmentLoader.load(h,save);
+
+            AbilityRegistry.getAbilityFor(h);
 
             eroi.add(h);
         }

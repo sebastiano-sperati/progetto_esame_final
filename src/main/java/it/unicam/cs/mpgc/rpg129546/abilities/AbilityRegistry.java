@@ -32,7 +32,7 @@ public class AbilityRegistry {
     );
     public static void getAbilityFor(Hero hero) {
         for (Action a : abilities){
-            if(a.getUnlockLvl() == hero.getStatusManager().getLvl() && a.getCaracterAllocation() == hero.getCharacterAllocation()){
+            if(a.getUnlockLvl() <= hero.getStatusManager().getLvl() && a.getCaracterAllocation() == hero.getCharacterAllocation()){
                 hero.getAzioni().add(a);
             }
         }
