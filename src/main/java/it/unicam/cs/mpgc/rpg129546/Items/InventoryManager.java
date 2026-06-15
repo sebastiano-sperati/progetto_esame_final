@@ -1,7 +1,7 @@
 package it.unicam.cs.mpgc.rpg129546.Items;
 
-import it.unicam.cs.mpgc.rpg129546.Items.Consumabili.Item;
-import it.unicam.cs.mpgc.rpg129546.model.Entity;
+import it.unicam.cs.mpgc.rpg129546.Items.Consumables.Item;
+import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 
 import java.util.ArrayList;
 import java.util.List;

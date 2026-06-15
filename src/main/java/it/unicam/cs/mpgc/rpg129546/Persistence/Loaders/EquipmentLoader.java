@@ -1,11 +1,11 @@
 package it.unicam.cs.mpgc.rpg129546.Persistence.Loaders;
 
-import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Armor;
-import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Rarity;
-import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Weapon;
-import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.WeaponScaling;
+import it.unicam.cs.mpgc.rpg129546.Equipment.Armor;
+import it.unicam.cs.mpgc.rpg129546.Equipment.Rarity;
+import it.unicam.cs.mpgc.rpg129546.Equipment.Weapon;
+import it.unicam.cs.mpgc.rpg129546.Equipment.WeaponScaling;
 import it.unicam.cs.mpgc.rpg129546.Persistence.Savers.HeroSave;
-import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
+import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
 
 public class EquipmentLoader {
     public static void load(Hero h, HeroSave save){

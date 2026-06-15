@@ -1,8 +1,8 @@
 package it.unicam.cs.mpgc.rpg129546.Persistence.Loaders;
 
-import it.unicam.cs.mpgc.rpg129546.Game.HeroFactory;
+import it.unicam.cs.mpgc.rpg129546.Game.Factory.HeroFactory;
 import it.unicam.cs.mpgc.rpg129546.Persistence.Savers.HeroSave;
-import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
+import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
 
 public class HeroLoader {
     public static Hero Load(HeroSave save){

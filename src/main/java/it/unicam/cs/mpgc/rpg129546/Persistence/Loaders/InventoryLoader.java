@@ -1,10 +1,10 @@
 package it.unicam.cs.mpgc.rpg129546.Persistence.Loaders;
 
-import it.unicam.cs.mpgc.rpg129546.Items.Consumabili.Item;
+import it.unicam.cs.mpgc.rpg129546.Items.Consumables.Item;
 import it.unicam.cs.mpgc.rpg129546.Persistence.Savers.ItemSave;
 import it.unicam.cs.mpgc.rpg129546.Shop.GenericItem;
 import it.unicam.cs.mpgc.rpg129546.Shop.Shop;
-import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
+import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
 
 import java.util.List;
 

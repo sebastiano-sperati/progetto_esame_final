@@ -1,13 +1,11 @@
 package it.unicam.cs.mpgc.rpg129546.Persistence.Savers;
 
-import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Armor;
-import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Weapon;
-import it.unicam.cs.mpgc.rpg129546.Items.Consumabili.Item;
-import it.unicam.cs.mpgc.rpg129546.Shop.GenericItem;
-import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
+import it.unicam.cs.mpgc.rpg129546.Equipment.Armor;
+import it.unicam.cs.mpgc.rpg129546.Equipment.Weapon;
+import it.unicam.cs.mpgc.rpg129546.Items.Consumables.Item;
+import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class GenericSaver {
 

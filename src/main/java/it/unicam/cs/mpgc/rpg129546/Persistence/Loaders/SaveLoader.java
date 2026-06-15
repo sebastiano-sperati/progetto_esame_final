@@ -4,8 +4,8 @@ import it.unicam.cs.mpgc.rpg129546.Game.Game;
 import it.unicam.cs.mpgc.rpg129546.Persistence.SaveData;
 import it.unicam.cs.mpgc.rpg129546.Persistence.Savers.HeroSave;
 import it.unicam.cs.mpgc.rpg129546.Shop.Shop;
-import it.unicam.cs.mpgc.rpg129546.abilities.AbilityRegistry;
-import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
+import it.unicam.cs.mpgc.rpg129546.Abilities.AbilityRegistry;
+import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
 
 import java.util.ArrayList;
 import java.util.List;

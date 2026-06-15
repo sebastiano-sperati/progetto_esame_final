@@ -1,10 +1,10 @@
 package it.unicam.cs.mpgc.rpg129546;
 import it.unicam.cs.mpgc.rpg129546.Game.Game;
-import it.unicam.cs.mpgc.rpg129546.Game.HeroFactory;
+import it.unicam.cs.mpgc.rpg129546.Game.Factory.HeroFactory;
 import it.unicam.cs.mpgc.rpg129546.Persistence.Loaders.SaveLoader;
 import it.unicam.cs.mpgc.rpg129546.Persistence.SaveData;
 import it.unicam.cs.mpgc.rpg129546.Persistence.SaveManager;
-import it.unicam.cs.mpgc.rpg129546.model.Eroi.*;
+import it.unicam.cs.mpgc.rpg129546.Model.Heroes.*;
 
 import java.util.*;
 

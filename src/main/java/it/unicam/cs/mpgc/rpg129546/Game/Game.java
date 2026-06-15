@@ -1,16 +1,17 @@
 package it.unicam.cs.mpgc.rpg129546.Game;
 
+import it.unicam.cs.mpgc.rpg129546.Game.Factory.EnemyFactory;
 import it.unicam.cs.mpgc.rpg129546.Persistence.Savers.*;
 import it.unicam.cs.mpgc.rpg129546.Persistence.SaveData;
 import it.unicam.cs.mpgc.rpg129546.Persistence.SaveManager;
 import it.unicam.cs.mpgc.rpg129546.Shop.Shop;
 import it.unicam.cs.mpgc.rpg129546.Shop.ShopComand;
 import it.unicam.cs.mpgc.rpg129546.Shop.ShopSelector;
-import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface.Action;
-import it.unicam.cs.mpgc.rpg129546.abilities.abilità.Interface.Ultimate;
-import it.unicam.cs.mpgc.rpg129546.combat.Battle;
-import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
-import it.unicam.cs.mpgc.rpg129546.model.Nemici.Enemy;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Interface.Action;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Interface.Ultimate;
+import it.unicam.cs.mpgc.rpg129546.Combat.Battle;
+import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
+import it.unicam.cs.mpgc.rpg129546.Model.Enemies.Enemy;
 import it.unicam.cs.mpgc.rpg129546.Show.ShowStock;
 import it.unicam.cs.mpgc.rpg129546.Show.ShowInventory;
 import it.unicam.cs.mpgc.rpg129546.Persistence.Savers.GenericSaver;

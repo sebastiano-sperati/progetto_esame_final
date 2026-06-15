@@ -1,18 +1,18 @@
 package it.unicam.cs.mpgc.rpg129546.Shop;
 
-import it.unicam.cs.mpgc.rpg129546.Items.Consumabili.*;
-import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Armor;
-import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Equipaggiamento;
-import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Rarity;
-import it.unicam.cs.mpgc.rpg129546.Equipaggiamento.Weapon;
-import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
+import it.unicam.cs.mpgc.rpg129546.Items.Consumables.*;
+import it.unicam.cs.mpgc.rpg129546.Equipment.Armor;
+import it.unicam.cs.mpgc.rpg129546.Equipment.Equipaggiamento;
+import it.unicam.cs.mpgc.rpg129546.Equipment.Rarity;
+import it.unicam.cs.mpgc.rpg129546.Equipment.Weapon;
+import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static it.unicam.cs.mpgc.rpg129546.Equipaggiamento.WeaponScaling.STR;
-import static it.unicam.cs.mpgc.rpg129546.Equipaggiamento.WeaponScaling.WIS;
+import static it.unicam.cs.mpgc.rpg129546.Equipment.WeaponScaling.STR;
+import static it.unicam.cs.mpgc.rpg129546.Equipment.WeaponScaling.WIS;
 
 public class Shop {
 

@@ -1,6 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.Show;
 
-import it.unicam.cs.mpgc.rpg129546.model.Entity;
+import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 
 import java.util.List;
 

@@ -2,38 +2,86 @@
   "heroes" : [ {
     "type" : "Dps",
     "nome" : "Furia della Battaglia",
-    "hp" : 30,
+    "hp" : 34,
     "maxHp" : 22,
-    "ap" : 33,
+    "ap" : 37,
     "maxAp" : 25,
-    "lvl" : 4,
-    "xp" : 1,
-    "gold" : 9617,
-    "sogliaLvlUp" : 16,
+    "lvl" : 6,
+    "xp" : 18,
+    "gold" : 9323,
+    "sogliaLvlUp" : 22,
     "weapon" : {
       "nome" : "spada leggendaria",
       "rarity" : "LEGENDARIO",
       "scaling" : "STR"
     },
     "armor" : {
-      "nome" : "armatura iniziale",
-      "rarity" : "STARTER"
+      "nome" : "armatura leggendaria",
+      "rarity" : "LEGENDARIO"
     },
     "inventory" : [ {
       "nome" : "coltelli veleno",
-      "qta" : 4
+      "qta" : 2
     } ]
   }, {
     "type" : "Tank",
     "nome" : "Guardia di Ferro",
-    "hp" : 63,
+    "hp" : 67,
     "maxHp" : 55,
-    "ap" : 20,
+    "ap" : 24,
     "maxAp" : 12,
-    "lvl" : 4,
-    "xp" : 1,
-    "gold" : 10027,
-    "sogliaLvlUp" : 16,
+    "lvl" : 6,
+    "xp" : 18,
+    "gold" : 9323,
+    "sogliaLvlUp" : 22,
+    "weapon" : {
+      "nome" : "spada leggendaria",
+      "rarity" : "LEGENDARIO",
+      "scaling" : "STR"
+    },
+    "armor" : {
+      "nome" : "armatura leggendaria",
+      "rarity" : "LEGENDARIO"
+    },
+    "inventory" : [ {
+      "nome" : "pozione di difesa",
+      "qta" : 2
+    } ]
+  }, {
+    "type" : "Mage",
+    "nome" : "Recluso",
+    "hp" : 36,
+    "maxHp" : 24,
+    "ap" : 47,
+    "maxAp" : 35,
+    "lvl" : 6,
+    "xp" : 18,
+    "gold" : 9333,
+    "sogliaLvlUp" : 22,
+    "weapon" : {
+      "nome" : "bastone leggendario",
+      "rarity" : "LEGENDARIO",
+      "scaling" : "WIS"
+    },
+    "armor" : {
+      "nome" : "armatura leggendaria",
+      "rarity" : "LEGENDARIO"
+    },
+    "inventory" : [ {
+      "nome" : "pozione di difesa",
+      "qta" : 2
+    } ]
+  }, {
+    "type" : "Healer",
+    "nome" : "Alto Chierico",
+    "hp" : 42,
+    "maxHp" : 30,
+    "ap" : 42,
+    "maxAp" : 30,
+    "lvl" : 6,
+    "xp" : 18,
+    "gold" : 9963,
+    "sogliaLvlUp" : 22,
     "weapon" : {
       "nome" : "arma iniziale",
       "rarity" : "STARTER",
@@ -43,49 +91,10 @@
       "nome" : "armatura iniziale",
       "rarity" : "STARTER"
     },
-    "inventory" : [ ]
-  }, {
-    "type" : "Mage",
-    "nome" : "Recluso",
-    "hp" : 32,
-    "maxHp" : 24,
-    "ap" : 43,
-    "maxAp" : 35,
-    "lvl" : 4,
-    "xp" : 1,
-    "gold" : 9677,
-    "sogliaLvlUp" : 16,
-    "weapon" : {
-      "nome" : "bastone leggendario",
-      "rarity" : "LEGENDARIO",
-      "scaling" : "WIS"
-    },
-    "armor" : {
-      "nome" : "armatura iniziale",
-      "rarity" : "STARTER"
-    },
-    "inventory" : [ ]
-  }, {
-    "type" : "Healer",
-    "nome" : "Alto Chierico",
-    "hp" : 38,
-    "maxHp" : 30,
-    "ap" : 38,
-    "maxAp" : 30,
-    "lvl" : 4,
-    "xp" : 1,
-    "gold" : 9662,
-    "sogliaLvlUp" : 16,
-    "weapon" : {
-      "nome" : "bastone leggendario",
-      "rarity" : "LEGENDARIO",
-      "scaling" : "WIS"
-    },
-    "armor" : {
-      "nome" : "armatura iniziale",
-      "rarity" : "STARTER"
-    },
-    "inventory" : [ ]
+    "inventory" : [ {
+      "nome" : "coltelli veleno",
+      "qta" : 5
+    } ]
   } ],
-  "floor" : 3
+  "floor" : 5
 }

@@ -1,7 +1,7 @@
 package it.unicam.cs.mpgc.rpg129546.Game;
 
-import it.unicam.cs.mpgc.rpg129546.model.Eroi.Hero;
-import it.unicam.cs.mpgc.rpg129546.model.Nemici.Enemy;
+import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
+import it.unicam.cs.mpgc.rpg129546.Model.Enemies.Enemy;
 
 import java.util.List;
 
