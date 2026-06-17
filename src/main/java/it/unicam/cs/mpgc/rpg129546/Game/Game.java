@@ -72,14 +72,12 @@ public class Game {
 
             RewardManager.reward(eroi, nemici, floor);
 
-            shop.refreshStock();
-
             enterShop();
 
             floor++;
 
             System.out.println("salvare e uscire?");
-            System.out.println("1-SI         0-NO");
+            System.out.println("1-SI         altro-NO");
             
             int choice;
             Scanner sc = new Scanner(System.in);
@@ -105,11 +103,17 @@ public class Game {
                 ShopComand comand = selector.select();
                 switch (comand) {
                     case BUY -> {
-                        System.out.println("selezionare l'articolo");
-                        stockView.showStock(shop.getStock());
-                        Scanner sc = new Scanner(System.in);
-                        int choice = sc.nextInt();
-                        shop.buyItem(eroi.get(i),choice-1);
+                        while (true) {
+                            System.out.println("selezionare l'articolo");
+                            stockView.showStock(shop.getStock());
+                            Scanner sc = new Scanner(System.in);
+                            int choice = sc.nextInt();
+                            if ((choice - 1) >= 0 && (choice - 1) <= shop.getStock().size()) {
+                                shop.buyItem(eroi.get(i), choice - 1);
+                                break;
+                            }
+                            System.out.println("selezione non valida");
+                        }
                     }
                     case SELL -> {
                         System.out.println("selezionare l'oggetto");
