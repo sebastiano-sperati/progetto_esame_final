@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="title" text="Label" />
+      <HBox alignment="CENTER" prefHeight="193.0" prefWidth="600.0" spacing="20.0">
+         <children>
+            <VBox fx:id="dpsPane" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+               <children>
+                  <Label fx:id="dpsName" text="Label" />
+                  <Label fx:id="dpsXpgained" text="Label" />
+                  <Label fx:id="dpsGoldGained" text="Label" />
+                  <Label fx:id="dpsLvlUp" text="Label" />
+               </children>
+            </VBox>
+            <VBox fx:id="tankPane" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+               <children>
+                  <Label fx:id="tankName" text="Label" />
+                  <Label fx:id="tankXpgained" text="Label" />
+                  <Label fx:id="tankGoldGained" text="Label" />
+                  <Label fx:id="TankLvlUp" text="Label" />
+               </children>
+            </VBox>
+            <VBox fx:id="magePane" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+               <children>
+                  <Label fx:id="Magename" text="Label" />
+                  <Label fx:id="mageXpGained" text="Label" />
+                  <Label fx:id="MageGoldGained" text="Label" />
+                  <Label fx:id="MageLvlUP" text="Label" />
+               </children>
+            </VBox>
+            <VBox fx:id="healerPane" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+               <children>
+                  <Label fx:id="HealerName" text="Label" />
+                  <Label fx:id="HealerXpGained" text="Label" />
+                  <Label fx:id="HealerGoldGained" text="Label" />
+                  <Label fx:id="HealerLvlUp" text="Label" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Label fx:id="title2" text="Label" />
+      <HBox fx:id="choicePane" alignment="CENTER" prefHeight="100.0" prefWidth="600.0" spacing="300.0">
+         <children>
+            <Button fx:id="yes" mnemonicParsing="false" text="Button" />
+            <Button fx:id="no" mnemonicParsing="false" text="Button" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

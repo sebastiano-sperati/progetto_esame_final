@@ -1,5 +1,6 @@
 plugins {
     id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
 }
 
 group = 'it.unicam.cs.mpgc'
@@ -18,12 +19,17 @@ dependencies {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(25)
     }
 }
 
 application {
-    mainClass = 'it.unicam.cs.mpgc.rpg129546.Main'
+    mainClass = 'it.unicam.cs.mpgc.rpg129546.Ui.MainApp'
+}
+
+javafx {
+    version = "25"
+    modules = ['javafx.controls', 'javafx.fxml']
 }
 
 test {

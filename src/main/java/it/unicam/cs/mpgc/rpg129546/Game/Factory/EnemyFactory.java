@@ -13,19 +13,21 @@ public class EnemyFactory {
 
         int ammount = random.nextInt(floor) + 2;;
 
-        List<Enemy> nemici = new ArrayList<>();
+        List<Enemy> enemies = new ArrayList<>();
 
         int i = 0;
 
-        if(floor == 5){
-            nemici.add(new Boss("Re dei Dannati", 250, 50, 12, 18, 18, 0.15, 2.5, 0.25, 1, 20, 100));
-            i++;
-        }
         while (i < ammount) {
-            nemici.add(randomEnemy(floor));
+            if(floor == 10){
+                if(i == ammount/2){
+                    enemies.add(new Boss("Re dei Dannati", 250, 50, 12, 18, 18, 0.15, 2.5, 0.25, 1, 20, 100));
+                    i++;
+                }
+            }
+            enemies.add(randomEnemy(floor));
             i++;
         }
-        return nemici;
+        return enemies;
     }
 
     private static Enemy randomEnemy(int floor){
