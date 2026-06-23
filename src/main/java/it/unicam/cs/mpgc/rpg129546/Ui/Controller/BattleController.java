@@ -9,12 +9,20 @@ import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
 import it.unicam.cs.mpgc.rpg129546.Model.TargetType;
 import it.unicam.cs.mpgc.rpg129546.Ui.SceneManager;
+import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.SpriteAnimation;
+import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.SpriteData;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+
+import javafx.scene.image.Image;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class BattleController {
 
@@ -23,25 +31,27 @@ public class BattleController {
 
     private Action selectedAction;
 
-    @FXML private Button dpsName;
-    @FXML private Label DpsLvl1;
-    @FXML private Label DpsHp1;
-    @FXML private Label DpsAp1;
+    private final List<SpriteAnimation> animations = new ArrayList<>();
 
-    @FXML private Button TankName;
-    @FXML private Label TankLvl1;
-    @FXML private Label TankHp1;
-    @FXML private Label TankAp1;
+    @FXML private ImageView DpsSprite;
+    @FXML private Label DpsName;
+    @FXML private Label DpsHp;
+    @FXML private Label DpsAp;
 
-    @FXML private Button MageName;
-    @FXML private Label MageLvl1;
-    @FXML private Label MageHp1;
-    @FXML private Label MageAp1;
+    @FXML private ImageView TankSprite ;
+    @FXML private Label TankName;
+    @FXML private Label TankHp;
+    @FXML private Label TankAp;
 
-    @FXML private Button HEalerName;
-    @FXML private Label HealerLvl1;
-    @FXML private Label HealerHp1;
-    @FXML private Label HealerAp1;
+    @FXML private ImageView MagesSprite;
+    @FXML private Label MageName;
+    @FXML private Label MageHp;
+    @FXML private Label MageAp;
+
+    @FXML private ImageView HealerSprite;
+    @FXML private Label HealerName;
+    @FXML private Label HealerHp;
+    @FXML private Label HealerAp;
 
     @FXML private FlowPane EnemyPane;
     @FXML private VBox ActionSelectionPane;
@@ -51,8 +61,12 @@ public class BattleController {
     public void setGame(Game game) {
         this.game = game;
         this.battle = game.getCurrentBattle();
+
+        loadHeroAnimation();
+
         refresh();
         loadActionMenu();
+
         writeLog("Battaglia iniziata. Tocca a " + battle.getCurrentHero().getNome());
     }
 
@@ -230,7 +244,7 @@ public class BattleController {
                 SceneManager.showGameOver();
             } else {
                 game.getShop().refreshStock();
-                SceneManager.showShop(game);
+                SceneManager.showReward(game);
             }
         }
     }
@@ -247,17 +261,42 @@ public class BattleController {
 
         var heroes = battle.getHeroes();
 
-        setHeroLabels(heroes.get(0), dpsName, DpsLvl1, DpsHp1, DpsAp1);
-        setHeroLabels(heroes.get(1), TankName, TankLvl1, TankHp1, TankAp1);
-        setHeroLabels(heroes.get(2), MageName, MageLvl1, MageHp1, MageAp1);
-        setHeroLabels(heroes.get(3), HEalerName, HealerLvl1, HealerHp1, HealerAp1);
+        setHeroLabels(heroes.get(0),DpsName, DpsHp, DpsAp);
+        setHeroLabels(heroes.get(1),TankName, TankHp, TankAp);
+        setHeroLabels(heroes.get(2),MageName, MageHp, MageAp);
+        setHeroLabels(heroes.get(3),HealerName, HealerHp, HealerAp);
     }
 
-    private void setHeroLabels(Hero hero, Button name, Label lvl, Label hp, Label ap) {
+    private void loadHeroAnimation(){
+        var heroes = battle.getHeroes();
+        playIdleAnimation(heroes.get(0),DpsSprite);
+        playIdleAnimation(heroes.get(1),TankSprite);
+        playIdleAnimation(heroes.get(2),MagesSprite);
+        playIdleAnimation(heroes.get(3),HealerSprite);
+
+    }
+
+    private void setHeroLabels(Hero hero, Label name, Label hp, Label ap) {
         name.setText(hero.getNome());
-        lvl.setText("LVL " + hero.getStatusManager().getLvl());
         hp.setText("HP " + hero.getStatusManager().getHp() + "/" + hero.getStatsManager().getScaledMaxHP());
         ap.setText("AP " + hero.getStatusManager().getAp() + "/" + hero.getStatsManager().getScaledMaxAp());
+    }
+
+    private void playIdleAnimation(Hero hero, ImageView sprite) {
+        SpriteData data = hero.getIdleSpriteData();
+
+        Image sheet = new Image(getClass().getResourceAsStream(data.getPath()));
+
+        sprite.setImage(sheet);
+        sprite.setFitWidth(data.getFrameWidth());
+        sprite.setFitHeight(data.getFrameHeight());
+        sprite.setPreserveRatio(true);
+        sprite.setScaleX(-1);
+
+        SpriteAnimation animation = new SpriteAnimation(sprite, data.getFrameWidth(), data.getFrameHeight(), data.getFrameCount(), data.getColumns(), data.getMillis());
+
+        animation.play();
+        animations.add(animation);
     }
 
     private void loadEnemies() {

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+
+<HBox prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg129546.Ui.Controller.BattleController">
+   <children>
+      <BorderPane fx:id="BattlePane" prefHeight="720.0" prefWidth="1280.0">
+         <left>
+            <VBox prefHeight="506.0" prefWidth="220.0" spacing="50.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="DpsSprite" fitHeight="101.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true" />
+                        <VBox alignment="TOP_CENTER" prefHeight="102.0" prefWidth="153.0" spacing="5.0">
+                           <children>
+                              <Label fx:id="DpsName" text="Label" />
+                              <Label fx:id="DpsHp" text="Label" />
+                              <Label fx:id="DpsAp" text="Label" />
+                              <FlowPane fx:id="DpsEffects" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="TankSprite" fitHeight="101.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true" />
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                           <children>
+                              <Label fx:id="TankName" text="Label" />
+                              <Label fx:id="TankHp" text="Label" />
+                              <Label fx:id="TankAp" text="Label" />
+                              <FlowPane fx:id="TankEffects" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="MagesSprite" fitHeight="101.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true" />
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                           <children>
+                              <Label fx:id="MageName" text="Label" />
+                              <Label fx:id="MageHp" text="Label" />
+                              <Label fx:id="MageAp" text="Label" />
+                              <FlowPane fx:id="MageEffects" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="HealerSprite" fitHeight="101.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true" />
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                           <children>
+                              <Label fx:id="HealerName" text="Label" />
+                              <Label fx:id="HealerHp" text="Label" />
+                              <Label fx:id="HealerAp" text="Label" />
+                              <FlowPane fx:id="HealerEffects" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </left>
+         <right>
+            <FlowPane fx:id="EnemyPane" orientation="VERTICAL" prefHeight="420.0" prefWidth="220.0" BorderPane.alignment="CENTER" />
+         </right>
+         <bottom>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox fx:id="ActionSelectionPane" alignment="CENTER" prefHeight="100.0" prefWidth="710.0" spacing="5.0">
+                     <children>
+                        <Button fx:id="SelectAbility" mnemonicParsing="false" onAction="#onAbilitiesClick" text="Button" />
+                        <Button fx:id="SelectItem" mnemonicParsing="false" onAction="#onInventoryClick" text="Button" />
+                        <Button fx:id="ShowSquad" mnemonicParsing="false" onAction="#onStatsClick" text="Button" />
+                     </children>
+                  </VBox>
+                  <FlowPane fx:id="FinalSelectionPane" prefHeight="100.0" prefWidth="901.0" />
+               </children>
+            </HBox>
+         </bottom>
+         <top>
+            <Text fx:id="LogPane" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" BorderPane.alignment="CENTER" />
+         </top>
+      </BorderPane>
+   </children>
+</HBox>

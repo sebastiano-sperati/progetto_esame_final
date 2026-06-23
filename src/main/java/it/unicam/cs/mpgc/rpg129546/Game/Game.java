@@ -4,10 +4,17 @@ import it.unicam.cs.mpgc.rpg129546.Abilities.Interface.Action;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Interface.Ultimate;
 import it.unicam.cs.mpgc.rpg129546.Combat.Battle;
 import it.unicam.cs.mpgc.rpg129546.Game.Factory.EnemyFactory;
+import it.unicam.cs.mpgc.rpg129546.Game.Reward.RewardData;
+import it.unicam.cs.mpgc.rpg129546.Game.Reward.RewardManager;
 import it.unicam.cs.mpgc.rpg129546.Model.Enemies.Enemy;
 import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
+import it.unicam.cs.mpgc.rpg129546.Persistence.SaveData;
+import it.unicam.cs.mpgc.rpg129546.Persistence.SaveManager;
+import it.unicam.cs.mpgc.rpg129546.Persistence.Savers.GenericSaver;
+import it.unicam.cs.mpgc.rpg129546.Persistence.Savers.HeroSave;
 import it.unicam.cs.mpgc.rpg129546.Shop.Shop;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
@@ -16,6 +23,7 @@ public class Game {
     private List<Enemy> enemies;
     private Battle currentBattle;
     private final Shop shop;
+    private RewardData lastReward;
 
     private int floor;
 
@@ -41,9 +49,10 @@ public class Game {
                 }
             }
         }
-
-        RewardManager.reward(heroes, enemies, floor);
+        lastReward = RewardManager.reward(heroes,enemies,floor);
     }
+
+    public RewardData getLastReward(){return lastReward;}
 
     public void nextFloor() {
         floor++;
@@ -69,11 +78,36 @@ public class Game {
         return shop;
     }
 
-    public int getFloor() {
-        return floor;
-    }
-
     public void setFloor(int floor) {
         this.floor = floor;
+    }
+
+    public void saveGame() {
+
+        try {
+
+            GenericSaver saver = new GenericSaver();
+
+            List<HeroSave> heroSaves = new ArrayList<>();
+
+            for (Hero hero : heroes) {
+
+                HeroSave heroSave = new HeroSave();
+
+                saver.GenericSaver(heroSave, hero);
+
+                heroSaves.add(heroSave);
+            }
+
+            SaveData data = new SaveData(heroSaves, floor);
+
+            SaveManager.save(data);
+
+            System.out.println("Partita salvata!");
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
     }
 }

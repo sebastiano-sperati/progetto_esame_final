@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import it.unicam.cs.mpgc.rpg129546.Model.Managers.HeroStatusManager;
 
+import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.SpriteData;
 import java.util.ArrayList;
 
 @JsonTypeInfo(
@@ -20,7 +21,7 @@ import java.util.ArrayList;
         @JsonSubTypes.Type(value = Mage.class, name = "MAGE"),
 })
 
-public class Hero extends Entity {
+public abstract class Hero extends Entity {
     protected int xp;
     protected int sogliaLvlUp;
     protected int numeroAzioni;
@@ -45,4 +46,6 @@ public class Hero extends Entity {
     }
 
     public HeroStatusManager getHeroStatusManager(){return this.heroStatusManager;}
+
+    public abstract SpriteData getIdleSpriteData();
 }

@@ -8,6 +8,8 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) {
         SceneManager.setStage(stage);
+        stage.setWidth(1280);
+        stage.setHeight(702);
         SceneManager.showMenu();
     }
 

@@ -8,7 +8,7 @@
     "maxAp" : 25,
     "lvl" : 3,
     "xp" : 2,
-    "gold" : 9860,
+    "gold" : 10013,
     "sogliaLvlUp" : 14,
     "weapon" : {
       "nome" : "arma iniziale",
@@ -16,8 +16,8 @@
       "scaling" : "STR"
     },
     "armor" : {
-      "nome" : "armatura rara",
-      "rarity" : "COMUNE"
+      "nome" : "armatura iniziale",
+      "rarity" : "STARTER"
     },
     "inventory" : [ ]
   }, {
@@ -29,7 +29,7 @@
     "maxAp" : 12,
     "lvl" : 3,
     "xp" : 2,
-    "gold" : 10010,
+    "gold" : 10013,
     "sogliaLvlUp" : 14,
     "weapon" : {
       "nome" : "arma iniziale",
@@ -50,7 +50,7 @@
     "maxAp" : 35,
     "lvl" : 3,
     "xp" : 2,
-    "gold" : 10010,
+    "gold" : 10013,
     "sogliaLvlUp" : 14,
     "weapon" : {
       "nome" : "arma iniziale",
@@ -71,7 +71,7 @@
     "maxAp" : 30,
     "lvl" : 3,
     "xp" : 2,
-    "gold" : 10010,
+    "gold" : 10013,
     "sogliaLvlUp" : 14,
     "weapon" : {
       "nome" : "arma iniziale",
