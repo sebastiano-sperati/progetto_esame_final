@@ -2,6 +2,7 @@ package it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities;
 
 import it.unicam.cs.mpgc.rpg129546.Abilities.CharacterAllocation;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Interface.Action;
+import it.unicam.cs.mpgc.rpg129546.Abilities.attackType;
 import it.unicam.cs.mpgc.rpg129546.Effects.Effect.FrostEffect;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
@@ -43,6 +44,11 @@ public class Frost implements Action {
     @Override
     public CharacterAllocation getCaracterAllocation() {
         return CharacterAllocation.MAGE;
+    }
+
+    @Override
+    public attackType getAttackType() {
+        return attackType.MAGIC;
     }
 
 }

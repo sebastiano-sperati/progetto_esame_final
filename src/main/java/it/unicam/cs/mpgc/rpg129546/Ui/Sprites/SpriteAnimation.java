@@ -17,7 +17,7 @@ public class SpriteAnimation {
     private int currentFrame = 0;
     private final Timeline timeline;
 
-    public SpriteAnimation(ImageView imageView, int frameWidth, int frameHeight, int frameCount, int columns, int millis) {
+    public SpriteAnimation(ImageView imageView, int frameWidth, int frameHeight, int frameCount, int columns, int millis, boolean loop, Runnable onFinished) {
         this.imageView = imageView;
         this.frameWidth = frameWidth;
         this.frameHeight = frameHeight;
@@ -26,20 +26,31 @@ public class SpriteAnimation {
 
         this.timeline = new Timeline(new KeyFrame(Duration.millis(millis), event -> nextFrame()));
 
-        this.timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.setCycleCount(loop ? Timeline.INDEFINITE : frameCount);
+
+        timeline.setOnFinished(event -> {
+            if (onFinished != null) {
+                onFinished.run();
+            }
+        });
+    }
+
+    public void play() {
+        currentFrame = 0;
+        applyFrame();
+        timeline.playFromStart();
     }
 
     private void nextFrame() {
+        currentFrame = (currentFrame + 1) % frameCount;
+        applyFrame();
+    }
+
+    private void applyFrame() {
         int column = currentFrame % columns;
         int row = currentFrame / columns;
 
         imageView.setViewport(new Rectangle2D(column * frameWidth, row * frameHeight, frameWidth, frameHeight));
-
-        currentFrame = (currentFrame + 1) % frameCount;
-    }
-
-    public void play() {
-        timeline.play();
     }
 
     public void stop() {

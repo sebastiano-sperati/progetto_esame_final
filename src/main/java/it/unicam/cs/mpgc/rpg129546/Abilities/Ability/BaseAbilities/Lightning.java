@@ -2,6 +2,7 @@ package it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities;
 
 import it.unicam.cs.mpgc.rpg129546.Abilities.CharacterAllocation;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Interface.SplashAbility;
+import it.unicam.cs.mpgc.rpg129546.Abilities.attackType;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
 import it.unicam.cs.mpgc.rpg129546.Model.TargetType;
@@ -35,6 +36,11 @@ public class Lightning implements SplashAbility {
     @Override
     public CharacterAllocation getCaracterAllocation() {
         return CharacterAllocation.MAGE;
+    }
+
+    @Override
+    public attackType getAttackType() {
+        return attackType.MAGIC;
     }
 
     @Override

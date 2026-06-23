@@ -2,6 +2,7 @@ package it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities;
 
 import it.unicam.cs.mpgc.rpg129546.Abilities.CharacterAllocation;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Interface.Action;
+import it.unicam.cs.mpgc.rpg129546.Abilities.attackType;
 import it.unicam.cs.mpgc.rpg129546.Effects.Effect.ScaredEffect;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
@@ -42,6 +43,11 @@ public class Fear implements Action {
     @Override
     public CharacterAllocation getCaracterAllocation() {
         return CharacterAllocation.TANK;
+    }
+
+    @Override
+    public attackType getAttackType() {
+        return attackType.MAGIC;
     }
 
 }

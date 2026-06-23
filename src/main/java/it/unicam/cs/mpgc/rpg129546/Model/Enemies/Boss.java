@@ -1,6 +1,8 @@
 package it.unicam.cs.mpgc.rpg129546.Model.Enemies;
 
 import it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities.*;
+import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.AnimationType;
+import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.SpriteData;
 
 public class Boss extends Enemy{
     public Boss(String nome, int maxHp, int maxAp, int dif, int atk,int wis, double eva, double critMult, double critChance, int lvl, int taglia, int xpDrop) {
@@ -17,5 +19,10 @@ public class Boss extends Enemy{
         azioni.add(new DebufAtk());
         azioni.add(new Defend());
         azioni.add(new BaseAtk());
+    }
+
+    @Override
+    public SpriteData getIdleSpriteData(AnimationType type) {
+        return null;
     }
 }

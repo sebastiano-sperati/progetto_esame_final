@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import it.unicam.cs.mpgc.rpg129546.Model.Managers.HeroStatusManager;
 
+import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.AnimationType;
 import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.SpriteData;
 import java.util.ArrayList;
 
@@ -47,5 +48,6 @@ public abstract class Hero extends Entity {
 
     public HeroStatusManager getHeroStatusManager(){return this.heroStatusManager;}
 
-    public abstract SpriteData getIdleSpriteData();
+    @Override
+    public abstract SpriteData getIdleSpriteData(AnimationType type);
 }

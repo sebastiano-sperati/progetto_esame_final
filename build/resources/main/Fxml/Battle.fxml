@@ -44,7 +44,7 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <ImageView fx:id="MagesSprite" fitHeight="101.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="MageSprite" fitHeight="101.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true" />
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
                            <children>
                               <Label fx:id="MageName" text="Label" />

@@ -3,6 +3,8 @@ package it.unicam.cs.mpgc.rpg129546.Model.Enemies;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities.BaseAtk;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities.Defend;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities.Fear;
+import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.AnimationType;
+import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.SpriteData;
 
 public class Imp extends Enemy{
     public Imp(String nome, int maxHp, int maxAp, int dif, int atk, int wis, double eva, double critMult, double critChance, int lvl, int taglia, int xpDrop) {
@@ -17,5 +19,10 @@ public class Imp extends Enemy{
         azioni.add(new BaseAtk());
         azioni.add(new Defend());
         azioni.add(new Fear());
+    }
+
+    @Override
+    public SpriteData getIdleSpriteData(AnimationType type) {
+        return null;
     }
 }

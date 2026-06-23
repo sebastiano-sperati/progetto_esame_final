@@ -4,6 +4,7 @@ import it.unicam.cs.mpgc.rpg129546.Abilities.CharacterAllocation;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities.MultiAtk;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Interface.SplashAbility;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Interface.Ultimate;
+import it.unicam.cs.mpgc.rpg129546.Abilities.attackType;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
 import it.unicam.cs.mpgc.rpg129546.Model.TargetType;
@@ -65,6 +66,11 @@ public class WorldSlash implements SplashAbility, Ultimate {
     @Override
     public CharacterAllocation getCaracterAllocation() {
         return CharacterAllocation.DPS;
+    }
+
+    @Override
+    public attackType getAttackType() {
+        return attackType.MELE;
     }
 
     @Override

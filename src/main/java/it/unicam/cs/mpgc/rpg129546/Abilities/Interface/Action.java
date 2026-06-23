@@ -1,6 +1,7 @@
 package it.unicam.cs.mpgc.rpg129546.Abilities.Interface;
 
 import it.unicam.cs.mpgc.rpg129546.Abilities.CharacterAllocation;
+import it.unicam.cs.mpgc.rpg129546.Abilities.attackType;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 import it.unicam.cs.mpgc.rpg129546.Model.TargetType;
 
@@ -13,4 +14,5 @@ public interface Action {
     TargetType getTargetType();
     int getUnlockLvl();
     CharacterAllocation getCaracterAllocation();
+    attackType getAttackType();
 }

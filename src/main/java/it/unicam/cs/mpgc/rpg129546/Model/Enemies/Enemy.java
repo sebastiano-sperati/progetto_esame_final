@@ -1,10 +1,12 @@
 package it.unicam.cs.mpgc.rpg129546.Model.Enemies;
 
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
+import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.AnimationType;
+import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.SpriteData;
 
 import java.util.ArrayList;
 
-public class Enemy extends Entity {
+public abstract class Enemy extends Entity {
     protected int numeroAzioni = 4;
     private final int taglia;
     private final int xpDrop;
@@ -22,4 +24,7 @@ public class Enemy extends Entity {
     public int getScaledXpDrop(){
         return this.xpDrop + (2 * this.getStatusManager().getLvl());
     }
+
+    @Override
+    public abstract SpriteData getIdleSpriteData(AnimationType type);
 }

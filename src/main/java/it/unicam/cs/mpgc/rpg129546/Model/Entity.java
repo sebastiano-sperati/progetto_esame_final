@@ -9,6 +9,8 @@ import it.unicam.cs.mpgc.rpg129546.Effects.EffectManager;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.unicam.cs.mpgc.rpg129546.Model.Managers.StatsManager;
 import it.unicam.cs.mpgc.rpg129546.Model.Managers.StatusManager;
+import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.AnimationType;
+import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.SpriteData;
 
 
 import java.util.List;
@@ -62,6 +64,8 @@ public abstract class Entity {
     public Entity() {
 
     }
+
+    public abstract SpriteData getIdleSpriteData(AnimationType type);
 
     public Weapon getArma(){
         return this.arma;

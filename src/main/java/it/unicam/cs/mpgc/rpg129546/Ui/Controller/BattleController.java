@@ -9,6 +9,7 @@ import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
 import it.unicam.cs.mpgc.rpg129546.Model.TargetType;
 import it.unicam.cs.mpgc.rpg129546.Ui.SceneManager;
+import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.AnimationType;
 import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.SpriteAnimation;
 import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.SpriteData;
 import javafx.fxml.FXML;
@@ -21,7 +22,9 @@ import javafx.scene.text.Text;
 
 import javafx.scene.image.Image;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class BattleController {
@@ -33,6 +36,9 @@ public class BattleController {
 
     private final List<SpriteAnimation> animations = new ArrayList<>();
 
+    private final Map<Entity, ImageView> entitySprites = new HashMap<>();
+    private final Map<Entity, SpriteAnimation> activeAnimations = new HashMap<>();
+
     @FXML private ImageView DpsSprite;
     @FXML private Label DpsName;
     @FXML private Label DpsHp;
@@ -43,7 +49,7 @@ public class BattleController {
     @FXML private Label TankHp;
     @FXML private Label TankAp;
 
-    @FXML private ImageView MagesSprite;
+    @FXML private ImageView MageSprite;
     @FXML private Label MageName;
     @FXML private Label MageHp;
     @FXML private Label MageAp;
@@ -62,12 +68,27 @@ public class BattleController {
         this.game = game;
         this.battle = game.getCurrentBattle();
 
-        loadHeroAnimation();
+        registerheroSprites();
+        loadHeroAnimations();
 
         refresh();
         loadActionMenu();
 
         writeLog("Battaglia iniziata. Tocca a " + battle.getCurrentHero().getNome());
+    }
+
+    private void registerheroSprites(){
+        var heroes = battle.getHeroes();
+
+        entitySprites.put(heroes.get(0), DpsSprite);
+        entitySprites.put(heroes.get(1), TankSprite);
+        entitySprites.put(heroes.get(2), MageSprite);
+        entitySprites.put(heroes.get(3), HealerSprite);
+        setUpSpriteView(DpsSprite);
+        setUpSpriteView(TankSprite);
+        setUpSpriteView(MageSprite);
+        setUpSpriteView(HealerSprite);
+
     }
 
     private void loadActionMenu() {
@@ -147,11 +168,59 @@ public class BattleController {
     }
 
     private void executeAction(Entity target) {
-        battle.executeHeroAction(selectedAction, target);
+        Hero source = battle.getCurrentHero();
 
-        writeLog("Azione eseguita.");
+        AnimationType animationType = chooseAnimation(selectedAction);
 
-        afterPlayerAction();
+        Action actionToExecute = selectedAction;
+
+        playAnimation(source, animationType, false, () -> {
+
+            battle.executeHeroAction(actionToExecute, target);
+
+            if (source.getStatusManager().isAlive()) {
+                playAnimation(source, AnimationType.IDLE, true, null);
+            }
+
+            playTargetReaction(target, () -> {
+                writeLog("Azione eseguita.");
+                afterPlayerAction();
+            });
+        });
+    }
+
+    private AnimationType chooseAnimation(Action selectedAction){
+       if(selectedAction instanceof Ultimate) return AnimationType.ULTIMATE;
+       switch (selectedAction.getAttackType()){
+           case MELE -> {
+               return AnimationType.MELEATTACK;
+           }
+           case MAGIC -> {
+               return AnimationType.MAGICATTACK;
+           }
+           case SELFBUFF -> {
+               return AnimationType.USEITEM;
+           }
+       }
+        return null;
+    }
+
+    private void playTargetReaction(Entity target, Runnable onFinished) {
+
+        if (!entitySprites.containsKey(target)) {
+            onFinished.run();
+            return;
+        }
+
+        if (!target.getStatusManager().isAlive()) {
+            playAnimation(target, AnimationType.DEATH, false, onFinished);
+            return;
+        }
+
+        playAnimation(target, AnimationType.HIT, false, () -> {
+            playAnimation(target, AnimationType.IDLE, true, null);
+            onFinished.run();
+        });
     }
 
     private void showItems() {
@@ -267,14 +336,6 @@ public class BattleController {
         setHeroLabels(heroes.get(3),HealerName, HealerHp, HealerAp);
     }
 
-    private void loadHeroAnimation(){
-        var heroes = battle.getHeroes();
-        playIdleAnimation(heroes.get(0),DpsSprite);
-        playIdleAnimation(heroes.get(1),TankSprite);
-        playIdleAnimation(heroes.get(2),MagesSprite);
-        playIdleAnimation(heroes.get(3),HealerSprite);
-
-    }
 
     private void setHeroLabels(Hero hero, Label name, Label hp, Label ap) {
         name.setText(hero.getNome());
@@ -282,23 +343,68 @@ public class BattleController {
         ap.setText("AP " + hero.getStatusManager().getAp() + "/" + hero.getStatsManager().getScaledMaxAp());
     }
 
-    private void playIdleAnimation(Hero hero, ImageView sprite) {
-        SpriteData data = hero.getIdleSpriteData();
-
-        Image sheet = new Image(getClass().getResourceAsStream(data.getPath()));
-
-        sprite.setImage(sheet);
-        sprite.setFitWidth(data.getFrameWidth());
-        sprite.setFitHeight(data.getFrameHeight());
-        sprite.setPreserveRatio(true);
-        sprite.setScaleX(-1);
-
-        SpriteAnimation animation = new SpriteAnimation(sprite, data.getFrameWidth(), data.getFrameHeight(), data.getFrameCount(), data.getColumns(), data.getMillis());
-
-        animation.play();
-        animations.add(animation);
+    private void loadHeroAnimations() {
+        for (Hero hero : battle.getHeroes()) {
+            playAnimation(hero, AnimationType.IDLE, true, null);
+        }
     }
 
+    private void playAnimation(Entity entity, AnimationType type, boolean loop, Runnable onFinished) {
+        ImageView sprite = entitySprites.get(entity);
+
+        if (sprite == null) {
+            if (onFinished != null) {
+                onFinished.run();
+            }
+            return;
+        }
+
+        SpriteAnimation oldAnimation = activeAnimations.get(entity);
+
+        if (oldAnimation != null) {
+            oldAnimation.stop();
+        }
+
+        SpriteData data = entity.getIdleSpriteData(type);
+
+        var stream = getClass().getResourceAsStream(data.getPath());
+
+        if (stream == null) {
+            System.out.println("Sprite non trovato: " + data.getPath());
+
+            if (onFinished != null) {
+                onFinished.run();
+            }
+
+            return;
+        }
+
+        sprite.setImage(new Image(stream));
+
+        if (entity instanceof Hero) {
+            sprite.setScaleX(-1);
+        } else {
+            sprite.setScaleX(1);
+        }
+
+        SpriteAnimation animation = new SpriteAnimation(sprite, data.getFrameWidth(), data.getFrameHeight(), data.getFrameCount(), data.getColumns(), data.getMillis(),                loop, () -> {
+                    activeAnimations.remove(entity);
+
+                    if (onFinished != null) {
+                        onFinished.run();
+                    }
+                }
+        );
+
+        activeAnimations.put(entity, animation);
+        animation.play();
+    }
+
+    public void setUpSpriteView(ImageView sprite){
+        sprite.setFitWidth(120);
+        sprite.setFitHeight(120);
+        sprite.setPreserveRatio(true);
+    }
     private void loadEnemies() {
         EnemyPane.getChildren().clear();
 
