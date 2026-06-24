@@ -30,7 +30,7 @@ public class Game {
     public Game(List<Hero> heroes) {
         this.heroes = heroes;
         this.shop = new Shop();
-        this.floor = 10;
+        this.floor = 1;
     }
 
     public void startNewBattle() {

@@ -16,14 +16,14 @@ public class Healer extends Hero{
 
     @Override
     public SpriteData getIdleSpriteData(AnimationType type) {
-        return switch (type){
-            case IDLE -> new SpriteData("/Sprites/Hero/Idle/healer_idle.png",84,72,8,3, 170);
-            case MELEATTACK -> new SpriteData("/Sprites/Hero/Attack/Mele/healer_atk.png", 96, 79, 10, 3, 75);
-            case MAGICATTACK -> new SpriteData("/Sprites/Hero/Attack/Magic/healer_magic_atk.png", 96, 79, 10, 3, 75);
-            case USEITEM -> new SpriteData("/Sprites/Hero/Attack/Magic/healer_magic_atk.png", 488, 277, 22, 3, 75);
-            case ULTIMATE -> new SpriteData("/Sprites/Hero/Attack/Ultimate/healer_ultimate.png", 104, 80, 8, 4, 90);
-            case HIT -> new SpriteData("/Sprites/Hero/takeDamage/Hit/healer_hit.png", 104, 80, 1, 1, 1000);
-            case DEATH -> new SpriteData("/Sprites/Hero/takeDamage/Death/healer_death.png", 104, 80, 6, 3, 130);
+        return switch (type) {
+            case IDLE -> new SpriteData("/Sprites/Hero/Healer/healer_idle.png", 81, 81, 8, 3, 150, 0, 0, 1);
+            case MELEATTACK -> new SpriteData("/Sprites/Hero/Healer/healer_atk.png", 170, 150, 18, 3, 70, -45, -25, 0.70);
+            case MAGICATTACK -> new SpriteData("/Sprites/Hero/Healer/healer_magic_atk.png", 82, 82, 8, 3, 140, 0, 0, 1);
+            case USEITEM -> new SpriteData("/Sprites/Hero/Healer/healer_magic_atk.png", 82, 82, 8, 3, 140, 0, 0, 1);
+            case ULTIMATE -> new SpriteData("/Sprites/Hero/Healer/healer_ultimate.png", 323, 243, 24, 3, 60, -115, -80, 0.62);
+            case HIT -> new SpriteData("/Sprites/Hero/Healer/healer_hit.png", 47, 39, 2, 2, 120, 15, 20, 1);
+            case DEATH -> new SpriteData("/Sprites/Hero/Healer/healer_dead.png", 55, 37, 2, 2, 150, 15, 25, 1);
         };
     }
 

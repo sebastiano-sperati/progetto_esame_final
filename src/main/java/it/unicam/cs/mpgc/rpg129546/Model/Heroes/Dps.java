@@ -21,15 +21,14 @@ public class Dps extends Hero{
 
     @Override
     public SpriteData getIdleSpriteData(AnimationType type) {
-        return switch (type){
-            case IDLE -> new SpriteData("/Sprites/Hero/Idle/dps_idle.png", 104, 80, 4, 3, 180);
-            case MELEATTACK -> new SpriteData("/Sprites/Hero/Attack/Mele/dps_atk.png", 194, 125, 12, 3, 70);
-            case MAGICATTACK -> new SpriteData("/Sprites/Hero/Attack/Magic/dps_magic_atk.png",104,80,4,3,180);
-            case USEITEM -> new SpriteData("/Sprites/Hero/Attack/Magic/dps_magic_atk.png",104,80,4,3,180);
-            case ULTIMATE -> new SpriteData("/Sprites/Hero/Attack/Ultimate/dps_ultimate.png", 334, 333, 128, 3, 50);
-            case HIT -> new SpriteData("/Sprites/Hero/takeDamage/Hit/dps_hit.png", 104, 80, 1, 1, 100);
-            case DEATH -> new SpriteData("/Sprites/Hero/takeDamage/Death/dps_death.png", 104, 80, 6, 3, 130);
+        return switch (type) {
+            case IDLE -> new SpriteData("/Sprites/Hero/Dps/dps_idle.png", 130, 68, 4, 3, 130, 0, 0, 1);
+            case MELEATTACK -> new SpriteData("/Sprites/Hero/Dps/dps_atk.png", 367, 111, 9, 3, 70, -80, 5, 1);
+            case MAGICATTACK -> new SpriteData("/Sprites/Hero/Dps/dps_magic_atk.png", 148, 100, 9, 3, 70, -15, 0, 1);
+            case USEITEM -> new SpriteData("/Sprites/Hero/Dps/dps_magic_atk.png", 148, 100, 9, 3, 70, -15, 0, 1);
+            case ULTIMATE -> new SpriteData("/Sprites/Hero/Dps/dps_ultimate.png", 368, 190, 30, 3, 55, -90, -25, 0.75);
+            case HIT -> new SpriteData("/Sprites/Hero/Dps/dps_hit.png", 55, 54, 2, 2, 100, 15, 10, 1);
+            case DEATH -> new SpriteData("/Sprites/Hero/Dps/dps_dead.png", 57, 40, 2, 2, 130, 15, 20, 1);
         };
     }
-
 }

@@ -16,14 +16,14 @@ public class Mage extends Hero{
 
     @Override
     public SpriteData getIdleSpriteData(AnimationType type) {
-        return switch (type){
-            case IDLE -> new SpriteData("/Sprites/Hero/Idle/mage_idle.png",88,89,8,3, 170);
-            case MELEATTACK -> new SpriteData("/Sprites/Hero/Attack/Mele/mage_atk.png", 153, 105, 10, 3, 75);
-            case MAGICATTACK -> new SpriteData("/Sprites/Hero/Attack/Magic/mage_magic_atk.png", 153, 105, 10, 3, 75);
-            case USEITEM -> new SpriteData("/Sprites/Hero/Attack/Magic/mage_magic_atk.png", 153, 105, 10, 3, 75);
-            case ULTIMATE -> new SpriteData("/Sprites/Hero/Attack/Ultimate/mage_ultimate.png", 557, 760, 107, 4, 90);
-            case HIT -> new SpriteData("/Sprites/Hero/takeDamage/Hit/mage_hit.png", 88, 89, 1,1, 1000);
-            case DEATH -> new SpriteData("/Sprites/Hero/takeDamage/Death/mage_death.png", 104, 80, 6, 3, 130);
+        return switch (type) {
+            case IDLE -> new SpriteData("/Sprites/Hero/Mage/mage_idle.png", 81, 81, 8, 3, 150, 0, 0, 1);
+            case MELEATTACK -> new SpriteData("/Sprites/Hero/Mage/mage_atk.png", 161, 162, 9, 3, 70, -40, -40, 0.68);
+            case MAGICATTACK -> new SpriteData("/Sprites/Hero/Mage/mage_magic_atk.png", 81, 81, 8, 3, 140, 0, 0, 1);
+            case USEITEM -> new SpriteData("/Sprites/Hero/Mage/mage_magic_atk.png", 81, 81, 8, 3, 140, 0, 0, 1);
+            case ULTIMATE -> new SpriteData("/Sprites/Hero/Mage/mage_ultimate.png", 64, 96, 90, 3, 45, 10, -15, 1);
+            case HIT -> new SpriteData("/Sprites/Hero/Mage/mage_hit.png", 48, 37, 2, 2, 120, 15, 20, 1);
+            case DEATH -> new SpriteData("/Sprites/Hero/Mage/mage_dead.png", 51, 36, 2, 2, 140, 15, 25, 1);
         };
     }
 

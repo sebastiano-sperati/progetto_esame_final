@@ -23,6 +23,14 @@ public class Imp extends Enemy{
 
     @Override
     public SpriteData getIdleSpriteData(AnimationType type) {
-        return null;
+        return switch (type) {
+            case IDLE -> new SpriteData("/Sprites/Enemy/Imp/imp_idle.png", 106, 98, 8, 3, 170, 0, 0, 1);
+            case MELEATTACK -> new SpriteData("/Sprites/Enemy/Imp/imp_mele_atk.png", 155, 102, 15, 3, 70, -20, -8, 0.88);
+            case MAGICATTACK -> new SpriteData("/Sprites/Enemy/Imp/imp_magic_atk.png", 100, 107, 8, 3, 150, -5, -5, 1);
+            case USEITEM -> new SpriteData("/Sprites/Enemy/Imp/imp_magic_atk.png", 100, 107, 8, 3, 150, -5, -5, 1);
+            case ULTIMATE -> new SpriteData("/Sprites/Enemy/Imp/imp_magic_atk.png", 100, 107, 8, 3, 150, -5, -5, 1);
+            case HIT -> new SpriteData("/Sprites/Enemy/Imp/imp_hit.png", 54, 53, 2, 2, 120, 12, 15, 1);
+            case DEATH -> new SpriteData("/Sprites/Enemy/Imp/imp_dead.png", 56, 43, 2, 2, 150, 12, 22, 1);
+        };
     }
 }

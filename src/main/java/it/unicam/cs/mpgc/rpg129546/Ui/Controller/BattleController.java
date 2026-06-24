@@ -381,13 +381,13 @@ public class BattleController {
 
         sprite.setImage(new Image(stream));
 
-        if (entity instanceof Hero) {
-            sprite.setScaleX(-1);
-        } else {
-            sprite.setScaleX(1);
-        }
+        double flip = entity instanceof Hero ? -1 : 1;
 
-        SpriteAnimation animation = new SpriteAnimation(sprite, data.getFrameWidth(), data.getFrameHeight(), data.getFrameCount(), data.getColumns(), data.getMillis(),                loop, () -> {
+        sprite.setScaleX(flip * data.getScale());
+        sprite.setScaleY(data.getScale());
+
+
+        SpriteAnimation animation = new SpriteAnimation(sprite, data.getFrameWidth(), data.getFrameHeight(), data.getFrameCount(), data.getColumns(), data.getMillis(),loop, () -> {
                     activeAnimations.remove(entity);
 
                     if (onFinished != null) {
@@ -401,9 +401,10 @@ public class BattleController {
     }
 
     public void setUpSpriteView(ImageView sprite){
-        sprite.setFitWidth(120);
-        sprite.setFitHeight(120);
+        sprite.setFitWidth(150);
+        sprite.setFitHeight(130);
         sprite.setPreserveRatio(true);
+        sprite.setSmooth(false);
     }
     private void loadEnemies() {
         EnemyPane.getChildren().clear();
@@ -413,9 +414,20 @@ public class BattleController {
                 continue;
             }
 
-            Button button = new Button(enemy.getNome() + "\nHP " + enemy.getStatusManager().getHp() + "/" + enemy.getStatsManager().getScaledMaxHP());
+            ImageView enemySprite = new ImageView();
 
-            EnemyPane.getChildren().add(button);
+            setUpSpriteView(enemySprite);
+
+            entitySprites.put(enemy, enemySprite);
+
+            Label label = new Label(enemy.getNome() + "\nHP " + enemy.getStatusManager().getHp() + "/" + enemy.getStatsManager().getScaledMaxHP());
+
+            VBox enemyBox = new VBox(enemySprite, label);
+            enemyBox.setSpacing(5);
+
+            EnemyPane.getChildren().add(enemyBox);
+
+            playAnimation(enemy, AnimationType.IDLE, true, null);
         }
     }
     @FXML

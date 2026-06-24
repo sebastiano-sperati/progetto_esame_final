@@ -16,14 +16,14 @@ public class Tank extends Hero{
 
     @Override
     public SpriteData getIdleSpriteData(AnimationType type) {
-        return switch (type){
-            case IDLE -> new SpriteData("/Sprites/Hero/Idle/tank_idle.png",101,81,4,3, 170);
-            case MELEATTACK -> new SpriteData("/Sprites/Hero/Attack/Mele/tank_atk.png", 101, 81, 24, 3, 100);
-            case MAGICATTACK -> new SpriteData("/Sprites/Hero/Attack/Magic/tank_magic_atk.png",101,81,4,3, 170);
-            case USEITEM -> new SpriteData("/Sprites/Hero/Attack/Magic/tank_magic_atk.png",101,81,4,3, 170);
-            case ULTIMATE -> new SpriteData("/Sprites/Hero/Attack/Ultimate/tank_ultimate.png", 618, 198, 36, 4, 90);
-            case HIT -> new SpriteData("/Sprites/Hero/takeDamege/Hit/tank_hit.png", 101, 81, 1, 1, 1000);
-            case DEATH -> new SpriteData("/Sprites/Hero/takeDamage/Death/tank_death.png", 101, 81, 6, 3, 130);
+        return switch (type) {
+            case IDLE -> new SpriteData("/Sprites/Hero/Tank/tank_idle.png", 104, 80, 4, 3, 170, 0, 0, 1);
+            case MELEATTACK -> new SpriteData("/Sprites/Hero/Tank/tank_mele_atk.png", 194, 125, 12, 3, 80, -35, -10, 0.90);
+            case MAGICATTACK -> new SpriteData("/Sprites/Hero/Tank/tank_magic_atk.png", 93, 80, 8, 3, 150, 5, 0, 1);
+            case USEITEM -> new SpriteData("/Sprites/Hero/Tank/tank_magic_atk.png", 93, 80, 8, 3, 150, 5, 0, 1);
+            case ULTIMATE -> new SpriteData("/Sprites/Hero/Tank/tank_ultimate.png", 337, 177, 24, 3, 65, -90, -25, 0.72);
+            case HIT -> new SpriteData("/Sprites/Hero/Tank/tank_hit.png", 82, 52, 1, 1, 350, 10, 15, 1);
+            case DEATH -> new SpriteData("/Sprites/Hero/Tank/tank_dead.png", 62, 40, 2, 2, 150, 15, 25, 1);
         };
     }
 
