@@ -2,6 +2,9 @@ package it.unicam.cs.mpgc.rpg129546.Effects.Effect;
 
 import it.unicam.cs.mpgc.rpg129546.Effects.TickType;
 
+/**
+ * aumenta del 50% la difesa di un entità per 3 turni
+ */
 public class PotionDefenseEffect implements Effect{
     private final int duration = 3;
     public int tick = duration;

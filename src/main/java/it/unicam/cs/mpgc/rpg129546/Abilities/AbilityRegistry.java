@@ -11,6 +11,9 @@ import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
 
 import java.util.List;
 
+/**
+ * contiene un registro di tutte le abilità presenti nel gioco
+ */
 public class AbilityRegistry {
     public static final List<Action> abilities = List.of(
             new Bless(),
@@ -30,6 +33,11 @@ public class AbilityRegistry {
             new MeteorRain(),
             new WorldSlash()
     );
+
+    /**
+     * assegna ad un eroe tutte le abilità che ha sbloccato fino a questo momento
+     * @param hero l'eroe che riceve le abilità
+     */
     public static void getAbilityFor(Hero hero) {
         for (Action a : abilities){
             if(a.getUnlockLvl() <= hero.getStatusManager().getLvl() && a.getCaracterAllocation() == hero.getCharacterAllocation() && !hero.hasAbility(a)){

@@ -1,13 +1,16 @@
 package it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities;
 
-import it.unicam.cs.mpgc.rpg129546.Abilities.CharacterAllocation;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.CharacterAllocation;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Interface.Action;
-import it.unicam.cs.mpgc.rpg129546.Abilities.attackType;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.attackType;
 import it.unicam.cs.mpgc.rpg129546.Effects.Effect.InspiredEffect;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
-import it.unicam.cs.mpgc.rpg129546.Model.TargetType;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.TargetType;
 
+/**
+ * contiene la logica per far si che un alleato ottenga l'effetto InspiredEffect()
+ */
 public class Inspiration implements Action {
     private final int cost = 4;
     private final String name = "ispira";

@@ -6,6 +6,9 @@ import it.unicam.cs.mpgc.rpg129546.Shop.GenericItem;
 import it.unicam.cs.mpgc.rpg129546.Effects.Effect.PotionDefenseEffect;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 
+/**
+ * aggiunge ad un entita l'effetto PotionDefenseEffect()
+ */
 public class DefensePotion implements Item {
     public String nome = "pozione di difesa";
     private final int maxQta = 5;
@@ -51,11 +54,6 @@ public class DefensePotion implements Item {
     @Override
     public int getQta() {
         return qta;
-    }
-
-    @Override
-    public int getMaxQta() {
-        return maxQta;
     }
 
     @Override

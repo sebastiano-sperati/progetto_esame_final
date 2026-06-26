@@ -4,6 +4,9 @@ import it.unicam.cs.mpgc.rpg129546.Persistence.Savers.HeroSave;
 
 import java.util.List;
 
+/**
+ * gestisce tutte le informazioni necessarie a salvare i dati di una singola partita, sia la lista di eroi, sia il piano corrente
+ */
 public class SaveData {
 
     private List<HeroSave> heroes;

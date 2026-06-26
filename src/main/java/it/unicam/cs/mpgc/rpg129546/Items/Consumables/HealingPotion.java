@@ -5,6 +5,9 @@ import it.unicam.cs.mpgc.rpg129546.Items.ItemType;
 import it.unicam.cs.mpgc.rpg129546.Shop.GenericItem;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 
+/**
+ * cura un entità di una quantità predefinità
+ */
 public class HealingPotion implements Item {
     public String nome = "pozione di cura";
     private final int maxQta = 5;
@@ -50,11 +53,6 @@ public class HealingPotion implements Item {
     @Override
     public int getQta() {
         return qta;
-    }
-
-    @Override
-    public int getMaxQta() {
-        return maxQta;
     }
 
     @Override

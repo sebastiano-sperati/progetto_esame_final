@@ -14,6 +14,9 @@ import java.util.Random;
 import static it.unicam.cs.mpgc.rpg129546.Equipment.WeaponScaling.STR;
 import static it.unicam.cs.mpgc.rpg129546.Equipment.WeaponScaling.WIS;
 
+/**
+ * contiene tutti i metodi fondamentali per definire e gestire un negozio
+ */
 public class Shop {
 
     private final List<GenericItem> catalogo;
@@ -26,6 +29,10 @@ public class Shop {
         inizializzaCatalogo();
     }
 
+    /**
+     * contiene tutti gli item trovabili nel mondo di gioco, fungendo da catalogo per ogni negozio,
+     * che poi  aggiornerà casualmente il proprio stock
+     */
     public void inizializzaCatalogo(){
         catalogo.add(new AntiFirePotion());
         catalogo.add(new AntiFrostPotion());
@@ -53,6 +60,10 @@ public class Shop {
         catalogo.add(new Armor("armatura leggendaria",Rarity.LEGENDARIO));
     }
 
+    /**
+     * ogni volta che si entra in un negozio, viene cancellato lo stock precedente,
+     * e vengono creati 5 stand con item randomici, e dove permesso, con una quantità di item randomica per stand
+     */
     public void refreshStock(){
         stock.clear();
 
@@ -67,6 +78,13 @@ public class Shop {
 
     public List<Stock> getStock(){return this.stock;}
 
+    /**
+     * permette ad un eroe di comprare un item (che viene aggiunto all'inventario come copia),
+     * se e solo se l'eroe ha abbastanza soldi per permettersi di acquistarlo,
+     * decrementatnndone la quantità nello shop, ed eliminandolo nel caso finisca
+     * @param h eroe che effettua l'acquisto
+     * @param index indice dell'item che si desidera acquistare
+     */
     public void buyItem(Hero h, int index){
         GenericItem item = stock.get(index).getItem().getCopy();
 
@@ -93,6 +111,11 @@ public class Shop {
         System.out.println(h.getNome() + "acquista" + item.getNome());
     }
 
+    /**
+     * permette ad un eroe di vendere un item presente nel suo inventario
+     * @param h eroe venditore
+     * @param index indice dell'item da vendere
+     */
     public void sellItem(Hero h, int index){
         GenericItem item = h.getInventoryManager().getInventario().get(index);
 

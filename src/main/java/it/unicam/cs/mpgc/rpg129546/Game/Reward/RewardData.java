@@ -1,5 +1,11 @@
 package it.unicam.cs.mpgc.rpg129546.Game.Reward;
 
+/**
+ * tutte le variabili che definiscono un reward, contiene
+ * -oro
+ * -punti esperienza
+ * potendole poi trasferire alla schermata di reward senza esporre il calcolo
+ */
 public class RewardData {
 
     private final int xp;

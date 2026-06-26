@@ -6,6 +6,9 @@ import it.unicam.cs.mpgc.rpg129546.Shop.GenericItem;
 import it.unicam.cs.mpgc.rpg129546.Effects.Effect.Poison;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 
+/**
+ * permette di applicare un singolo PoisonEffect() ad un entità
+ */
 public class PoisonKnives implements Item {
     public String nome = "coltelli veleno";
     private final int maxQta = 5;
@@ -51,11 +54,6 @@ public class PoisonKnives implements Item {
     @Override
     public int getQta() {
         return qta;
-    }
-
-    @Override
-    public int getMaxQta() {
-        return maxQta;
     }
 
     @Override

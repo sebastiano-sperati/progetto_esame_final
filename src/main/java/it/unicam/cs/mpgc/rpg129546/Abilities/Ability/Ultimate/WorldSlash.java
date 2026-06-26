@@ -1,16 +1,19 @@
 package it.unicam.cs.mpgc.rpg129546.Abilities.Ability.Ultimate;
 
-import it.unicam.cs.mpgc.rpg129546.Abilities.CharacterAllocation;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.CharacterAllocation;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities.MultiAtk;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Interface.SplashAbility;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Interface.Ultimate;
-import it.unicam.cs.mpgc.rpg129546.Abilities.attackType;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.attackType;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
-import it.unicam.cs.mpgc.rpg129546.Model.TargetType;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.TargetType;
 
 import java.util.List;
 
+/**
+ * contiene la logica per far si che tre nemici adieacenti subiscano un abilità MultiAtk()
+ */
 public class WorldSlash implements SplashAbility, Ultimate {
 
     private final int cost = 30;

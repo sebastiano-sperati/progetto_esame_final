@@ -2,6 +2,9 @@ package it.unicam.cs.mpgc.rpg129546.Effects.Effect;
 
 import it.unicam.cs.mpgc.rpg129546.Effects.TickType;
 
+/**
+ * aumenta del 50% l'attacco di un entità per 3 turni
+ */
 public class StrenghtEffect implements Effect{
     private final int duration = 2;
     public int tick = duration;

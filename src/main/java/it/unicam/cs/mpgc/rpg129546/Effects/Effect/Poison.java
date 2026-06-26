@@ -3,6 +3,9 @@ package it.unicam.cs.mpgc.rpg129546.Effects.Effect;
 import it.unicam.cs.mpgc.rpg129546.Effects.TickType;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 
+/**
+ * fa si che un entita prenda @param dmg danni ogni tick per 3 turni
+ */
 public class Poison implements Effect{
     private final int duration = 3;
     public int tick = duration;

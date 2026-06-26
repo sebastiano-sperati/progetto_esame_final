@@ -18,6 +18,9 @@ import java.util.List;
 import static it.unicam.cs.mpgc.rpg129546.Equipment.Rarity.STARTER;
 import static it.unicam.cs.mpgc.rpg129546.Equipment.WeaponScaling.STR;
 
+/**
+ * contiene tutte le informazioni e i metodi necessari per definire un untita, nemico o eroe che sia, presente nel gioco
+ */
 public abstract class Entity {
     protected String nome;
     protected int hp, maxHp;
@@ -60,12 +63,18 @@ public abstract class Entity {
         this.arma = new Weapon("arma iniziale",STARTER,STR);
         this.armatura = new Armor("armatura iniziale" ,STARTER);
     }
-
+    /**
+     * crea un nuovo personaggio ENTITY inizianizzaondone statistiche e progressione
+     */
     public Entity() {
 
     }
-
-    public abstract SpriteData getIdleSpriteData(AnimationType type);
+    /**
+     * definisce tutti gli sprite utilizzati in base all' azione che effettua o subisce l'entità
+     * @param type tipo di azione effettuata o subita
+     * @return sprite da utilizzare
+     */
+    public abstract SpriteData getSpriteData(AnimationType type);
 
     public Weapon getArma(){
         return this.arma;
@@ -75,10 +84,18 @@ public abstract class Entity {
         return this.armatura;
     }
 
+    /**
+     * scambia l'arma passata in parametro, con quella attualmente equipaggiata
+     * @param armaNuova arma da equipaggiare
+     */
     public void equipaggiaArma(Weapon armaNuova){
         this.arma=armaNuova;
     }
 
+    /**
+     * scambia l'armatura passata in parametro con quella attualmente equipaggiata
+     * @param armaturaNuova armatura da equipaggiare
+     */
     public void equipaggiaArmatura(Armor armaturaNuova){
         this.armatura=armaturaNuova;
     }
@@ -118,6 +135,11 @@ public abstract class Entity {
     @JsonIgnore
     public List<Action> getAzioni(){ return this.azioni;}
 
+    /**
+     * controlla se tra le azioni gia presenti nella lista dell'entità, è presente l'azione passata in parametro
+     * @param a azione da ricercare
+     * @return true se l'azione è presente, false altrimenti
+     */
     public boolean hasAbility(Action a){
         for(Action action : azioni){
             if(action.getClass() == a.getClass()) return true;

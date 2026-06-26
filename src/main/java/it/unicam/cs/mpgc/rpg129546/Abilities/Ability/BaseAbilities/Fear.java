@@ -1,13 +1,17 @@
 package it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities;
 
-import it.unicam.cs.mpgc.rpg129546.Abilities.CharacterAllocation;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.CharacterAllocation;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Interface.Action;
-import it.unicam.cs.mpgc.rpg129546.Abilities.attackType;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.attackType;
 import it.unicam.cs.mpgc.rpg129546.Effects.Effect.ScaredEffect;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
-import it.unicam.cs.mpgc.rpg129546.Model.TargetType;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.TargetType;
 
+/**
+ * Contiene la logica per far si che venga aggiunto a target
+ * un singolo effetto ScaredEffect()
+ */
 public class Fear implements Action {
     private final int cost = 8;
     private final String name = "intimidire";

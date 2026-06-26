@@ -2,6 +2,9 @@ package it.unicam.cs.mpgc.rpg129546.Effects.Effect;
 
 import it.unicam.cs.mpgc.rpg129546.Effects.TickType;
 
+/**
+ * aplica ad un entità un raddopio della difesa per 3 turni
+ */
 public class BlessEffect implements Effect{
     private final int duration = 3;
     public int tick = duration;

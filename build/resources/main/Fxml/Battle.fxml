@@ -79,9 +79,9 @@
                <children>
                   <VBox fx:id="ActionSelectionPane" alignment="CENTER" prefHeight="100.0" prefWidth="710.0" spacing="5.0">
                      <children>
-                        <Button fx:id="SelectAbility" mnemonicParsing="false" onAction="#onAbilitiesClick" text="Button" />
-                        <Button fx:id="SelectItem" mnemonicParsing="false" onAction="#onInventoryClick" text="Button" />
-                        <Button fx:id="ShowSquad" mnemonicParsing="false" onAction="#onStatsClick" text="Button" />
+                        <Button fx:id="SelectAbility" mnemonicParsing="false" onAction="#onAbilitiesClick" text="ABILITA'" />
+                        <Button fx:id="SelectItem" mnemonicParsing="false" onAction="#onInventoryClick" text="OGGETTI" />
+                        <Button fx:id="ShowSquad" mnemonicParsing="false" onAction="#onStatsClick" text="STATISTICHE SQUADRA" />
                      </children>
                   </VBox>
                   <FlowPane fx:id="FinalSelectionPane" prefHeight="100.0" prefWidth="901.0" />

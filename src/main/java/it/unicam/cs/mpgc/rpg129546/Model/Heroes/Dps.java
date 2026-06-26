@@ -2,25 +2,40 @@ package it.unicam.cs.mpgc.rpg129546.Model.Heroes;
 
 import it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities.BaseAtk;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities.Defend;
-import it.unicam.cs.mpgc.rpg129546.Abilities.CharacterAllocation;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.CharacterAllocation;
 
 import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.AnimationType;
 import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.SpriteData;
 
+/**
+ * definisce tutte le abilità di base e statistiche di un entità dps
+ */
 public class Dps extends Hero{
     public Dps(String nome, int maxHp, int maxAp, int dif, int atk,int wis, double eva, double critMult, double critChance, int lvl, int sogliaLvlUp) {
         super(nome, maxHp, maxAp, dif, atk,wis, eva, critMult, critChance, lvl,sogliaLvlUp);
         azioni.add(new BaseAtk());
         azioni.add(new Defend());
     }
-
+    /**
+     * Restituisce la classe di appartenenza dell'eroe.
+     *
+     * @return allocazione DPS
+     */
     public CharacterAllocation getCharacterAllocation(){
         return CharacterAllocation.DPS;
     }
+    /**
+     * Crea un nuovo personaggio DPS inizializzandone
+     * statistiche e progressione.
+     */
     public Dps(){}
-
+    /**
+     * definisce tutti gli sprite utilizzati in base all' azione che effettua o subisce l'entità
+     * @param type tipo di azione effettuata o subita
+     * @return sprite da utilizzare
+     */
     @Override
-    public SpriteData getIdleSpriteData(AnimationType type) {
+    public SpriteData getSpriteData(AnimationType type) {
         return switch (type) {
             case IDLE -> new SpriteData("/Sprites/Hero/Dps/dps_idle.png", 130, 68, 4, 3, 130, 0, 0, 1);
             case MELEATTACK -> new SpriteData("/Sprites/Hero/Dps/dps_atk.png", 367, 111, 9, 3, 70, -80, 5, 1);

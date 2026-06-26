@@ -1,6 +1,6 @@
 package it.unicam.cs.mpgc.rpg129546.Model.Heroes;
 
-import it.unicam.cs.mpgc.rpg129546.Abilities.CharacterAllocation;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.CharacterAllocation;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
@@ -21,7 +21,16 @@ import java.util.ArrayList;
         @JsonSubTypes.Type(value = Healer.class, name = "HEALER"),
         @JsonSubTypes.Type(value = Mage.class, name = "MAGE"),
 })
-
+/**
+ * Classe astratta che rappresenta un eroe controllato dal giocatore.
+ *
+ * Estende Entity aggiungendo informazioni specifiche degli eroi,
+ * come esperienza, oro, soglia di livello e gestione dello stato
+ * tramite HeroStatusManager.
+ *
+ * Le sottoclassi concrete definiscono la classe del personaggio
+ * e gli sprite associati alle diverse animazioni.
+ */
 public abstract class Hero extends Entity {
     protected int xp;
     protected int sogliaLvlUp;
@@ -38,16 +47,20 @@ public abstract class Hero extends Entity {
         this.heroStatusManager = new HeroStatusManager(this,hp,maxHp,atk,maxAp,lvl,isAlive,xp,sogliaLvlUp,gold);
     }
 
-    public CharacterAllocation getCharacterAllocation() {
-        return null;
-    }
-
+    public abstract CharacterAllocation getCharacterAllocation();
+    /**
+     * crea un nuovo personaggio HERO inizianizzaondone statistiche e progressione
+     */
     public Hero() {
         super();
     }
 
     public HeroStatusManager getHeroStatusManager(){return this.heroStatusManager;}
-
+    /**
+     * definisce tutti gli sprite utilizzati in base all' azione che effettua o subisce l'entità
+     * @param type tipo di azione effettuata o subita
+     * @return sprite da utilizzare
+     */
     @Override
-    public abstract SpriteData getIdleSpriteData(AnimationType type);
+    public abstract SpriteData getSpriteData(AnimationType type);
 }

@@ -4,6 +4,9 @@ import it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities.*;
 import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.AnimationType;
 import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.SpriteData;
 
+/**
+ * definisce abilità e statistiche della classe rappresentante un boss
+ */
 public class Boss extends Enemy{
     public Boss(String nome, int maxHp, int maxAp, int dif, int atk,int wis, double eva, double critMult, double critChance, int lvl, int taglia, int xpDrop) {
         super(nome, maxHp, maxAp, dif, atk,wis, eva, critMult, critChance, lvl, taglia, xpDrop);
@@ -21,8 +24,13 @@ public class Boss extends Enemy{
         azioni.add(new BaseAtk());
     }
 
+    /**
+     * definisce tutti gli sprite utilizzati in base all' azione che effettua o subisce l'entità
+     * @param type tipo di azione effettuata o subita
+     * @return sprite da utilizzare
+     */
     @Override
-    public SpriteData getIdleSpriteData(AnimationType type) {
+    public SpriteData getSpriteData(AnimationType type) {
         return switch (type) {
             case IDLE -> new SpriteData("/Sprites/Enemy/Boss/boss_idle.png", 104, 80, 8, 3, 170, 0, 0, 1);
             case MELEATTACK -> new SpriteData("/Sprites/Enemy/Boss/boss_mele_atk.png", 194, 125, 15, 3, 70, -55, -20, 0.90);

@@ -6,6 +6,9 @@ import it.unicam.cs.mpgc.rpg129546.Shop.GenericItem;
 import it.unicam.cs.mpgc.rpg129546.Effects.Effect.StrenghtEffect;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 
+/**
+ * permette di aggiungere un effetto StrenghtEffect() ad un entità
+ */
 public class StrenghtPotion implements Item {
     public String nome = "pozione di forza";
     private final int maxQta = 5;
@@ -51,11 +54,6 @@ public class StrenghtPotion implements Item {
     @Override
     public int getQta() {
         return qta;
-    }
-
-    @Override
-    public int getMaxQta() {
-        return maxQta;
     }
 
     @Override

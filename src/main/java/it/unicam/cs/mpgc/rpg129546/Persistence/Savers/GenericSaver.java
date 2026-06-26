@@ -7,14 +7,28 @@ import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
 
 import java.util.ArrayList;
 
+/**
+ * gestisce la logica con cui, alla fine di una battaglia, nel caso si voglia salvare e uscire,
+ * si riesce a salvare lo stato attuale degli eroi
+ */
 public class GenericSaver {
-
+    /**
+     * passa in parametro l'eroe da salvare e il luogo in cui salvare le informazioni,
+     * per poi richiamare i metodi per effettuare il salvataggio
+     * @param save dove salvare i dati
+     * @param h eroe di cui si devono salvare i dati
+     */
     public void GenericSaver(HeroSave save, Hero h){
         HeroSaver(save,h);
         EquipSaver(save,h.getArma(),h.getArmatura());
         InvSaver(save,h);
     }
 
+    /**
+     * salva di un solo eroe, solo le variabili importanti che sono mutevoli
+     * @param save dove salvare i dati
+     * @param hero eroe di cui salvare i dati
+     */
     public void HeroSaver(HeroSave save, Hero hero){
         save.type = hero.getClass().getSimpleName();
         save.nome = hero.getNome();
@@ -32,6 +46,12 @@ public class GenericSaver {
         save.sogliaLvlUp = hero.getHeroStatusManager().getSogliaLvlUp();
     }
 
+    /**
+     * per ogni arma e armatura passata in parametro, ne salva i dati fondamentali
+     * @param save dove salvare i dati
+     * @param w arma da salvare
+     * @param a armatura da salvare
+     */
     public void EquipSaver(HeroSave save, Weapon w, Armor a){
         save.weapon = new WeaponSave();
         save.weapon.nome = w.getNome();
@@ -44,6 +64,11 @@ public class GenericSaver {
         save.inventory = new ArrayList<>();
     }
 
+    /**
+     * salva, per ogni eroe passato in parametro, tutte le infomazioni relativa al suo inventario
+     * @param save dove salvare i dati
+     * @param h eroi di cui si devono salvare i dati
+     */
     public void InvSaver(HeroSave save, Hero h){
         for(Item i : h.getInventoryManager().getInventario()){
             ItemSave itemSave = new ItemSave();

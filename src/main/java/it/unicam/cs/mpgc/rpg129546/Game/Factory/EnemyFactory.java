@@ -6,8 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * gestisce la logica per generare randomicamente una lista di nemici ad ogni round
+ */
 public class EnemyFactory {
-
+    /**
+     * genera una lista di nemici casuale, la cui dimensione incrementa più si progredisce con il gioco.
+     * Nel caso si sia arrivati all'ultimo livello, il boss viene generato al centro della lista
+     * @param floor numero del round a cui si è arrivati
+     * @return una lista di nemici casuali
+     */
     public static List<Enemy> generate(int floor) {
         Random random = new Random();
 
@@ -30,6 +38,11 @@ public class EnemyFactory {
         return enemies;
     }
 
+    /**
+     * seleziona casualmente, 1 dei 4 nemici presenti nel gioco escludendo il boss, modificandone il livello in base al round
+     * @param floor round attuale (modifica il livello)
+     * @return un nemico casuale
+     */
     private static Enemy randomEnemy(int floor){
         Random random = new Random();
         return switch (random.nextInt(4)){

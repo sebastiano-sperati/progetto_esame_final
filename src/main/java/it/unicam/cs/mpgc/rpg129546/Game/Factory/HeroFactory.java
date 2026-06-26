@@ -6,7 +6,14 @@ import it.unicam.cs.mpgc.rpg129546.Persistence.Savers.HeroSave;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * genera la squadra di eroi in base al punto in cui si è arrivati con la progressione del gioco
+ */
 public class HeroFactory {
+    /**
+     * genera una lista base di eroi a livello 1
+     * @return una squadra di eroi iniziali
+     */
     public static List<Hero> generate() {
         Dps dps = new Dps("Furia della Battaglia", 22, 25, 4, 12, 6, 0.25, 2.2, 0.25, 1, 10);
         Tank tank = new Tank("Guardia di Ferro", 55, 12, 12, 5, 3, 0.05, 1.4, 0.05, 1, 10);
@@ -21,6 +28,13 @@ public class HeroFactory {
 
         return eroi;
     }
+
+    /**
+     * genera una lista di eroi basandosi sull'ultimo salvataggio disponibile
+     * @param type tipo di eroe da aggiungere
+     * @param save salvataggio dell'eroe di quel tipo
+     * @return un eroe con i parametri dell'ultimo salvataggio disponibile
+     */
     public static Hero generateSave(String type, HeroSave save) {
 
         switch (type) {

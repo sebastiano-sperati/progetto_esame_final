@@ -2,6 +2,9 @@ package it.unicam.cs.mpgc.rpg129546.Effects.Effect;
 
 import it.unicam.cs.mpgc.rpg129546.Effects.TickType;
 
+/**
+ * applica ad un entità un aumento della difesa e dell'evasione del 50% per 1 turno
+ */
 public class CounterEffect implements Effect{
     private final int duration = 1;
     public int tick = duration;

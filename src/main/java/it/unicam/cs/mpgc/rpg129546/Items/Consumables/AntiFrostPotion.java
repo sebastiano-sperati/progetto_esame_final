@@ -6,6 +6,9 @@ import it.unicam.cs.mpgc.rpg129546.Shop.GenericItem;
 import it.unicam.cs.mpgc.rpg129546.Effects.Effect.FrostEffect;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 
+/**
+ * permette di rimuovere un eolo effetto del tipo FrostEffect()
+ */
 public class AntiFrostPotion implements Item {
     public String nome = "pozioni anti gelo";
     private final int maxQta = 5;
@@ -52,11 +55,6 @@ public class AntiFrostPotion implements Item {
     @Override
     public int getQta() {
         return qta;
-    }
-
-    @Override
-    public int getMaxQta() {
-        return maxQta;
     }
 
     @Override

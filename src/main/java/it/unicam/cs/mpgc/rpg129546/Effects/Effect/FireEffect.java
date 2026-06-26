@@ -3,6 +3,9 @@ package it.unicam.cs.mpgc.rpg129546.Effects.Effect;
 import it.unicam.cs.mpgc.rpg129546.Effects.TickType;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 
+/**
+ * fa in modo che un entità prenda @param dmg danni ogni volta che avviene un tick per 2 turni
+ */
 public class FireEffect implements Effect{
     private final int duration = 2;
     public int tick = duration;

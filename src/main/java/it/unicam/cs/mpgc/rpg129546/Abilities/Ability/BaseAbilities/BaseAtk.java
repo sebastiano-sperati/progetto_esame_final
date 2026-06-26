@@ -1,13 +1,19 @@
 package it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities;
 
-import it.unicam.cs.mpgc.rpg129546.Abilities.CharacterAllocation;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.CharacterAllocation;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Interface.Action;
-import it.unicam.cs.mpgc.rpg129546.Abilities.attackType;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.attackType;
 import it.unicam.cs.mpgc.rpg129546.Effects.Effect.CounterEffect;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
-import it.unicam.cs.mpgc.rpg129546.Model.TargetType;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.TargetType;
 
+/**
+ * Gestisce un singolo attacco base comune a tutte le entità che può essere utilizzato in qualsiasi momento.
+ * La classe contiene:
+ * un metodo per effettuare il calcono dei danni, valutando se target schiva, se ha la possibilità di contrattaccare,
+ * calcola il danno e un eventuale danno critico, in fine applica il danno sottraendo la difesa
+ */
 public class BaseAtk implements Action {
     private final int cost = 0;
     private final String name = "attacco base";
@@ -25,10 +31,10 @@ public class BaseAtk implements Action {
         applyAttack(source, target,1.0);
     }
     public static void applyAttack(Entity source, Entity target , double multiplier){
-        //EVA
+        //schivata
         if(Math.random() < target.getEffectaApplier().modifyEva(target)){
             System.out.println(target.getNome() + " ha evitato l'attacco!");
-            //COUNTER
+            //counter
             if(target.getEffectManager().hasEffect(CounterEffect.class)){
                 System.out.println(target.getNome() + " effettua un contrattacco!");
 
@@ -40,13 +46,15 @@ public class BaseAtk implements Action {
             }
         return;
         }
+        //calcolo danno
         int dmg = source.getEffectaApplier().modifyDmg(source);
         dmg = (int)(dmg * multiplier);
-
+        //calcolo critico
         if (Math.random() < source.getEffectaApplier().modifyCC(source)) {
             System.out.println(source.getNome() + " effettua un attacco critico!");
             dmg = (int)(dmg * source.getEffectaApplier().modifyCM(source));
         }
+        //applica danno
         dmg -= target.getEffectaApplier().modifyDif(target);
         if (dmg < 0) dmg = 0;
         target.getStatusManager().takeDamage(dmg);

@@ -29,9 +29,9 @@
       </VBox>
       <VBox fx:id="ActionPane" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
          <children>
-            <Button fx:id="buy" mnemonicParsing="false" onAction="#onBuy" text="Button" />
-            <Button fx:id="sell" mnemonicParsing="false" onAction="#onSell" text="Button" />
-            <Button fx:id="exit" mnemonicParsing="false" onAction="#onExit" text="Button" />
+            <Button fx:id="buy" mnemonicParsing="false" onAction="#onBuy" text="COMPRA" />
+            <Button fx:id="sell" mnemonicParsing="false" onAction="#onSell" text="VENDI" />
+            <Button fx:id="exit" mnemonicParsing="false" onAction="#onExit" text="ESCI" />
          </children>
       </VBox>
       <FlowPane fx:id="displayPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />

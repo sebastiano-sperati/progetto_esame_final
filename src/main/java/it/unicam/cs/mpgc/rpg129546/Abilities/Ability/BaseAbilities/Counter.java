@@ -1,12 +1,15 @@
 package it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities;
 
-import it.unicam.cs.mpgc.rpg129546.Abilities.CharacterAllocation;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.CharacterAllocation;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Interface.Action;
-import it.unicam.cs.mpgc.rpg129546.Abilities.attackType;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.attackType;
 import it.unicam.cs.mpgc.rpg129546.Effects.Effect.CounterEffect;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
-import it.unicam.cs.mpgc.rpg129546.Model.TargetType;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.TargetType;
 
+/**
+ * Contiene la logica per applicare a se stessi un singolo effetto CounterEffect()
+ */
 public class Counter implements Action {
     private final int cost = 6;
     private final String name = "contrattacco";

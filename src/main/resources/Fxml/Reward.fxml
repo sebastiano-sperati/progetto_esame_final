@@ -47,8 +47,8 @@
       <Label fx:id="title2" text="Label" />
       <HBox fx:id="choicePane" alignment="CENTER" prefHeight="100.0" prefWidth="600.0" spacing="300.0">
          <children>
-            <Button fx:id="yes" mnemonicParsing="false" onAction="#onSave" text="Button" />
-            <Button fx:id="no" mnemonicParsing="false" onAction="#onContinue" text="Button" />
+            <Button fx:id="yes" mnemonicParsing="false" onAction="#onSave" text="SALVA ED ESCI" />
+            <Button fx:id="no" mnemonicParsing="false" onAction="#onContinue" text="CONTINUA" />
          </children>
       </HBox>
    </children>

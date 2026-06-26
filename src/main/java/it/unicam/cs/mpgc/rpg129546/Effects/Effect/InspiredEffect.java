@@ -2,6 +2,9 @@ package it.unicam.cs.mpgc.rpg129546.Effects.Effect;
 
 import it.unicam.cs.mpgc.rpg129546.Effects.TickType;
 
+/**
+ * aumenta l'attacco di un entità del 25% per 3 turni
+ */
 public class InspiredEffect implements Effect{
     private final int duration = 3;
     public int tick = duration;

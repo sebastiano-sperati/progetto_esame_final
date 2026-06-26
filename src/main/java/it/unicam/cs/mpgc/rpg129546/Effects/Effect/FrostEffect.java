@@ -2,6 +2,9 @@ package it.unicam.cs.mpgc.rpg129546.Effects.Effect;
 
 import it.unicam.cs.mpgc.rpg129546.Effects.TickType;
 
+/**
+ * riduce del 25% la difesa di un entità per 2 turni
+ */
 public class FrostEffect implements Effect{
     private final int duration = 2;
     public int tick = duration;

@@ -6,6 +6,9 @@ import it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities.Defend;
 import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.AnimationType;
 import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.SpriteData;
 
+/**
+ * definisce tutte le statisstiche o azioni per un entità orco
+ */
 public class Orco extends Enemy {
     public Orco(String nome, int maxHp, int maxAp, int dif, int atk, int wis, double eva, double critMult, double critChance, int lvl, int taglia, int xpDrop) {
         super(nome, maxHp, maxAp, dif, atk, wis, eva, critMult, critChance, lvl, taglia, xpDrop);
@@ -21,9 +24,13 @@ public class Orco extends Enemy {
         azioni.add(new DebufAtk());
     }
 
-
+    /**
+     * definisce tutti gli sprite utilizzati in base all' azione che effettua o subisce l'entità
+     * @param type tipo di azione effettuata o subita
+     * @return sprite da utilizzare
+     */
     @Override
-    public SpriteData getIdleSpriteData(AnimationType type) {
+    public SpriteData getSpriteData(AnimationType type) {
         return switch (type) {
             case IDLE -> new SpriteData("/Sprites/Enemy/Ogre/ogre_idle.png", 104, 80, 8, 3, 170, 0, 0, 1);
             case MELEATTACK ->

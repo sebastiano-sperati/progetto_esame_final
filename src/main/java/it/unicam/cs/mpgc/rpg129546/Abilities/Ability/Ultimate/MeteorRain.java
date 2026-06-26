@@ -1,23 +1,26 @@
 package it.unicam.cs.mpgc.rpg129546.Abilities.Ability.Ultimate;
 
-import it.unicam.cs.mpgc.rpg129546.Abilities.CharacterAllocation;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.CharacterAllocation;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities.FireBall;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Interface.SplashAbility;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Interface.Ultimate;
-import it.unicam.cs.mpgc.rpg129546.Abilities.attackType;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.attackType;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
-import it.unicam.cs.mpgc.rpg129546.Model.TargetType;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.TargetType;
 
 import java.util.List;
 import java.util.Random;
 
+/**
+ * contiene la logica  per far si che ogni entità avversaria subisca un
+ * numero casuale di abilità FireBall()
+ */
 public class MeteorRain implements SplashAbility, Ultimate {
     private final int cost = 40;
     private final String name = "pioggia di meteore";
 
     private int charge = 0;
-
     @Override
     public void executeSplash(Entity source, Entity target, List<? extends Entity> ctx) {
         if(!isReady()){

@@ -3,6 +3,12 @@ package it.unicam.cs.mpgc.rpg129546.Equipment;
 import it.unicam.cs.mpgc.rpg129546.Shop.GenericItem;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+/**
+ * definisce una singola arma, contenente
+ * -nome
+ * -rarità
+ * -tipo di danno utilizzato (atk o wis)
+ */
 public class Weapon implements Equipaggiamento{
     private final String nome;
     private final Rarity rarity;

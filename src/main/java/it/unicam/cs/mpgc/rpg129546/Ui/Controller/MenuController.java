@@ -9,6 +9,11 @@ import it.unicam.cs.mpgc.rpg129546.Ui.SceneManager;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 
+/**
+ * controller della schermata di menù.
+ * gestisce tutte le possibilità per il giocatore durante la schermata iniziale,
+ * nuova partita, caricare, o uscire
+ */
 public class MenuController {
 
     @FXML

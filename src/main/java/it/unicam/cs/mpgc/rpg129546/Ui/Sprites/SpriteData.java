@@ -1,4 +1,12 @@
 package it.unicam.cs.mpgc.rpg129546.Ui.Sprites;
+/**
+ * contiene tutte le informazioni necessarie per riprodurre
+ * una specifica animazione di uno spritesheet.
+ * ogni istanza descrive la posizione dello spritesheet,
+ * la dimensione dei frame, il numero di fotogrammi,
+ * la velocità dell'animazione e i parametri grafici
+ * necessari per il corretto posizionamento dello sprite.
+ */
 
 public class SpriteData {
 
@@ -47,10 +55,6 @@ public class SpriteData {
     public int getMillis() {
         return millis;
     }
-
-    public double getOffsetX() { return offsetX; }
-
-    public double getOffsetY() { return offsetY; }
 
     public double getScale() { return scale; }
 

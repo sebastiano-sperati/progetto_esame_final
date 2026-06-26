@@ -17,6 +17,16 @@ import it.unicam.cs.mpgc.rpg129546.Shop.Shop;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Rappresenta una partita completa del gioco.
+ *
+ * La classe coordina i principali componenti del modello,
+ * gestendo il ciclo di gioco, l'avanzamento dei piani,
+ * le battaglie, il negozio, le ricompense e la persistenza.
+ *
+ * Game funge da punto di accesso principale al modello
+ * per i controller dell'interfaccia grafica.
+ */
 public class Game {
 
     private final List<Hero> heroes;
@@ -33,12 +43,18 @@ public class Game {
         this.floor = 1;
     }
 
+    /**
+     * fa iniziare una nuova battaglia, generando randomicamente dei nemici
+     */
     public void startNewBattle() {
         enemies = EnemyFactory.generate(floor);
         currentBattle = new Battle(heroes, enemies);
         currentBattle.startBattle();
     }
 
+    /**
+     * a fine battaglia, rimuove tutti gli effetti sugli eroi, e resetta le Ultimate Ability, dando in fine il reward
+     */
     public void finishBattle() {
         for (Hero h : heroes) {
             h.getEffectManager().getEffects().clear();
@@ -49,7 +65,7 @@ public class Game {
                 }
             }
         }
-        lastReward = RewardManager.reward(heroes,enemies,floor);
+        lastReward = RewardManager.reward(heroes,enemies);
     }
 
     public RewardData getLastReward(){return lastReward;}
@@ -81,7 +97,13 @@ public class Game {
     public void setFloor(int floor) {
         this.floor = floor;
     }
-
+    /**
+     * Salva lo stato corrente della partita.
+     *
+     * Gli oggetti del modello vengono convertiti nelle rispettive
+     * strutture di persistenza e successivamente serializzati
+     * tramite il SaveManager.
+     */
     public void saveGame() {
 
         try {

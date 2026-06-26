@@ -5,6 +5,9 @@ import it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities.Defend;
 import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.AnimationType;
 import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.SpriteData;
 
+/**
+ * definisce tutte le azioni e statistiche di una classe wraith
+ */
 public class Wraith extends Enemy{
     public Wraith(String nome, int maxHp, int maxAp, int dif, int atk,int wis,  double eva, double critMult, double critChance, int lvl, int taglia, int xpDrop) {
         super(nome, maxHp, maxAp, dif, atk, wis, eva, critMult, critChance, lvl, taglia, xpDrop);
@@ -18,9 +21,13 @@ public class Wraith extends Enemy{
         azioni.add(new BaseAtk());
         azioni.add(new Defend());
     }
-
+    /**
+     * definisce tutti gli sprite utilizzati in base all' azione che effettua o subisce l'entità
+     * @param type tipo di azione effettuata o subita
+     * @return sprite da utilizzare
+     */
     @Override
-    public SpriteData getIdleSpriteData(AnimationType type) {
+    public SpriteData getSpriteData(AnimationType type) {
         return switch (type) {
             case IDLE -> new SpriteData("/Sprites/Enemy/Wraith/wraith_idle.png", 104, 80, 8, 3, 170, 0, 0, 1);
             case MELEATTACK -> new SpriteData("/Sprites/Enemy/Wraith/wraith_mele_atk.png", 194, 125, 15, 3, 75, -30, -12, 0.90);

@@ -7,7 +7,7 @@ import it.unicam.cs.mpgc.rpg129546.Game.Game;
 import it.unicam.cs.mpgc.rpg129546.Model.Enemies.Enemy;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
-import it.unicam.cs.mpgc.rpg129546.Model.TargetType;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.TargetType;
 import it.unicam.cs.mpgc.rpg129546.Ui.SceneManager;
 import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.AnimationType;
 import it.unicam.cs.mpgc.rpg129546.Ui.Sprites.SpriteAnimation;
@@ -26,7 +26,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * controller della schermata di battaglia.
+ * gestisce le interazioni dell'utente durante il combattimento,
+ * aggiornando l'interfaccia grafica e coordinando le operazioni
+ * con il modello di gioco.
+ */
 public class BattleController {
 
     private Game game;
@@ -63,7 +68,12 @@ public class BattleController {
     @FXML private VBox ActionSelectionPane;
     @FXML private FlowPane FinalSelectionPane;
     @FXML private Text LogPane;
-
+    /**
+     * inizializza il controller associandolo alla partita corrente.
+     * registra gli sprite, avvia le animazioni iniziali e aggiorna
+     * l'interfaccia con lo stato della battaglia.
+     * @param game partita corrente
+     */
     public void setGame(Game game) {
         this.game = game;
         this.battle = game.getCurrentBattle();
@@ -76,7 +86,12 @@ public class BattleController {
 
         writeLog("Battaglia iniziata. Tocca a " + battle.getCurrentHero().getNome());
     }
-
+    /**
+     * associa ogni eroe al proprio ImageView.
+     * questa associazione permette di recuperare
+     * lo sprite corrispondente durante la riproduzione
+     * delle animazioni.
+     */
     private void registerheroSprites(){
         var heroes = battle.getHeroes();
 
@@ -90,7 +105,10 @@ public class BattleController {
         setUpSpriteView(HealerSprite);
 
     }
-
+    /**
+     * crea il menu principale delle azioni
+     * disponibili durante il turno del giocatore.
+     */
     private void loadActionMenu() {
         ActionSelectionPane.getChildren().clear();
 
@@ -104,7 +122,11 @@ public class BattleController {
 
         ActionSelectionPane.getChildren().addAll(abilities, items, squad);
     }
-
+    /**
+     * mostra le abilità disponibili per l'eroe corrente.
+     * le abilità non utilizzabili vengono automaticamente
+     * disabilitate.
+     */
     private void showAbilities() {
         FinalSelectionPane.getChildren().clear();
 
@@ -138,7 +160,10 @@ public class BattleController {
             FinalSelectionPane.getChildren().add(button);
         }
     }
-
+    /**
+     * visualizza tutti i bersagli validi per l'abilità selezionata.
+     * @param action abilità scelta dal giocatore
+     */
     private void showTargetsFor(Action action) {
         FinalSelectionPane.getChildren().clear();
 
@@ -166,7 +191,13 @@ public class BattleController {
             }
         }
     }
-
+    /**
+     * esegue l'azione selezionata.
+     * prima riproduce l'animazione dell'attaccante,
+     * poi esegue la logica della battaglia e infine
+     * mostra l'animazione di reazione del bersaglio.
+     * @param target bersaglio dell'azione
+     */
     private void executeAction(Entity target) {
         Hero source = battle.getCurrentHero();
 
@@ -188,7 +219,12 @@ public class BattleController {
             });
         });
     }
-
+    /**
+     * determina l'animazione da riprodurre
+     * in base al tipo di azione selezionata.
+     * @param selectedAction abilità utilizzata
+     * @return animazione corrispondente
+     */
     private AnimationType chooseAnimation(Action selectedAction){
        if(selectedAction instanceof Ultimate) return AnimationType.ULTIMATE;
        switch (selectedAction.getAttackType()){
@@ -204,7 +240,11 @@ public class BattleController {
        }
         return null;
     }
-
+    /**
+     * riproduce l'animazione di reazione del bersaglio.
+     * se il bersaglio è stato sconfitto viene riprodotta
+     * l'animazione di morte, altrimenti quella di danno.
+     */
     private void playTargetReaction(Entity target, Runnable onFinished) {
 
         if (!entitySprites.containsKey(target)) {
@@ -222,6 +262,10 @@ public class BattleController {
             onFinished.run();
         });
     }
+    /**
+     * mostra tutti gli oggetti presenti
+     * nell'inventario dell'eroe corrente.
+     */
 
     private void showItems() {
         FinalSelectionPane.getChildren().clear();
@@ -248,7 +292,10 @@ public class BattleController {
             FinalSelectionPane.getChildren().add(button);
         });
     }
-
+    /**
+     * visualizza i bersagli validi
+     * per l'oggetto selezionato.
+     */
     private void showItemTargets(it.unicam.cs.mpgc.rpg129546.Items.Consumables.Item item) {
         FinalSelectionPane.getChildren().clear();
 
@@ -266,7 +313,10 @@ public class BattleController {
             FinalSelectionPane.getChildren().add(button);
         }
     }
-
+    /**
+     * visualizza le statistiche essenziali
+     * di tutta la squadra.
+     */
     private void showSquad() {
         FinalSelectionPane.getChildren().clear();
 
@@ -276,7 +326,13 @@ public class BattleController {
             FinalSelectionPane.getChildren().add(label);
         }
     }
-
+    /**
+     * aggiorna lo stato della battaglia
+     * dopo l'esecuzione di un'azione del giocatore.
+     * controlla la fine della battaglia,
+     * l'eventuale turno dei nemici
+     * e l'inizio del round successivo.
+     */
     private void afterPlayerAction() {
         selectedAction = null;
         refresh();
@@ -303,7 +359,11 @@ public class BattleController {
 
         FinalSelectionPane.getChildren().clear();
     }
-
+    /**
+     * gestisce la conclusione della battaglia.
+     * in caso di vittoria assegna le ricompense,
+     * aggiorna il piano corrente e cambia schermata.
+     */
     private void finishBattle() {
         if (battle.heroesWon()) {
             game.finishBattle();
@@ -317,12 +377,18 @@ public class BattleController {
             }
         }
     }
-
+    /**
+     * aggiorna completamente le informazioni
+     * visualizzate nella schermata.
+     */
     private void refresh() {
         loadHeroes();
         loadEnemies();
     }
-
+    /**
+     * aggiorna le informazioni visualizzate
+     * per tutti gli eroi della squadra.
+     */
     private void loadHeroes() {
         if (battle == null) {
             return;
@@ -348,7 +414,15 @@ public class BattleController {
             playAnimation(hero, AnimationType.IDLE, true, null);
         }
     }
-
+    /**
+     * riproduce l'animazione richiesta
+     * per una determinata entità.
+     * se è già presente un'animazione attiva,
+     * questa viene interrotta e sostituita
+     * dalla nuova.
+     * al termine può essere eseguita
+     * un'azione di callback.
+     */
     private void playAnimation(Entity entity, AnimationType type, boolean loop, Runnable onFinished) {
         ImageView sprite = entitySprites.get(entity);
 
@@ -365,7 +439,7 @@ public class BattleController {
             oldAnimation.stop();
         }
 
-        SpriteData data = entity.getIdleSpriteData(type);
+        SpriteData data = entity.getSpriteData(type);
 
         var stream = getClass().getResourceAsStream(data.getPath());
 

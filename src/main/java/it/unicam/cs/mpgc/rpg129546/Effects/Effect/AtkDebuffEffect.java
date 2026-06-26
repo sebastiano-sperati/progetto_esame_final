@@ -2,6 +2,9 @@ package it.unicam.cs.mpgc.rpg129546.Effects.Effect;
 
 import it.unicam.cs.mpgc.rpg129546.Effects.TickType;
 
+/**
+ * applica ad un entità  una riduzione al danno del 25% per 3 turni
+ */
 public class AtkDebuffEffect implements Effect{
     private final int duration = 3;
     public int tick = duration;
@@ -29,7 +32,9 @@ public class AtkDebuffEffect implements Effect{
     @Override
     public int getTick() {
         return tick;
-    }@Override
+    }
+
+    @Override
     public TickType getType() {
         return TickType.STATMOD;
     }

@@ -9,6 +9,13 @@ import javafx.scene.control.Label;
 
 import java.util.List;
 
+/**
+ * controller della schermata delle ricompense.
+ * mostra oro, esperienza e livello corrente degli eroi
+ * al termine di una battaglia.
+ * permette al giocatore di salvare e tornare al menu
+ * oppure continuare la partita passando allo shop.
+ */
 public class RewardController {
 
     private Game game;
@@ -41,6 +48,13 @@ public class RewardController {
 
     @FXML private Button yes;
     @FXML private Button no;
+    /**
+     * inizializza il controller con la partita corrente
+     * e con le ricompense ottenute nell'ultima battaglia.
+     * @param game partita corrente
+     * @param xpGained esperienza ottenuta
+     * @param goldGained oro ottenuto
+     */
 
     public void setGame(Game game, int xpGained, int goldGained) {
         this.game = game;
@@ -67,7 +81,14 @@ public class RewardController {
 
         setHeroReward(heroes.get(3), HealerName,HealerXpGained, HealerGoldGained, HealerLvlUp);
     }
-
+    /**
+     * aggiorna le informazioni di ricompensa relative a un singolo eroe.
+     * @param hero eroe da visualizzare
+     * @param name label del nome
+     * @param xp label dell'esperienza ottenuta
+     * @param gold label dell'oro ottenuto
+     * @param lvl label del livello attuale
+     */
     private void setHeroReward(Hero hero, Label name, Label xp, Label gold, Label lvl) {
         name.setText(hero.getNome());
         xp.setText("XP +" + xpGained);

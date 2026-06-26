@@ -6,6 +6,9 @@ import it.unicam.cs.mpgc.rpg129546.Shop.GenericItem;
 import it.unicam.cs.mpgc.rpg129546.Effects.Effect.FireEffect;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 
+/**
+ * permette di rimuovere solamente un effetto del tipo FireEffect()
+ */
 public class AntiFirePotion implements Item {
     public String nome = "pozione ignifuga";
     private final int maxQta = 5;
@@ -51,11 +54,6 @@ public class AntiFirePotion implements Item {
     @Override
     public int getQta() {
         return qta;
-    }
-
-    @Override
-    public int getMaxQta() {
-        return maxQta;
     }
 
     @Override

@@ -5,6 +5,9 @@ import it.unicam.cs.mpgc.rpg129546.Items.ItemType;
 import it.unicam.cs.mpgc.rpg129546.Shop.GenericItem;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 
+/**
+ * permette di recuperare una quantità fissa di stamina ad un entità
+ */
 public class StaminaPotion implements Item {
     public String nome = "pozione di energia";
     private final int maxQta = 5;
@@ -51,11 +54,6 @@ public class StaminaPotion implements Item {
     @Override
     public int getQta() {
         return qta;
-    }
-
-    @Override
-    public int getMaxQta() {
-        return maxQta;
     }
 
     @Override

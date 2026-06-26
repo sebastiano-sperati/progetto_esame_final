@@ -6,8 +6,15 @@ import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
 
 import java.util.List;
 
+/**
+ * contiene la logica per gestire gli eventi che avvengono in automatico dopo ogni turno o round
+ */
 public class BattleManager {
-
+    /**
+     * assicura che ogni eroe e ogni nemico inizi una battaglia con il pieno della vita e della stamina
+     * @param eroi lista della squadra di eroi
+     * @param nemici lista del gruppo di nemici
+     */
     public void BattleStartConditions(List<Hero> eroi,List<Enemy> nemici){
         for (Hero hero : eroi) {
 
@@ -29,6 +36,11 @@ public class BattleManager {
         }
     }
 
+    /**
+     * si assicura che all'inizio di ogni round ogni entità ancora viva possa rigenerare la propria stamina di una quantità predefinita
+     * @param eroi lista della squadra di eroi
+     * @param nemici lista del gruppo di nemici
+     */
     public void StartTurnRestore(List<Enemy>nemici, List<Hero>eroi){
         for (Hero h : eroi){
             if (h.getStatusManager().isAlive()){
@@ -42,14 +54,26 @@ public class BattleManager {
             }
         }
     }
+
+    /**
+     * permette a tutti gli eroi che hanno sbloccato una Ultimate Ability di caricare dopo ogni turno la propria abilità
+     * @param eroi squadra di eroi corrente
+     */
     public void ChargeUltimat(List<Hero> eroi){
         for(Hero h : eroi) {
-            for (int i = 0; i < h.getAzioni().size(); i++) {
-                if (h.getAzioni().get(i) instanceof Ultimate) ((Ultimate) h.getAzioni().get(i)).increaseCharge();
+            if(h.getHeroStatusManager().isAlive()) {
+                for (int i = 0; i < h.getAzioni().size(); i++) {
+                    if (h.getAzioni().get(i) instanceof Ultimate) ((Ultimate) h.getAzioni().get(i)).increaseCharge();
+                }
             }
         }
     }
 
+    /**
+     * permette di riorganizzare automaticamente il gruppo di nemici, mettendo tutti quelli vivi in cima, e tutti quelli morti in fondo,
+     * cosi da impedire al giocatore di bersagliare nemici morti, e allo stesso tempo mantenere la lista piena par calcolare a fine battaglia i reward
+     * @param enemies gruppo di nemici
+     */
     public void organizeEnemy(List<Enemy> enemies){
         for (int i = 0; i < enemies.size()-1; i++) {
             if(!enemies.get(i).getStatusManager().isAlive()) {

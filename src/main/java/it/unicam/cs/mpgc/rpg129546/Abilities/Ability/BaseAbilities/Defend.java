@@ -1,13 +1,16 @@
 package it.unicam.cs.mpgc.rpg129546.Abilities.Ability.BaseAbilities;
 
-import it.unicam.cs.mpgc.rpg129546.Abilities.CharacterAllocation;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.CharacterAllocation;
 import it.unicam.cs.mpgc.rpg129546.Abilities.Interface.Action;
-import it.unicam.cs.mpgc.rpg129546.Abilities.attackType;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.attackType;
 import it.unicam.cs.mpgc.rpg129546.Effects.Effect.DefenseEffect;
 import it.unicam.cs.mpgc.rpg129546.Model.Entity;
 import it.unicam.cs.mpgc.rpg129546.Model.Heroes.Hero;
-import it.unicam.cs.mpgc.rpg129546.Model.TargetType;
+import it.unicam.cs.mpgc.rpg129546.Abilities.Enum.TargetType;
 
+/**
+ * Contiene la logica per far si che source applichi a se stesso un singolo effetto DefendEffect()
+ */
 public class Defend implements Action {
     private final int cost = 2;
     private final String name = "difesa";

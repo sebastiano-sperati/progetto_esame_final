@@ -1,5 +1,8 @@
 package it.unicam.cs.mpgc.rpg129546.Equipment;
 
+/**
+ * determina, delle diverse rarità, modificatore e prezzo
+ */
 public enum Rarity {
     STARTER(1.0,25),
     COMUNE(1.15,150),

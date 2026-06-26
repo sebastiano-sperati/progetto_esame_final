@@ -3,6 +3,11 @@ package it.unicam.cs.mpgc.rpg129546.Equipment;
 import it.unicam.cs.mpgc.rpg129546.Shop.GenericItem;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+/**
+ * definisce una singola armatura, contenente:
+ * -nome
+ * -rarità (la rarità influisce sulle statistiche)
+ */
 public class Armor implements Equipaggiamento{
     private final String nome;
     private final Rarity rarity;

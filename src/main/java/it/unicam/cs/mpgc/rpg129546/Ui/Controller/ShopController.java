@@ -12,7 +12,12 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 
 import java.util.List;
-
+/**
+ * controller della schermata dello shop.
+ * gestisce l'interazione dell'utente con il negozio dopo una battaglia.
+ * permette a ogni eroe della squadra di acquistare oggetti dallo stock
+ * generato casualmente oppure vendere oggetti presenti nell'inventario.
+ */
 public class ShopController {
 
     private Game game;
@@ -30,6 +35,12 @@ public class ShopController {
     @FXML
     public void initialize() {
     }
+    /**
+     * inizializza il controller con la partita corrente.
+     * recupera shop ed eroi dal modello e aggiorna la schermata
+     * mostrando il primo eroe e lo stock disponibile.
+     * @param game partita corrente
+     */
 
     public void setGame(Game game) {
         this.game = game;
@@ -66,6 +77,10 @@ public class ShopController {
     private void onExit() {
         goToNextHeroOrBattle();
     }
+    /**
+     * crea dinamicamente i pulsanti degli oggetti presenti nello stock.
+     * ogni pulsante permette di acquistare l'oggetto corrispondente.
+     */
 
     private void showStock() {
         displayPane.getChildren().clear();
@@ -86,6 +101,10 @@ public class ShopController {
         }
     }
 
+    /**
+     * crea dinamicamente i pulsanti degli oggetti presenti nell'inventario.
+     * ogni pulsante permette di vendere l'oggetto corrispondente.
+     */
     private void showInventory() {
         displayPane.getChildren().clear();
 
@@ -110,7 +129,11 @@ public class ShopController {
             displayPane.getChildren().add(button);
         }
     }
-
+    /**
+     * passa allo shop dell'eroe successivo.
+     * quando tutti gli eroi hanno terminato la fase shop,
+     * viene generata una nuova battaglia.
+     */
     private void goToNextHeroOrBattle() {
         currentHeroIndex++;
 
