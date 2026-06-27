@@ -1,75 +1,46 @@
-# ?? Nome del Progetto
-
-Breve descrizione del progetto (2-3 righe):  
-Spiega cosa fa il programma e a cosa serve.
-
+RPG Dungeon
+RPG Dungeon è un gioco di ruolo turn-based in cui il giocatore controlla una squadra composta da quattro eroi che affronta dieci piani di un dungeon. Al termine di ogni battaglia è possibile ottenere ricompense, acquistare nuovi oggetti nello shop e salvare la partita.
 ---
 
-## ?? Come eseguire il progetto
+Come eseguire il progetto
 
-### Prerequisiti
+Prerequisiti
 - Java 25 (LTS)
 - Gradle
 
-### Istruzioni
+Istruzioni
 
 ```bash
 git clone <url-del-repository>
 cd <nome-cartella>
 ```
 
-### Build del progetto
+Build del progetto
 ```bash
 ./gradlew build
 ```
 
-### Esecuzione
+Esecuzione
 ```bash
 ./gradlew run
 ```
 
 ---
 
-## ?? Uso di strumenti di AI
+Utilizzo di strumenti di AI
 
-Indicare **se e come** sono stati utilizzati strumenti di AI (es. ChatGPT, Copilot, ecc.).
-Descrivere in modo chiaro **per quali attività** e **con quale livello di intervento personale**.
+Durante lo sviluppo del progetto è stato utilizzato ChatGPT esclusivamente come strumento di supporto.
 
-È importante dimostrare che:
-* il codice è stato **compreso**
-* l’AI è stata usata come **supporto**, non come sostituto
----
+L'AI è stata impiegata per:
 
-?? Per una descrizione più dettagliata dell’uso dell’AI, utilizzare la **Wiki del repository**.
+- approfondire e chiarire concetti teorici relativi a Java, JavaFX, progettazione orientata agli oggetti e principi SOLID, utilizzandola come supporto allo studio personale, in modo analogo alla consultazione delle slide e del materiale del corso;
 
+- individuare e risolvere errori di compilazione, di esecuzione e bug emersi durante lo sviluppo;
 
-### Esempi :
+- confrontare e verificare le scelte progettuali adottate, discutendo possibili alternative e valutandone vantaggi e svantaggi, mantenendo personalmente la progettazione e l'implementazione finale;
 
-* Utilizzato ChatGPT per:
+- ricevere supporto nell'utilizzo di JavaFX e Scene Builder per la realizzazione dell'interfaccia grafica e dei file FXML;
 
-  * comprendere concetti teorici (es. differenza tra classi e oggetti)
-  * chiarire errori di compilazione
-  * suggerimenti su struttura del codice
+- supportare la stesura della documentazione e dei commenti del codice.
 
-* Utilizzato Copilot per:
-
-  * autocompletamento di metodi semplici
-  * generazione di codice ripetitivo (es. getter/setter)
-
-* Utilizzato ChatGPT per generare una prima versione di una funzione, poi:
-
-  * modificata e adattata manualmente
-  * testata e corretta personalmente
-
----
-
-Oppure:
-- Non sono stati utilizzati strumenti di AI
-
----
-
-
-## ?? Nota
-
-Questo è un template: **modificare e adattare tutte le parti necessarie** in base al proprio progetto
-
+Tutto il codice è stato analizzato, compreso, adattato, modificato e testato personalmente. L'AI è stata utilizzata come supporto allo sviluppo e allo studio, e non come sostituto dell'attività progettuale e implementativa.
