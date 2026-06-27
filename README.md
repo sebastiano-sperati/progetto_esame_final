@@ -11,8 +11,8 @@ Prerequisiti
 Istruzioni
 
 ```bash
-git clone <url-del-repository>
-cd <nome-cartella>
+git clone https://github.com/sebastiano-sperati/progetto_esame_final.git
+cd progetto_esame_final 
 ```
 
 Build del progetto
